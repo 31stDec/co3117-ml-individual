@@ -1,0 +1,36 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# === Virtual Environment ===
+venv/
+env/
+.venv/
+
+# === IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Data (large files) ===
+data/raw/
+data/processed/
+*.zip
+
+# === Jupyter ===
+.ipynb_checkpoints/
+
+# === Results (keep metrics.csv and key figures, ignore temp outputs) ===
+results/temp/

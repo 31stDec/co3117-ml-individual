@@ -1,0 +1,2 @@
+model,chapter,depth,week,macro_f1,accuracy,train_time_s,notes
+majority_baseline,1,baseline,W05,,,,"Always predict most frequent class"
