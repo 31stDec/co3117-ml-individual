@@ -2,7 +2,7 @@
 
 ## One Dataset, One Use Case, Many Models
 
-**Student:** [Họ tên - MSSV]  
+**Student:** [Phạm Minh Trí - 2353235]  
 **Semester:** HK261 (2026–2027)  
 **Faculty:** Computer Science and Engineering, HCMUT, VNU-HCM
 
