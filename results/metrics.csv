@@ -1,3 +1,4 @@
 model,chapter,depth,week,macro_f1,accuracy,train_time_s,notes
 majority_baseline,1,baseline,W05,0.0440,0.1822,0.0,Always predict LAYING
 random_baseline,1,baseline,W05,0.1387,0.1639,0.0,Random with training distribution
+perceptron_ovr,4,Depth-A,W05,0.8143,0.9494,12.50,OvR Perceptron lr=0.01 iters=100
