@@ -2,7 +2,8 @@
 # The self-check (tools/check.py) and the instructor's tools read this file.
 # The instructor's copy is authoritative; editing your copy changes only your local self-check.
 #
-# Times are Asia/Ho_Chi_Minh (UTC+7). A weekly tag is due before the next class.
+# Times are Asia/Ho_Chi_Minh (UTC+7). A weekly tag is normally due before the next class; w03, w04 and
+# release-baseline are all due on 7 Oct because the repositories were issued on 2 Oct.
 
 timezone: "+07:00"
 release_date: "2026-09-16"          # Course Week 3, calendar week 38
@@ -14,7 +15,7 @@ weeks:
   W05: {date: "2026-09-30", tag: "w05", due: "2026-10-07T07:00", topic: "Bayesian learning / Naive Bayes"}
   W06: {date: "2026-10-07", tag: "w06", due: "2026-10-14T07:00", topic: "Genetic Algorithm"}
   W07: {date: "2026-10-14", tag: "w07", due: "2026-10-14T23:59", topic: "Bayesian Networks / TAN, Part I closeout"}
-  W08: {date: "2026-10-16", tag: "w08-midterm", due: "2026-10-21T07:00", topic: "MIDTERM (16 Oct); reflection within 72 h"}
+  W08: {date: "2026-10-16", tag: "w08-midterm", due: "2026-10-21T07:00", topic: "MIDTERM (16 Oct): compact entry, timed rehearsal, reflection after the exam"}
   W09: {date: "2026-10-21", tag: "w09", due: "2026-10-28T07:00", topic: "HMM / sequence modelling"}
   W10: {date: "2026-10-28", tag: "w10", due: "2026-11-04T07:00", topic: "SVM: maximum and soft margin"}
   W11: {date: "2026-11-04", tag: "w11", due: "2026-11-11T07:00", topic: "Kernel SVM, cross-model comparison"}
@@ -33,12 +34,13 @@ parts:
   part1-final: {due: "2026-10-14T23:59", week: W07}
   part2-final: {due: null, week: W15}   # set when the final exam date is published
 
-# Handwritten homework sets (separate from the weekly drill). One set per Part I topic, issued on
-# the course LMS. Submit ONE scanned PDF, homework/hwN-submission.pdf (5 MB at most), then push the
-# tag hwN; the time GitHub receives the tag is the submission time. Solutions are not published;
-# students self-check using course materials and AI assistants. Corrections, if any, go in
-# homework/hwN-corrections.md and never replace the submission.
-# Marked by a person under the Written-exam portfolio criterion (assignment Section 12).
+# Handwritten homework sets (separate from the weekly drill). One set per Part I topic; the problem
+# sheets are in homework/ and on the course LMS. Submit ONE scanned PDF, homework/hwN-submission.pdf
+# (5 MB at most), then push the tag hwN; the time GitHub receives the tag is the submission time.
+# No worked solutions are published; students self-check using course materials and AI assistants
+# (recorded in AI_USE.md). Corrections, if any, go in homework/hwN-corrections.md and never replace
+# the submission. Formative practice reviewed under the Written-exam portfolio criterion
+# (assignment Section 11, criterion 3); no conversion of the set scores to points is published.
 homework:
   hw1: {due: "2026-10-07T07:00", week: W03, release: null, topic: "Foundations: workflow, evaluation, generalisation"}
   hw2: {due: "2026-10-07T07:00", week: W03, release: null, topic: "Decision trees"}
@@ -60,9 +62,9 @@ components:
 # Files every checkpoint must contain (paths relative to the repository root).
 required_files:
   always: [README.md, PROGRESS.md, MODEL_LOG.md, AI_USE.md, REFERENCES.md, protocol.yaml, requirements.txt, data/README.md, docs/index.md]
-  release-baseline: [docs/pre-release/PRE_RELEASE_CATCHUP.md]
+  release-baseline: [docs/pre-release/PRE_RELEASE_CATCHUP.md, exercises/release-baseline-w01-w02.pdf]
   part1-final: [SUBMISSION_PART1.md, report/part1_summary.pdf, exam/a4-notes-part1-midterm.pdf]
-  part2-final: [SUBMISSION_PART2.md, report/part2_final_report.pdf, exam/a4-notes-part2-final.pdf]
+  part2-final: [SUBMISSION_PART2.md, report/part2_final_report.pdf, exam/a4-notes-part2-final.pdf, exam/mock-final-first-attempt.pdf, exam/mock-final-corrections.md, exam/midterm-reflection.md]
 
 limits:
   max_file_mb: 5

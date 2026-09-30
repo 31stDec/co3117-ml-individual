@@ -4,6 +4,10 @@ This repository is your single, continuous record for the whole semester (assign
 It lives in the course organisation; you have write access and the instructor has admin access.
 Nobody else in the class can see it.
 
+> **New here? Read [START_HERE.md](START_HERE.md) first.** The full assignment text is in
+> [docs/assignment/ASSIGNMENT.pdf](docs/assignment/ASSIGNMENT.pdf) (also as
+> [HTML](docs/assignment/ASSIGNMENT.html)); deadlines are in `START_HERE.md` and `tools/course.yaml`.
+
 ## 1. First setup
 
 1. Accept the invitation e-mailed by GitHub (it expires after 7 days; ask the instructor to re-invite).
@@ -48,6 +52,44 @@ Pushing the tag runs the same check in the Actions tab, and GitHub records the t
 tag: that time, not the commit date, is your submission time. Push checkpoint tags one at a time,
 never with `--tags`; GitHub does not run the check when more than three tags arrive in one push.
 Deadlines for each tag are in `tools/course.yaml`.
+
+**Dating your work honestly.** The repositories were issued on 2 October, so your first W03 and W04
+commits are dated 2 October or later. That is expected: never back-date a commit and never push old
+work as if it were new. Commit dates are set by your computer; the instructor uses the time GitHub
+received the push.
+
+Special tags (push each one on its own, after `python tools/check.py --checkpoint <tag>` passes):
+
+| Tag | What it marks | Deadline |
+| --- | --- | --- |
+| `release-baseline` | R0 setup gate: skeleton, catch-up post, release-day baseline scan `exercises/release-baseline-w01-w02.pdf`, frozen `protocol.yaml` | `tools/course.yaml` |
+| `w08-midterm` | Midterm week: compact entry (suggested `docs/weekly/w08-midterm.md`), timed rehearsal scan (suggested `exercises/w08-rehearsal.pdf`), then `exam/midterm-reflection.md` after the exam | `tools/course.yaml` |
+| `part1-final` | Graded Part I package (`SUBMISSION_PART1.md`, `report/part1_summary.pdf`, `exam/a4-notes-part1-midterm.pdf`) | 14 Oct 2026 23:59 |
+| `part2-final` | Graded Part II package (adds the mock final and `exam/a4-notes-part2-final.pdf`) | two calendar days before the final exam; date not yet published |
+| `hw1` to `hw5` | One handwritten homework set each (section 2b) | `tools/course.yaml` |
+
+Also required by the assignment: update the two-A4 exam sheet and `MODEL_LOG.md` every week, and follow
+the AI-use protocol of assignment Section 12 (see `AI_USE.md`). `START_HERE.md` lists the rest.
+
+## 2b. Handwritten homework sets (Part I)
+
+Five homework sets, one per Part I topic. The problem sheets are in `homework/` and on the course LMS.
+They are formative handwritten practice, separate from the weekly drill, and they are reviewed under
+the Written-exam portfolio criterion; no conversion of their scores to points is published. Deadlines
+are listed under `homework` in `tools/course.yaml` and in `homework/README.md`.
+
+1. Write your answers by hand (paper or stylus), with your name, student ID and set number on page 1.
+2. Scan all pages, in order, into one PDF of at most 5 MB: `homework/hwN-submission.pdf`.
+3. Commit it (`[W05][homework] HW3 submission`; use the week of the set), run `python tools/check.py --checkpoint hwN`, then:
+
+```
+git tag hwN
+git push origin main hwN
+```
+
+The time GitHub receives the tag is your submission time. No worked solutions are published. After you
+have checked your work with the course materials and AI tools, you may add `homework/hwN-corrections.md`;
+never replace, delete or re-tag the submission.
 
 ## 3. Rules the organisation enforces or records
 

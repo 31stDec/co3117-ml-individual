@@ -5,5 +5,5 @@ Describe here how to obtain the exact dataset version frozen in protocol.yaml:
 
 - Source URL / DOI:
 - Archive SHA-256:
-- Download and unpack command (for example `python src/data.py --download` into data/raw/):
+- Download and unpack command (for example a `src/data.py --download` that you write, unpacking into data/raw/):
 - Licence and citation:

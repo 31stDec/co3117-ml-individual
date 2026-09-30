@@ -5,7 +5,7 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 
 | Period | Topic | Post | Drill | First evidence | Revision commit | Tag | Status |
 |---|---|---|---|---|---|---|---|
-| W01-W02 | PRE-RELEASE catch-up (Foundations, Decision Tree) | [catch-up](docs/pre-release/PRE_RELEASE_CATCHUP.md) | release baseline |  |  | release-baseline | PRE-RELEASE |
+| W01-W02 | PRE-RELEASE catch-up (Foundations, Decision Tree) | [catch-up](docs/pre-release/PRE_RELEASE_CATCHUP.md) | [release baseline](exercises/release-baseline-w01-w02.pdf) |  |  | release-baseline | PRE-RELEASE |
 | W03 | Perceptron / Delta + onboarding |  |  |  |  | w03 |  |
 | W04 | ANN and backpropagation |  |  |  |  | w04 |  |
 | W05 | Bayesian learning / Naive Bayes |  |  |  |  | w05 |  |
@@ -19,6 +19,10 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 | W13 | LDA, feature engineering |  |  |  |  | w13 |  |
 | W14 | Bagging, boosting, AdaBoost |  |  |  |  | w14 |  |
 | W15 | Generative vs discriminative, Logistic/MaxEnt, CRF, synthesis |  |  |  |  | w15, part2-final |  |
+
+Status values: PRE-RELEASE (W01-W02), ACTIVE (current week), DONE (tag pushed), MIDTERM (W08).
+W08: link the compact entry and the timed rehearsal if you have them (for example `docs/weekly/w08-midterm.md`,
+`exercises/w08-rehearsal.pdf`); the two-state commit rule does not apply.
 
 Example of a completed row:
 

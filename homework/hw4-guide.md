@@ -3,7 +3,7 @@
 **Course:** CO3117 Machine Learning — HK261  
 **Due date:** 23:59 PM Wednesday 14/10/2026 (UTC+7)  
 **Tag name:** `hw4`  
-**Points:** 10 points (Activities 1-4: 1.5-2.5 pts, Activity 5: 2.5 pts)  
+**Points:** 10 points (five activities; the points of each activity are printed on the problem sheet)  
 **Scope:** Chapters 4 & 6 (Part I)  
 
 ---

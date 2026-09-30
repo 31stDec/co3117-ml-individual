@@ -3,6 +3,7 @@
 
     python tools/check.py                    # checkpoint inferred from today's date
     python tools/check.py --checkpoint w05   # or release-baseline, part1-final, part2-final
+    python tools/check.py --checkpoint hw3   # a handwritten homework set (hw1..hw5)
     python tools/check.py --no-tests         # skip the contract tests
     python tools/check.py --json out.json    # machine-readable result
 
@@ -56,8 +57,10 @@ def wnum(week: str) -> int:
 
 def week_of_checkpoint(cp: str) -> int:
     cp = cp.strip().lower()
+    if cp in COURSE.get("homework", {}):
+        return wnum(COURSE["homework"][cp]["week"])
     if cp in COURSE.get("gates", {}):
-        return wnum(COURSE["gates"][cp]["week"])
+        return 2                      # setup gate (R0): W03 evidence belongs to the w03 tag, not to R0
     if cp in COURSE.get("parts", {}):
         return wnum(COURSE["parts"][cp]["week"])
     for w, info in COURSE["weeks"].items():
@@ -103,9 +106,12 @@ class Report:
 
 # ------------------------------------------------------------------ checks
 def check_files(rep: Report, cp: str) -> None:
-    req = list(COURSE["required_files"]["always"]) + list(COURSE["required_files"].get(cp, []))
+    rf = COURSE["required_files"]
+    req = list(rf["always"]) + list(rf.get(cp, []))
+    if cp in ("part1-final", "part2-final"):
+        req += rf["release-baseline"]         # the catch-up and the release-day baseline stay part of both parts
     if cp == "part2-final":
-        req += COURSE["required_files"]["part1-final"]
+        req += rf["part1-final"]
     for f in req:
         rep.add(f"file {f}", (ROOT / f).is_file(), "missing")
 
@@ -150,6 +156,8 @@ def check_progress(rep: Report, week: int) -> None:
         for col in ("post", "drill"):
             links = md_links(r[col])
             missing = [l for l in links if not (ROOT / l).exists()]
+            if w == 8 and not links:
+                continue                               # midterm: link the compact entry / rehearsal if you have them
             rep.add(f"{key} {col} link", bool(links) and not missing,
                     "no link" if not links else "broken: " + ", ".join(missing))
         if w == 8:
@@ -252,6 +260,29 @@ def check_drills(rep: Report, week: int) -> None:
                 bool(a and b) and a != b and is_ancestor(a, b), "same commit or wrong order")
 
 
+HW_SCAN_SUFFIXES = {".pdf"}
+
+
+def check_homework(rep: Report, hw: str) -> None:
+    """A homework checkpoint: one scanned PDF, committed before any corrections file."""
+    scans = sorted((ROOT / "homework").glob(f"{hw}-submission.*"))
+    rep.add(f"{hw} scan homework/{hw}-submission.pdf", bool(scans),
+            f"no homework/{hw}-submission.pdf" if not scans else "")
+    if not scans:
+        return
+    bad = [s.name for s in scans if s.suffix.lower() not in HW_SCAN_SUFFIXES]
+    rep.add(f"{hw} scan is a single PDF", len(scans) == 1 and not bad,
+            "merge all pages into one PDF: " + ", ".join(s.name for s in scans))
+    rel = str(scans[0].relative_to(ROOT))
+    added = added_at(rel)
+    rep.add(f"{hw} scan committed", bool(added), "commit the scan before tagging")
+    corr = ROOT / "homework" / f"{hw}-corrections.md"
+    if corr.is_file() and added:
+        b = added_at(str(corr.relative_to(ROOT)))
+        rep.add(f"{hw} scan committed before corrections",
+                bool(b) and b != added and is_ancestor(added, b), "same commit or wrong order")
+
+
 def check_commit_messages(rep: Report) -> None:
     since = COURSE["release_date"]
     msgs = [m for m in git("log", f"--since={since}", "--format=%s").splitlines() if m]
@@ -272,7 +303,7 @@ def run_contract_tests(rep: Report, week: int) -> None:
 # ------------------------------------------------------------------ main
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--checkpoint", help="w03..w15, release-baseline, part1-final, part2-final")
+    ap.add_argument("--checkpoint", help="w03..w15, release-baseline, part1-final, part2-final, hw1..hw5")
     ap.add_argument("--no-tests", action="store_true")
     ap.add_argument("--json")
     a = ap.parse_args()
@@ -280,14 +311,21 @@ def main() -> int:
     cp = (a.checkpoint or os.environ.get("CO3117_CHECKPOINT") or "").strip().lower()
     week = week_of_checkpoint(cp) if cp else week_from_date(dt.datetime.now())
     rep = Report()
-    check_files(rep, cp)
-    check_tracked(rep)
-    check_protocol(rep)
-    check_progress(rep, week)
-    check_posts(rep, week)
-    check_drills(rep, week)
-    check_ai_use(rep)
-    check_commit_messages(rep)
+    if cp in COURSE.get("homework", {}):
+        # A homework tag checks only the homework scan and the repository-wide file rules; the
+        # weekly items are checked at their own tags.
+        check_tracked(rep)
+        check_homework(rep, cp)
+        a.no_tests = True
+    else:
+        check_files(rep, cp)
+        check_tracked(rep)
+        check_protocol(rep)
+        check_progress(rep, week)
+        check_posts(rep, week)
+        check_drills(rep, week)
+        check_ai_use(rep)
+        check_commit_messages(rep)
     if not a.no_tests:
         run_contract_tests(rep, week)
 
