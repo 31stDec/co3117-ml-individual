@@ -1,0 +1,57 @@
+# CO3117 HK261: course calendar and checkpoint rules.
+# The self-check (tools/check.py) and the instructor's tools read this file.
+# The instructor's copy is authoritative; editing your copy changes only your local self-check.
+#
+# Times are Asia/Ho_Chi_Minh (UTC+7). A weekly tag is due before the next class.
+
+timezone: "+07:00"
+release_date: "2026-09-16"          # Course Week 3, calendar week 38
+
+weeks:
+  # week: [class date, tag name, tag due (local time), topic]
+  W03: {date: "2026-09-16", tag: "w03", due: "2026-10-07T07:00", topic: "Perceptron / Delta + onboarding"}
+  W04: {date: "2026-09-23", tag: "w04", due: "2026-10-07T07:00", topic: "ANN and backpropagation"}
+  W05: {date: "2026-09-30", tag: "w05", due: "2026-10-07T07:00", topic: "Bayesian learning / Naive Bayes"}
+  W06: {date: "2026-10-07", tag: "w06", due: "2026-10-14T07:00", topic: "Genetic Algorithm"}
+  W07: {date: "2026-10-14", tag: "w07", due: "2026-10-14T23:59", topic: "Bayesian Networks / TAN, Part I closeout"}
+  W08: {date: "2026-10-16", tag: "w08-midterm", due: "2026-10-21T07:00", topic: "MIDTERM (16 Oct); reflection within 72 h"}
+  W09: {date: "2026-10-21", tag: "w09", due: "2026-10-28T07:00", topic: "HMM / sequence modelling"}
+  W10: {date: "2026-10-28", tag: "w10", due: "2026-11-04T07:00", topic: "SVM: maximum and soft margin"}
+  W11: {date: "2026-11-04", tag: "w11", due: "2026-11-11T07:00", topic: "Kernel SVM, cross-model comparison"}
+  W12: {date: "2026-11-11", tag: "w12", due: "2026-11-18T07:00", topic: "PCA, curse of dimensionality"}
+  W13: {date: "2026-11-18", tag: "w13", due: "2026-11-25T07:00", topic: "LDA, feature engineering"}
+  W14: {date: "2026-11-25", tag: "w14", due: "2026-12-02T07:00", topic: "Bagging, boosting, AdaBoost"}
+  W15: {date: "2026-12-02", tag: "w15", due: "2026-12-09T07:00", topic: "Generative vs discriminative, Logistic/MaxEnt, CRF, synthesis"}
+
+# R0 setup gate (not graded). The specification puts it before the W04 class; it is moved
+# to 7 Oct, together with w03 and w04, because the course repositories are issued on 2 Oct.
+gates:
+  release-baseline: {due: "2026-10-07T07:00", week: W03}
+
+# Tags for the two graded parts. part2-final is due two calendar days before the official final exam.
+parts:
+  part1-final: {due: "2026-10-14T23:59", week: W07}
+  part2-final: {due: null, week: W15}   # set when the final exam date is published
+
+# Depth-A components under tests/contract. A component is REQUIRED from the week listed;
+# before that week an unimplemented stub is skipped, from that week on it fails.
+components:
+  tree_split: W03       # release catch-up: one impurity/split routine
+  perceptron: W03
+  mlp: W04
+  naive_bayes: W05
+  hmm: W09
+  pca: W12
+  logistic: W15
+
+# Files every checkpoint must contain (paths relative to the repository root).
+required_files:
+  always: [README.md, PROGRESS.md, MODEL_LOG.md, AI_USE.md, REFERENCES.md, protocol.yaml, requirements.txt, data/README.md, docs/index.md]
+  release-baseline: [docs/pre-release/PRE_RELEASE_CATCHUP.md]
+  part1-final: [SUBMISSION_PART1.md, report/part1_summary.pdf, exam/a4-notes-part1-midterm.pdf]
+  part2-final: [SUBMISSION_PART2.md, report/part2_final_report.pdf, exam/a4-notes-part2-final.pdf]
+
+limits:
+  max_file_mb: 5
+  post_words: {catchup: [500, 900], weekly: [350, 700]}
+  forbidden_globs: ["*.zip", "*.tar.gz", "*.pkl", "*.joblib", "*.npy", "*.npz", "*.h5", "*.pt", "*.ckpt", "data/raw/**", "data/UCI*/**", ".env", "*.pem", "*.key"]

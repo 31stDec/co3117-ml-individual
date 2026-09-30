@@ -1,0 +1,11 @@
+# Frozen experimental protocol (assignment Section 2 and 9). Fill every field by the release-baseline
+# tag. After that, changes are allowed only with a dated note in PROGRESS.md explaining why.
+dataset: ""            # e.g. UCI Human Activity Recognition Using Smartphones
+dataset_version: ""    # exact version, DOI or download URL and SHA-256 of the archive
+use_case: ""
+target: ""
+split_policy: ""       # group/subject-aware split; which subjects go to the sealed test set
+primary_metric: macro-F1
+secondary_metrics: [accuracy, confusion matrix]
+seeds: []              # e.g. [0, 1, 2, 3, 4]
+baseline: ""           # simple baseline kept all semester
