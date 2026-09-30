@@ -44,7 +44,7 @@ setup gate `release-baseline` and the tags `w03` and `w04` fall on the same day 
 | Wed 14 Oct 2026 23:59 | `hw5` | Homework 5: Genetic algorithms |
 | Wed 14 Oct 2026 23:59 | `part1-final` | Graded Part I (40 points) |
 | Wed 14 Oct 2026 23:59 | `w07` | W07: Bayesian Networks / TAN, Part I closeout |
-| Wed 21 Oct 2026 07:00 | `w08-midterm` | W08: MIDTERM (16 Oct): compact entry, timed rehearsal, reflection after the exam |
+| Mon 19 Oct 2026 23:59 | `w08-midterm` | W08: MIDTERM (16 Oct): compact entry, timed rehearsal, reflection after the exam |
 | Wed 28 Oct 2026 07:00 | `w09` | W09: HMM / sequence modelling |
 | Wed 04 Nov 2026 07:00 | `w10` | W10: SVM: maximum and soft margin |
 | Wed 11 Nov 2026 07:00 | `w11` | W11: Kernel SVM, cross-model comparison |

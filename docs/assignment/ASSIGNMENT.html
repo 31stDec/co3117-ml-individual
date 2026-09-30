@@ -100,6 +100,8 @@ drill</a></li>
 <li><a href="#living-two-a4-exam-sheet" id="toc-living-two-a4-exam-sheet">7.2 Living two-A4 exam sheet</a></li>
 <li><a href="#final-mock-exam" id="toc-final-mock-exam">7.3 Final mock
 exam</a></li>
+<li><a href="#handwritten-homework-sets-part-i-addendum" id="toc-handwritten-homework-sets-part-i-addendum">7.4 Handwritten
+homework sets (Part I addendum)</a></li>
 </ul></li>
 <li><a href="#two-part-syllabus-aligned-progress-plan-and-minimum-exercise-prompts" id="toc-two-part-syllabus-aligned-progress-plan-and-minimum-exercise-prompts">8.
 Two-part syllabus-aligned progress plan and minimum exercise
@@ -177,7 +179,8 @@ bias, and inference can be compared meaningfully.</th>
 <td style="text-align: left;">Format</td>
 <td style="text-align: left;">Individual; one continuous Git repository;
 one dataset; one use case; release-adapted checkpoints; TWO graded
-parts; W01–W02 catch-up; W08 midterm exception.</td>
+parts; W01–W02 catch-up; W08 midterm exception; handwritten homework
+sets HW1–HW5 (Section 7.4).</td>
 </tr>
 <tr>
 <td style="text-align: left;">Workload</td>
@@ -297,13 +300,15 @@ history.</p></li>
 total. It must not crowd out the current week’s learning. In ordinary
 non-midterm weeks after release, plan approximately 3–4 hours of
 assignment work.</p></li>
-<li><p>Release checkpoint R0 is due before the next scheduled CO3117
-class (Week 4). After R0, weekly checkpoints continue as ownership
-evidence, but the assignment has only TWO graded submission parts: Part
-I is due 14 October 2026; Part II is due exactly two calendar days
-before the official final examination date. The LMS/instructor cutoff
-time always overrides any default time implied by this
-document.</p></li>
+<li><p>In the default calendar, release checkpoint R0 is due before the
+next scheduled CO3117 class (Week 4). In HK261 the course repositories
+were issued on 2 October 2026, so R0 (tag release-baseline) and the
+weekly tags w03, w04 and w05 are all due at 07:00 on 7 October 2026.
+After R0, weekly checkpoints continue as ownership evidence, but the
+assignment has only TWO graded submission parts: Part I is due 14
+October 2026; Part II is due exactly two calendar days before the
+official final examination date. The LMS/instructor cutoff time always
+overrides any default time implied by this document.</p></li>
 <li><p>The timetable screenshot also contains a later no-class slot. To
 avoid ambiguity, all academic requirements below are indexed by COURSE
 WEEK (W03…W15), not by simple arithmetic on ISO calendar-week
@@ -790,7 +795,10 @@ Murphy/pyprobml.</p></li>
 w04, …, w15 after each Course Week checkpoint (use w08-midterm for the
 midterm artifact). Create exactly two graded-submission tags:
 part1-final at the 14 October 2026 deadline and part2-final at the Part
-II deadline. Do not create fake w01/w02 historical tags.</p></li>
+II deadline. Do not create fake w01/w02 historical tags. The tag
+w08-midterm (compact entry, timed rehearsal and post-exam reflection) is
+due at 23:59 on 19 October 2026, within 72 hours of the exam. Homework
+tags hw1 to hw5 are described in Section 7.4.</p></li>
 <li><p>After a weekly tag has been checked, do not rewrite history by
 force-pushing/rebasing that checkpoint without instructor approval. Late
 work should remain visibly late rather than being back-dated or
@@ -920,6 +928,35 @@ self-imposed conditions as the sample: no code/Internet/AI, only the
 current two-A4 sheet. Commit the untouched first attempt, then a
 separate self-marking/correction file that identifies knowledge gaps and
 links each correction to the relevant weekly post or source.</p>
+<h2 id="handwritten-homework-sets-part-i-addendum">7.4 Handwritten
+homework sets (Part I addendum)</h2>
+<ul>
+<li><p>Five handwritten homework sets, HW1 to HW5, one per Part I topic
+(foundations and evaluation, decision trees, neural networks, Bayesian
+learning and Bayesian networks, genetic algorithms), accompany the
+weekly drills. They are an addition to the workload described in Section
+1, and each set has five activities worth 10 points on its
+sheet.</p></li>
+<li><p>The problem sheets and a guide for each set are in the homework/
+folder of the repository and on the course LMS. Submit one scanned PDF,
+homework/hwN-submission.pdf (5 MB at most), commit it, run python
+tools/check.py --checkpoint hwN, then push the tag hwN. Deadlines: HW1
+to HW3 at 07:00 on 7 October 2026; HW4 and HW5 at 23:59 on 14 October
+2026. The time GitHub receives the tag is the submission time.</p></li>
+<li><p>The sets are formative handwritten practice reviewed under
+Criterion 3 of Section 11 (Written-exam portfolio); no conversion of the
+set scores to points is published. Unlike the weekly drill, they are
+open-notes: lecture notes and course slides are allowed, while AI tools,
+solution manuals and other students&#39; work are not until the submission
+is tagged.</p></li>
+<li><p>No worked solutions are published. After submitting, check your
+work with the course materials, classmates and AI assistants, record any
+AI use in AI_USE.md, and write homework/hwN-corrections.md if you find
+an error. Never replace, delete or re-tag the submission.</p></li>
+<li><p>The last activity of each set (the Assignment Bridge) uses your
+own project dataset. Put it in the submission PDF; you may reuse its
+result in that week&#39;s post or in protocol.yaml.</p></li>
+</ul>
 <h1 id="two-part-syllabus-aligned-progress-plan-and-minimum-exercise-prompts">8.
 Two-part syllabus-aligned progress plan and minimum exercise
 prompts</h1>
@@ -1203,7 +1240,7 @@ Two graded submission parts and instructor progress checks</h1>
 <td style="text-align: left;">Repository skeleton; PROGRESS.md;
 AI_USE.md; honest W01–W02 catch-up; release-day baseline diagnostic;
 dataset/use-case draft; frozen split/metric/seeds; tag release-baseline.
-Due before W04 class.</td>
+Due 07:00 on 7 October 2026 (see Section 1.2).</td>
 <td style="text-align: left;">Gate only</td>
 </tr>
 <tr>
@@ -1310,7 +1347,8 @@ experiments, reflections, citations; compact W08 midterm entry.</td>
 <td style="text-align: left;">Release baseline; weekly handwritten first
 attempts; Part I midterm-ready two-A4 sheet; post-midterm corrections;
 Part II final two-A4 sheet; 90-min final mock; evidence of improved
-concise explanations.</td>
+concise explanations. Handwritten homework sets HW1–HW5 are reviewed as
+formative practice (Section 7.4).</td>
 </tr>
 <tr>
 <td>4. Required from-scratch implementations</td>
@@ -1880,6 +1918,25 @@ accuracy</td>
 <ul>
 <li><p>Keep the file names, function names and signatures. You may add
 helper functions and your own tests in tests/.</p></li>
+<li><p>Conventions checked by the contract tests. Entropy is in bits.
+Perceptron(lr=1.0, max_epochs=100, seed=0) with labels in {-1, +1}; an
+update happens only when y*(w·x+b) &lt;= 0. MLP params is a dict
+{&quot;W1&quot;,&quot;b1&quot;,...,&quot;WL&quot;,&quot;bL&quot;} with W_l of shape (n_in, n_out); the output is
+softmax, Y is one-hot, and loss is the mean cross-entropy of the output
+of forward. GaussianNB(var_smoothing=1e-9) uses per-class variances with
+ddof = 0 plus var_smoothing times the largest feature variance of X;
+MultinomialNB(alpha=1.0) uses Laplace/Lidstone smoothing; both expose
+classes_ (sorted), predict_log_proba (normalised log-posteriors) and
+predict.</p></li>
+<li><p>HMM: A[i, j] = P(s_(t+1) = j | s_t = i), B[i, k] = P(o_t = k |
+s_t = i); forward returns filtered probabilities P(s_t | o_1..o_t) for
+every t, checked at every step against enumeration; viterbi returns the
+path and log P(path, obs), checked at T = 1000 by recomputing the
+log-probability of the returned path. PCA: transform(X, mean,
+components) and inverse_transform(Z, mean, components) with components
+of shape (k, d). SoftmaxRegression(lr=0.1, reg=0.0, max_iter=500,
+seed=0) with predict_proba; the regulariser is (reg/2)*sum(W**2) added
+to the mean cross-entropy.</p></li>
 <li><p>Inside these files use NumPy and scipy.special only. No
 scikit-learn or other library estimator may implement the required
 mechanism; scikit-learn belongs in the benchmark code.</p></li>

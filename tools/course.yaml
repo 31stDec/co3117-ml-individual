@@ -15,7 +15,7 @@ weeks:
   W05: {date: "2026-09-30", tag: "w05", due: "2026-10-07T07:00", topic: "Bayesian learning / Naive Bayes"}
   W06: {date: "2026-10-07", tag: "w06", due: "2026-10-14T07:00", topic: "Genetic Algorithm"}
   W07: {date: "2026-10-14", tag: "w07", due: "2026-10-14T23:59", topic: "Bayesian Networks / TAN, Part I closeout"}
-  W08: {date: "2026-10-16", tag: "w08-midterm", due: "2026-10-21T07:00", topic: "MIDTERM (16 Oct): compact entry, timed rehearsal, reflection after the exam"}
+  W08: {date: "2026-10-16", tag: "w08-midterm", due: "2026-10-19T23:59", topic: "MIDTERM (16 Oct): compact entry, timed rehearsal, reflection after the exam"}
   W09: {date: "2026-10-21", tag: "w09", due: "2026-10-28T07:00", topic: "HMM / sequence modelling"}
   W10: {date: "2026-10-28", tag: "w10", due: "2026-11-04T07:00", topic: "SVM: maximum and soft margin"}
   W11: {date: "2026-11-04", tag: "w11", due: "2026-11-11T07:00", topic: "Kernel SVM, cross-model comparison"}
