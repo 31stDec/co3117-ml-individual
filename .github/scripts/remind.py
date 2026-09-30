@@ -83,7 +83,8 @@ def main() -> int:
     soon = any(d - NOW <= dt.timedelta(days=4) for d, _, _ in upcoming)
     idle = idle_days is None or idle_days >= 4
     monday = NOW.weekday() == 0
-    if not (monday or soon or idle):
+    manual = os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"      # a run started by hand always sends
+    if not (monday or soon or idle or manual):
         print("Nothing to remind on this run.")
         return 0
 
