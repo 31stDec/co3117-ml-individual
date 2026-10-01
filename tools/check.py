@@ -60,7 +60,7 @@ def week_of_checkpoint(cp: str) -> int:
     if cp in COURSE.get("homework", {}):
         return wnum(COURSE["homework"][cp]["week"])
     if cp in COURSE.get("gates", {}):
-        return 2                      # setup gate (R0): W03 evidence belongs to the w03 tag, not to R0
+        return 4                      # setup gate (R0): W05 evidence belongs to the w05 tag, not to R0
     if cp in COURSE.get("parts", {}):
         return wnum(COURSE["parts"][cp]["week"])
     for w, info in COURSE["weeks"].items():
@@ -73,8 +73,8 @@ def week_of_checkpoint(cp: str) -> int:
 
 
 def week_from_date(now: dt.datetime) -> int:
-    """Latest week whose tag deadline has passed (at least W03)."""
-    cur = 3
+    """Latest week whose tag deadline has passed (at least W05)."""
+    cur = 5
     for w, info in COURSE["weeks"].items():
         if dt.datetime.fromisoformat(info["due"]) <= now:
             cur = max(cur, wnum(w))
@@ -114,6 +114,9 @@ def check_files(rep: Report, cp: str) -> None:
         req += rf["part1-final"]
     for f in req:
         rep.add(f"file {f}", (ROOT / f).is_file(), "missing")
+    if cp in ("release-baseline", "part1-final", "part2-final"):
+        has_baseline = (ROOT / "exercises/release-baseline-w01-w04.pdf").is_file() or (ROOT / "exercises/release-baseline-w01-w02.pdf").is_file()
+        rep.add("file exercises/release-baseline-w01-w04.pdf (or -w02.pdf)", has_baseline, "missing exercises/release-baseline-w01-w04.pdf (or -w02.pdf)")
 
 
 def check_tracked(rep: Report) -> None:
@@ -146,9 +149,9 @@ def parse_progress() -> dict[str, dict]:
 
 def check_progress(rep: Report, week: int) -> None:
     rows = parse_progress()
-    rep.add("PROGRESS.md has rows W01-W02 and W03-W15", "W01" in rows and all(
-        f"W{w:02d}" in rows for w in range(3, 16)), "rows missing")
-    for w in range(3, week + 1):
+    rep.add("PROGRESS.md has rows W01-W04 and W05-W15", "W01" in rows and all(
+        f"W{w:02d}" in rows for w in range(5, 16)), "rows missing")
+    for w in range(5, week + 1):
         key = f"W{w:02d}"
         r = rows.get(key)
         if r is None:
@@ -181,7 +184,7 @@ def check_posts(rep: Report, week: int) -> None:
         n = words(cu.read_text(encoding="utf-8"))
         rep.add("catch-up post length", lim["catchup"][0] <= n <= lim["catchup"][1], f"{n} words")
     ai_weeks = ai_use_weeks()
-    for w in range(3, week + 1):
+    for w in range(5, week + 1):
         if w == 8:
             continue
         posts = sorted((ROOT / "docs" / "weekly").glob(f"w{w:02d}-*.md"))
@@ -243,10 +246,10 @@ def added_at(path: str) -> str:
 
 
 def check_drills(rep: Report, week: int) -> None:
-    for w in range(3, week + 1):
+    for w in range(5, week + 1):
         if w == 8:
             continue
-        first = sorted((ROOT / "exercises").glob(f"w{w:02d}-first-attempt.*"))
+        first = sorted((ROOT / "exercises").glob(f"w{w:02d}-first-attempt.*")) or sorted((ROOT / "exercises").glob(f"w{w:02d}-drill.*"))
         corr = ROOT / "exercises" / f"w{w:02d}-corrections.md"
         if not first:
             rep.add(f"W{w:02d} drill first attempt", False, f"no exercises/w{w:02d}-first-attempt.*")
@@ -303,7 +306,7 @@ def run_contract_tests(rep: Report, week: int) -> None:
 # ------------------------------------------------------------------ main
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--checkpoint", help="w03..w15, release-baseline, part1-final, part2-final, hw1..hw5")
+    ap.add_argument("--checkpoint", help="w05..w15, release-baseline, part1-final, part2-final, hw1..hw5")
     ap.add_argument("--no-tests", action="store_true")
     ap.add_argument("--json")
     a = ap.parse_args()

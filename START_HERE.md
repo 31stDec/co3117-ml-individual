@@ -11,7 +11,7 @@ semester. This page tells you what to read, what to do in your first hour, and w
    Section 12 the rules for AI and reference code, Appendix A the functions you must implement.
 2. [README.md](README.md): setup, the weekly routine, the special tags and the rules the repository enforces.
 3. [homework/README.md](homework/README.md): the five handwritten homework sets (problem sheets `homework/hw1-problems.pdf` to `hw5-problems.pdf`, plus a guide for each).
-4. [docs/pre-release/PRE_RELEASE_CATCHUP.md](docs/pre-release/PRE_RELEASE_CATCHUP.md): the one-time catch-up for weeks 1 and 2.
+4. [docs/pre-release/PRE_RELEASE_CATCHUP.md](docs/pre-release/PRE_RELEASE_CATCHUP.md): the one-time catch-up for weeks 1 to 4.
 5. [tools/course.yaml](tools/course.yaml): the machine-readable deadlines (the table below is generated from it).
 
 ## 2. Your first hour
@@ -20,15 +20,15 @@ semester. This page tells you what to read, what to do in your first hour, and w
 - [ ] Clone the repository, create a virtual environment, `pip install -r requirements.txt`, then run `python tools/check.py`. Failures are expected at this stage; it must run.
 - [ ] `git config user.name "..."` and `git config user.email "..."`.
 - [ ] Open `protocol.yaml` and start choosing your dataset and use case (the default is UCI Human Activity Recognition). It must be filled and frozen by the `release-baseline` tag.
-- [ ] Write the release-day baseline on paper (foundations and decision trees, closed book), scan it to `exercises/release-baseline-w01-w02.pdf` and commit it with today's date.
-- [ ] Read the first homework sheet and the drill for W03 (Perceptron and Delta rule).
+- [ ] Write the release-day baseline on paper (foundations and decision trees, closed book), scan it to `exercises/release-baseline-w01-w04.pdf` (or `-w02.pdf`) and commit it with today's date.
+- [ ] Read the first homework sheet and the drill for W05 (Perceptron, Delta rule, and ANN).
 - [ ] Check that GitHub may e-mail you: Settings, Notifications, e-mail; keep "Participating and @mentions" on (section 5).
 
 ## 3. What is due and when
 
 All times are Asia/Ho_Chi_Minh (UTC+7). The time that counts is the moment GitHub receives the tag.
 The LMS cutoff overrides this table if they differ. The repositories were issued on 2 October, so the
-setup gate `release-baseline` and the tags `w03` and `w04` fall on the same day as the first homework sets.
+setup gate `release-baseline` and the tag `w05` fall on the same day as the first homework sets.
 
 | Due | Tag | What |
 | --- | --- | --- |
@@ -36,14 +36,12 @@ setup gate `release-baseline` and the tags `w03` and `w04` fall on the same day 
 | Wed 07 Oct 2026 07:00 | `hw2` | Homework 2: Decision trees |
 | Wed 07 Oct 2026 07:00 | `hw3` | Homework 3: Artificial neural networks |
 | Wed 07 Oct 2026 07:00 | `release-baseline` | R0 setup gate (not graded) |
-| Wed 07 Oct 2026 07:00 | `w03` | W03: Perceptron / Delta + onboarding |
-| Wed 07 Oct 2026 07:00 | `w04` | W04: ANN and backpropagation |
-| Wed 07 Oct 2026 07:00 | `w05` | W05: Bayesian learning / Naive Bayes |
-| Wed 14 Oct 2026 07:00 | `w06` | W06: Genetic Algorithm |
+| Wed 07 Oct 2026 07:00 | `w05` | W05: Perceptron, Delta Rule & Neural Networks (ANN) + onboarding |
+| Wed 14 Oct 2026 07:00 | `w06` | W06: Bayesian learning / Naive Bayes |
 | Wed 14 Oct 2026 23:59 | `hw4` | Homework 4: Bayesian learning and Bayesian networks |
 | Wed 14 Oct 2026 23:59 | `hw5` | Homework 5: Genetic algorithms |
 | Wed 14 Oct 2026 23:59 | `part1-final` | Graded Part I (40 points) |
-| Wed 14 Oct 2026 23:59 | `w07` | W07: Bayesian Networks / TAN, Part I closeout |
+| Wed 14 Oct 2026 23:59 | `w07` | W07: Genetic Algorithms & Bayesian Networks (TAN), Part I closeout |
 | Mon 19 Oct 2026 23:59 | `w08-midterm` | W08: MIDTERM (16 Oct): compact entry, timed rehearsal, reflection after the exam |
 | Wed 28 Oct 2026 07:00 | `w09` | W09: HMM / sequence modelling |
 | Wed 04 Nov 2026 07:00 | `w10` | W10: SVM: maximum and soft margin |

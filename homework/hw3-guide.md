@@ -37,7 +37,7 @@
 6. **Validation & Tagging:**
    ```bash
    git add homework/hw3-submission.pdf
-   git commit -m "[W04][homework] HW3 submission"
+   git commit -m "[W05][homework] HW3 submission"
    python tools/check.py --checkpoint hw3
    git tag hw3
    git push origin main hw3

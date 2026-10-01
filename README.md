@@ -32,7 +32,7 @@ with `--tags`: GitHub does not run the checkpoint check when more than three tag
 
 Then work only in the course repository and archive the old one (Settings, Archive).
 
-## 2. Weekly routine (from W03)
+## 2. Weekly routine (from W05)
 
 1. Written drill, closed book: scan it to `exercises/wNN-first-attempt.pdf` (or .jpg/.png) and commit it
    immediately: `[W05][drill] first attempt`.
@@ -53,16 +53,16 @@ tag: that time, not the commit date, is your submission time. Push checkpoint ta
 never with `--tags`; GitHub does not run the check when more than three tags arrive in one push.
 Deadlines for each tag are in `tools/course.yaml`.
 
-**Dating your work honestly.** The repositories were issued on 2 October, so your first W03 and W04
-commits are dated 2 October or later. That is expected: never back-date a commit and never push old
-work as if it were new. Commit dates are set by your computer; the instructor uses the time GitHub
-received the push.
+**Dating your work honestly.** The repositories were issued on 2 October, so your active weekly
+commits begin from Course Week 5 (W05) on 2 October or later. That is expected: never back-date a commit
+and never push old work as if it were new. Commit dates are set by your computer; the instructor uses
+the time GitHub received the push.
 
 Special tags (push each one on its own, after `python tools/check.py --checkpoint <tag>` passes):
 
 | Tag | What it marks | Deadline |
 | --- | --- | --- |
-| `release-baseline` | R0 setup gate: skeleton, catch-up post, release-day baseline scan `exercises/release-baseline-w01-w02.pdf`, frozen `protocol.yaml` | `tools/course.yaml` |
+| `release-baseline` | R0 setup gate: skeleton, catch-up post, release-day baseline scan `exercises/release-baseline-w01-w04.pdf` (or `-w02.pdf`), frozen `protocol.yaml` | `tools/course.yaml` |
 | `w08-midterm` | Midterm week: compact entry (suggested `docs/weekly/w08-midterm.md`), timed rehearsal scan (suggested `exercises/w08-rehearsal.pdf`), then `exam/midterm-reflection.md` after the exam | `tools/course.yaml` |
 | `part1-final` | Graded Part I package (`SUBMISSION_PART1.md`, `report/part1_summary.pdf`, `exam/a4-notes-part1-midterm.pdf`) | 14 Oct 2026 23:59 |
 | `part2-final` | Graded Part II package (adds the mock final and `exam/a4-notes-part2-final.pdf`) | two calendar days before the final exam; date not yet published |
