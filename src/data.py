@@ -1,5 +1,4 @@
-"""
-data.py — Data Loading, Splitting, and Preprocessing for UCI HAR Dataset
+"""Data loading and the frozen split. Fit every scaler, encoder or projection on the training part only.
 
 Frozen data protocol (R0):
   - Dataset: UCI HAR Using Smartphones v1.0

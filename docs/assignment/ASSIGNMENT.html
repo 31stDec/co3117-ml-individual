@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.11" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>CO3117 Machine Learning: Individual Longitudinal Assignment (HK261 Official)</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">@page { size: A4; margin: 16mm 14mm; }
+:root {
+color-scheme: light;
+--primary: #1f4e79;
+--primary-dark: #14324f;
+--primary-light: #e6eef6;
+--secondary: #007acc;
+--accent: #d9534f;
+--success: #2e7d32;
+--warning: #ed6c02;
+--info: #0288d1;
+--bg-subtle: #f8fafc;
+--border-color: #cbd5e1;
+--text-main: #1e293b;
+--text-muted: #64748b;
+}
+body {
+font: 10pt/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+color: var(--text-main);
+max-width: 980px;
+margin: 0 auto;
+padding: 1.5rem;
+background-color: #ffffff;
+}
+header#title-block-header {
+border-bottom: none;
+margin-bottom: 1.5rem;
+}
+h1.title {
+display: none; 
+}
+h1 {
+font-size: 1.25rem;
+font-weight: 700;
+color: var(--primary);
+border-bottom: 2px solid var(--primary-light);
+padding-bottom: 0.3rem;
+margin-top: 1.8rem;
+margin-bottom: 0.8rem;
+page-break-after: avoid;
+letter-spacing: -0.01em;
+}
+h2 {
+font-size: 1.08rem;
+font-weight: 600;
+color: var(--secondary);
+margin-top: 1.4rem;
+margin-bottom: 0.6rem;
+page-break-after: avoid;
+}
+h3 {
+font-size: 0.98rem;
+font-weight: 600;
+color: var(--primary-dark);
+margin-top: 1rem;
+margin-bottom: 0.4rem;
+page-break-after: avoid;
+}
+nav#TOC {
+background: var(--bg-subtle);
+border: 1px solid var(--border-color);
+border-radius: 8px;
+padding: 0.8rem 1.2rem;
+margin-bottom: 1.5rem;
+font-size: 0.9em;
+box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+nav#TOC ul {
+margin: 0.2rem 0;
+padding-left: 1.2rem;
+list-style: none;
+}
+nav#TOC li {
+margin: 0.25rem 0;
+}
+nav#TOC a {
+text-decoration: none;
+color: var(--primary);
+font-weight: 500;
+}
+nav#TOC a:hover {
+text-decoration: underline;
+color: var(--secondary);
+}
+
+.infographic-banner {
+background: linear-gradient(135deg, #1f4e79 0%, #0d2847 100%);
+color: #ffffff;
+border-radius: 10px;
+padding: 1.4rem 1.6rem;
+margin-bottom: 1.6rem;
+box-shadow: 0 4px 12px rgba(31, 78, 121, 0.2);
+}
+.infographic-banner .banner-sub {
+font-size: 0.82rem;
+text-transform: uppercase;
+letter-spacing: 0.12em;
+color: #93c5fd;
+font-weight: 700;
+margin-bottom: 0.4rem;
+}
+.infographic-banner h1.banner-title {
+color: #ffffff;
+font-size: 1.55rem;
+font-weight: 800;
+margin: 0 0 0.5rem 0;
+border-bottom: none;
+padding: 0;
+line-height: 1.25;
+}
+.infographic-banner .banner-lead {
+font-size: 0.98rem;
+color: #e2e8f0;
+margin: 0 0 1rem 0;
+}
+.banner-meta-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+gap: 0.8rem;
+padding-top: 0.8rem;
+border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.banner-meta-item {
+background: rgba(255, 255, 255, 0.08);
+border-radius: 6px;
+padding: 0.5rem 0.75rem;
+}
+.banner-meta-label {
+font-size: 0.72rem;
+text-transform: uppercase;
+color: #93c5fd;
+letter-spacing: 0.05em;
+font-weight: 600;
+}
+.banner-meta-value {
+font-size: 0.88rem;
+font-weight: 700;
+color: #ffffff;
+margin-top: 0.15rem;
+}
+.card-grid-2 {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+margin: 1rem 0;
+}
+.card-grid-3 {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 0.9rem;
+margin: 1rem 0;
+}
+.info-card {
+background: #ffffff;
+border: 1px solid var(--border-color);
+border-radius: 8px;
+padding: 0.9rem 1.1rem;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+page-break-inside: avoid;
+}
+.info-card.primary { border-left: 4px solid var(--primary); }
+.info-card.accent { border-left: 4px solid var(--accent); }
+.info-card.success { border-left: 4px solid var(--success); }
+.info-card.warning { border-left: 4px solid var(--warning); }
+.info-card-header {
+font-size: 0.92rem;
+font-weight: 700;
+color: var(--primary-dark);
+margin-bottom: 0.4rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.info-card-body {
+font-size: 0.88rem;
+color: var(--text-main);
+line-height: 1.45;
+}
+.badge {
+display: inline-block;
+padding: 0.2rem 0.55rem;
+font-size: 0.75rem;
+font-weight: 700;
+line-height: 1;
+text-align: center;
+white-space: nowrap;
+vertical-align: baseline;
+border-radius: 4px;
+}
+.badge-depth-a { background-color: #dcfce7; color: #15803d; border: 1px solid #86efac; }
+.badge-depth-b { background-color: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+.badge-depth-c { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.badge-part1 { background-color: #ede9fe; color: #6d28d9; border: 1px solid #ddd6fe; }
+.badge-part2 { background-color: #fce7f3; color: #be185d; border: 1px solid #fbcfe8; }
+.badge-prerelease { background-color: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+.workflow-pipeline {
+display: flex;
+flex-wrap: wrap;
+gap: 0.5rem;
+margin: 1.2rem 0;
+justify-content: space-between;
+page-break-inside: avoid;
+}
+.workflow-stage {
+flex: 1 1 calc(16.66% - 0.5rem);
+min-width: 130px;
+background: var(--bg-subtle);
+border: 1px solid var(--border-color);
+border-top: 3px solid var(--primary);
+border-radius: 6px;
+padding: 0.6rem 0.7rem;
+text-align: center;
+box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.workflow-stage .step-number {
+display: inline-block;
+width: 20px;
+height: 20px;
+line-height: 20px;
+border-radius: 50%;
+background: var(--primary);
+color: #ffffff;
+font-size: 0.72rem;
+font-weight: 700;
+margin-bottom: 0.3rem;
+}
+.workflow-stage .step-title {
+font-weight: 700;
+font-size: 0.82rem;
+color: var(--primary-dark);
+text-transform: uppercase;
+margin-bottom: 0.25rem;
+}
+.workflow-stage .step-desc {
+font-size: 0.74rem;
+color: var(--text-muted);
+line-height: 1.35;
+}
+.callout {
+padding: 0.8rem 1.1rem;
+margin: 1rem 0;
+border-radius: 6px;
+font-size: 0.9em;
+line-height: 1.5;
+page-break-inside: avoid;
+}
+.callout.important { background-color: #eff6ff; border-left: 4px solid #3b82f6; color: #1e3a8a; }
+.callout.warning { background-color: #fffbeb; border-left: 4px solid #f59e0b; color: #78350f; }
+.callout.core-rule { background-color: #f0fdf4; border-left: 4px solid #10b981; color: #064e3b; }
+.callout-title {
+font-weight: 700;
+margin-bottom: 0.3rem;
+display: flex;
+align-items: center;
+gap: 0.4rem;
+}
+table {
+border-collapse: separate;
+border-spacing: 0;
+width: 100%;
+margin: 1rem 0 1.5rem 0;
+font-size: 0.86rem;
+border: 1px solid var(--border-color);
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+tr { page-break-inside: avoid; }
+th {
+background-color: #f1f5f9;
+color: var(--primary-dark);
+font-weight: 700;
+padding: 0.55rem 0.75rem;
+border-bottom: 1px solid var(--border-color);
+border-right: 1px solid var(--border-color);
+text-align: left;
+}
+th:last-child { border-right: none; }
+td {
+padding: 0.5rem 0.75rem;
+border-bottom: 1px solid #e2e8f0;
+border-right: 1px solid #e2e8f0;
+vertical-align: top;
+color: var(--text-main);
+}
+td:last-child { border-right: none; }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background-color: #f8fafc; }
+tr.highlight-row td { background-color: #fef3c7 !important; }
+code {
+font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+font-size: 0.88em;
+background: #f1f5f9;
+color: #0f172a;
+padding: 0.15em 0.35em;
+border-radius: 4px;
+border: 1px solid #e2e8f0;
+}
+pre {
+background: #0f172a;
+color: #f8fafc;
+padding: 0.9rem 1.1rem;
+border-radius: 6px;
+overflow-x: auto;
+font-size: 0.82rem;
+line-height: 1.45;
+page-break-inside: avoid;
+}
+pre code { background: transparent; color: inherit; padding: 0; border: none; }
+a { color: var(--secondary); text-decoration: none; font-weight: 500; }
+a:hover { text-decoration: underline; }
+blockquote {
+margin: 0.8rem 0;
+padding: 0.4rem 1rem;
+border-left: 4px solid var(--primary-light);
+background-color: var(--bg-subtle);
+border-radius: 0 6px 6px 0;
+color: var(--text-muted);
+font-style: italic;
+}
+@media print {
+body { padding: 0; max-width: none; font-size: 9.2pt; line-height: 1.45; }
+.infographic-banner { padding: 1rem 1.2rem; margin-bottom: 1rem; }
+nav#TOC { page-break-after: always; }
+.info-card, .callout, table, tr { page-break-inside: avoid; }
+h1, h2 { page-break-after: avoid; }
+}
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">CO3117 Machine Learning: Individual Longitudinal
+Assignment (HK261 Official)</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#purpose-learning-outcomes-and-assessment-philosophy" id="toc-purpose-learning-outcomes-and-assessment-philosophy">1. Purpose,
+Learning Outcomes, and Assessment Philosophy</a>
+<ul>
+<li><a href="#alignment-with-the-co3117-syllabus-and-written-final-exam" id="toc-alignment-with-the-co3117-syllabus-and-written-final-exam">1.1
+Alignment with the CO3117 Syllabus and Written Final Exam</a></li>
+<li><a href="#release-time-adaptation-for-hk261-official-calendar-schedule" id="toc-release-time-adaptation-for-hk261-official-calendar-schedule">1.2
+Release-Time Adaptation for HK261 (Official Calendar Schedule)</a></li>
+</ul></li>
+<li><a href="#non-negotiable-rule-one-dataset-one-use-case" id="toc-non-negotiable-rule-one-dataset-one-use-case">2. Non-Negotiable
+Rule: One Dataset, One Use Case</a>
+<ul>
+<li><a href="#canonical-use-case-and-approved-alternatives" id="toc-canonical-use-case-and-approved-alternatives">2.1 Canonical Use
+Case and Approved Alternatives</a></li>
+</ul></li>
+<li><a href="#recommended-study-stack-repositories-mooc-and-textbooks" id="toc-recommended-study-stack-repositories-mooc-and-textbooks">3.
+Recommended Study Stack: Repositories, MOOC, and Textbooks</a>
+<ul>
+<li><a href="#recommended-video-mooc-nptel-introduction-to-machine-learning" id="toc-recommended-video-mooc-nptel-introduction-to-machine-learning">3.1
+Recommended Video MOOC: NPTEL Introduction to Machine Learning</a></li>
+<li><a href="#reference-textbooks-and-their-specific-roles" id="toc-reference-textbooks-and-their-specific-roles">3.2 Reference
+Textbooks and Their Specific Roles</a></li>
+</ul></li>
+<li><a href="#required-learning-workflow-for-every-major-model-family" id="toc-required-learning-workflow-for-every-major-model-family">4.
+Required Learning Workflow for Every Major Model Family</a>
+<ul>
+<li><a href="#implementation-depth-classification" id="toc-implementation-depth-classification">4.1 Implementation-Depth
+Classification</a></li>
+<li><a href="#syllabus-to-assignment-model-matrix" id="toc-syllabus-to-assignment-model-matrix">4.2 Syllabus-to-Assignment
+Model Matrix</a></li>
+</ul></li>
+<li><a href="#repository-structure-progress-dashboard-and-commit-standards" id="toc-repository-structure-progress-dashboard-and-commit-standards">5.
+Repository Structure, Progress Dashboard, and Commit Standards</a>
+<ul>
+<li><a href="#progress.md-course-dashboard" id="toc-progress.md-course-dashboard">5.1 PROGRESS.md: Course
+Dashboard</a></li>
+<li><a href="#commit-and-tagging-policy" id="toc-commit-and-tagging-policy">5.2 Commit and Tagging
+Policy</a></li>
+</ul></li>
+<li><a href="#weekly-wikiblog-post-the-living-knowledge-dossier" id="toc-weekly-wikiblog-post-the-living-knowledge-dossier">6. Weekly
+Wiki/Blog Post: The Living Knowledge Dossier</a></li>
+<li><a href="#written-exam-track-and-handwritten-homework-addendum" id="toc-written-exam-track-and-handwritten-homework-addendum">7.
+Written-Exam Track and Handwritten Homework Addendum</a>
+<ul>
+<li><a href="#weekly-first-attempt-drill" id="toc-weekly-first-attempt-drill">7.1 Weekly First-Attempt
+Drill</a></li>
+<li><a href="#living-two-page-a4-summary-sheet" id="toc-living-two-page-a4-summary-sheet">7.2 Living Two-Page A4 Summary
+Sheet</a></li>
+<li><a href="#final-mock-exam" id="toc-final-mock-exam">7.3 Final Mock
+Exam</a></li>
+<li><a href="#handwritten-homework-sets-hw1-to-hw5-addendum" id="toc-handwritten-homework-sets-hw1-to-hw5-addendum">7.4 Handwritten
+Homework Sets (HW1 to HW5 Addendum)</a></li>
+</ul></li>
+<li><a href="#visual-15-week-syllabus-aligned-progress-plan" id="toc-visual-15-week-syllabus-aligned-progress-plan">8. Visual 15-Week
+Syllabus-Aligned Progress Plan</a></li>
+<li><a href="#common-experimental-protocol-and-per-model-record" id="toc-common-experimental-protocol-and-per-model-record">9. Common
+Experimental Protocol and Per-Model Record</a></li>
+<li><a href="#two-graded-submission-milestones-and-ownership-defense" id="toc-two-graded-submission-milestones-and-ownership-defense">10. Two
+Graded Submission Milestones and Ownership Defense</a>
+<ul>
+<li><a href="#individual-ownership-checks" id="toc-individual-ownership-checks">10.1 Individual Ownership
+Checks</a></li>
+</ul></li>
+<li><a href="#evaluation-rubric-100-point-allocation" id="toc-evaluation-rubric-100-point-allocation">11. Evaluation Rubric
+(100-Point Allocation)</a></li>
+<li><a href="#academic-integrity-ai-assisted-inquiry-based-learning-ibl-protocol" id="toc-academic-integrity-ai-assisted-inquiry-based-learning-ibl-protocol">12.
+Academic Integrity &amp; AI-Assisted Inquiry-Based Learning (IBL)
+Protocol</a></li>
+<li><a href="#final-synthesis-report-structure-68-pages" id="toc-final-synthesis-report-structure-68-pages">13. Final Synthesis
+Report Structure (6–8 Pages)</a></li>
+</ul>
+</nav>
+<div class="infographic-banner">
+<div class="banner-sub">
+CO3117 Machine Learning • HK261 • Faculty of CSE, HCMUT
+</div>
+<h1 class="banner-title">
+INDIVIDUAL LONGITUDINAL ASSIGNMENT
+</h1>
+<div class="banner-lead">
+<strong>ONE DATASET, ONE USE CASE, MANY MODELS</strong> — A two-part
+theory → code → experiment → written-exam learning portfolio
+</div>
+<div class="banner-meta-grid">
+<pre><code>&lt;div class=&quot;banner-meta-item&quot;&gt;
+  &lt;div class=&quot;banner-meta-label&quot;&gt;Format&lt;/div&gt;
+  &lt;div class=&quot;banner-meta-value&quot;&gt;Individual • 1 Git Repo • 1 Dataset&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;banner-meta-item&quot;&gt;
+  &lt;div class=&quot;banner-meta-label&quot;&gt;Workload&lt;/div&gt;
+  &lt;div class=&quot;banner-meta-value&quot;&gt;~45 Hours Total across 15 Weeks&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;banner-meta-item&quot;&gt;
+  &lt;div class=&quot;banner-meta-label&quot;&gt;Part I Submission (40 pts)&lt;/div&gt;
+  &lt;div class=&quot;banner-meta-value&quot;&gt;Wed 14 Oct 2026 • 23:59 (Tag part1-final)&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;banner-meta-item&quot;&gt;
+  &lt;div class=&quot;banner-meta-label&quot;&gt;Part II Submission (60 pts)&lt;/div&gt;
+  &lt;div class=&quot;banner-meta-value&quot;&gt;2 Days before Official Final Exam&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<div class="callout core-rule">
+<div class="callout-title">
+📌 Core Design Principle: Fixed Problem, Evolving Models
+</div>
+<div>
+Keep the dataset source, target variable, decision context, and held-out
+test population <strong>strictly fixed for the entire semester</strong>.
+Every week, change the model or feature representation—not the
+problem—so that differences in mathematical assumptions, optimization
+dynamics, inductive biases, and empirical inference can be compared
+rigorously and meaningfully.
+</div>
+</div>
+<div class="card-grid-3">
+<div class="info-card primary">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;1. Prospective Ownership&lt;/span&gt;
+  &lt;span class=&quot;badge badge-depth-a&quot;&gt;Mandatory&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  No retroactive back-dating or deadline code-dumps. Progression starts officially in &lt;strong&gt;Course Week 5&lt;/strong&gt; with the two-state commit protocol (first attempt → study reference → corrected state).
+&lt;/div&gt;</code></pre>
+</div>
+<div class="info-card success">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;2. Written-Exam Track&lt;/span&gt;
+  &lt;span class=&quot;badge badge-depth-b&quot;&gt;Syllabus Core&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  Code alone is insufficient. Weekly handwritten drills, living two-page A4 summary sheets, and a 90-minute final mock exam prepare you directly for the written final paper (code 504).
+&lt;/div&gt;</code></pre>
+</div>
+<div class="info-card warning">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;3. Active Inquiry (IBL)&lt;/span&gt;
+  &lt;span class=&quot;badge badge-depth-c&quot;&gt;AI Protocol&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  AI assistants act exclusively as Socratic tutors, verifiers, and test generators. Productive struggle must precede AI usage, and all interactions are transparently logged in &lt;code&gt;AI_USE.md&lt;/code&gt;.
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<h1 id="purpose-learning-outcomes-and-assessment-philosophy">1. Purpose,
+Learning Outcomes, and Assessment Philosophy</h1>
+<p>This assignment converts the traditional multi-model project into an
+individual, longitudinal learning system. Students repeatedly revisit
+the same prediction task with the model families in the CO3117 syllabus.
+The primary goal is not leaderboard optimization or metric chasing; the
+goal is to connect mathematical formulation, algorithmic steps,
+implementation choices, empirical behavior, and written explanation.</p>
+<ul>
+<li><strong>Explain</strong> core ML concepts, assumptions, objectives,
+update rules, inference procedures, and model limitations in concise,
+rigorous written form.</li>
+<li><strong>Implement</strong> selected core mechanisms from scratch in
+NumPy/Python (Depth A) and validate them numerically against trusted
+references.</li>
+<li><strong>Read</strong> reference code critically (Depth B), mapping
+equations and algorithm steps to concrete code paths.</li>
+<li><strong>Compare</strong> model families under a common split,
+preprocessing protocol, primary metric, and held-out test
+population.</li>
+<li><strong>Build</strong> a cumulative, inspectable learning record
+through prospective Git commits, a wiki/blog knowledge base, weekly
+exercises, and two graded submission milestones.</li>
+<li><strong>Demonstrate</strong> individual ownership: the student must
+be able to derive, locate, explain, test, modify, and defend any
+submitted component on demand.</li>
+</ul>
+<h2 id="alignment-with-the-co3117-syllabus-and-written-final-exam">1.1
+Alignment with the CO3117 Syllabus and Written Final Exam</h2>
+<p>The CO3117 syllabus emphasizes understanding fundamental concepts,
+deriving mathematical foundations and training mechanisms of
+representative models, comparing strengths and limitations, applying
+appropriate algorithms, performing dimensionality reduction, and
+evaluating models in realistic settings.</p>
+<p>The sample 90-minute final exam (code 504, 26 May 2026) uses short
+constructed-response questions rather than programming. It tests
+conceptual definitions, comparisons, conditional independence in
+Bayesian networks, PCA derivation, AdaBoost weight updates, generative
+versus discriminative modeling, and SVM margin reasoning. This
+assignment therefore establishes an integrated written-exam track
+alongside coding and controlled experiments.</p>
+<div class="callout important">
+<div class="callout-title">
+⚠️ Pedagogical Principle
+</div>
+<div>
+The assignment develops practical implementation ownership and written
+theoretical fluency simultaneously. <strong>Code alone is not
+sufficient; prose alone is not sufficient.</strong> You must be able to
+derive what you code, and explain without code what your models compute.
+</div>
+</div>
+<h2 id="release-time-adaptation-for-hk261-official-calendar-schedule">1.2
+Release-Time Adaptation for HK261 (Official Calendar Schedule)</h2>
+<p>This specification takes effect in <strong>Course Week 5</strong>,
+corresponding to calendar week 39 (23 September 2026). The first class
+meeting occurred in calendar week 35; calendar week 36 (2 September) had
+no class due to the National Day holiday; calendar week 37 was the
+second teaching meeting (Decision Trees). Therefore, no student is
+expected or permitted to fabricate W01–W04 Git history, back-date
+commits, or claim historical pre-release attempts that did not
+exist.</p>
+<div class="card-grid-2">
+<div class="info-card primary">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;W01–W04 Pre-Release Protocol&lt;/span&gt;
+  &lt;span class=&quot;badge badge-prerelease&quot;&gt;Pre-Release&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Scope:&lt;/strong&gt; Treated strictly as PRE-RELEASE content. Complete 01 concise &lt;code&gt;PRE_RELEASE_CATCHUP.md&lt;/code&gt; plus 01 release-day handwritten baseline diagnostic covering Foundations and Decision Trees.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Time Cap:&lt;/strong&gt; Capped at 2–3 hours total. Date both artifacts honestly when created. Do not manufacture artificial historical commits.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="info-card accent">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;W05 Onward Active Ownership&lt;/span&gt;
+  &lt;span class=&quot;badge badge-part1&quot;&gt;Active&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Prospective Evidence:&lt;/strong&gt; Starts in Course Week 5. The full two-state commit rule (first attempt → study/reference → corrected/extended state), weekly post, written drill, and tag are mandatory from W05 onward.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Weekly Cadence:&lt;/strong&gt; Plan approximately 3–4 hours of assignment work during ordinary non-exam weeks.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Course Week 8 is a protected MIDTERM week:</strong> The
+midterm is scheduled for <strong>Friday 16 October 2026</strong>. Part I
+must be frozen and submitted on <strong>Wednesday 14 October 2026 at
+23:59</strong>, exactly two calendar days earlier. Do not start a new
+major implementation or heavy experiment during the midterm window.
+After the exam, submit only a short reflection note within 72 hours;
+this belongs to Part II learning evidence and must not rewrite Part I
+history.</li>
+<li><strong>Release Checkpoint R0:</strong> Due before Course Week 6
+(Wednesday 07 October 2026 at 07:00 AM).</li>
+<li><strong>Two Graded Parts:</strong> After R0, weekly checkpoints
+continue as continuous ownership evidence, but the assignment has only
+<strong>TWO graded submission packages</strong>:
+<ul>
+<li><strong>Part I:</strong> Due <strong>14 October 2026 at
+23:59</strong> (40 / 100 points).</li>
+<li><strong>Part II:</strong> Due <strong>two calendar days before the
+official final examination</strong> (60 / 100 points).</li>
+</ul></li>
+<li><strong>Index by Course Week:</strong> All academic requirements in
+this document are indexed by <strong>COURSE WEEK (W01–W15)</strong> to
+match teaching meetings directly.</li>
+</ul>
+<h1 id="non-negotiable-rule-one-dataset-one-use-case">2. Non-Negotiable
+Rule: One Dataset, One Use Case</h1>
+<div class="callout core-rule">
+<div class="callout-title">
+🔒 Mandatory Invariant Rule
+</div>
+<div>
+The dataset source and version, prediction target, decision context, and
+held-out test population <strong>remain fixed for the entire
+semester</strong>. Different feature representations of the SAME raw
+data are encouraged; switching to a second dataset merely to accommodate
+a particular model is strictly prohibited.
+</div>
+</div>
+<ul>
+<li><strong>Freeze Protocol:</strong> Finalize the dataset source,
+target label, split policy, primary metric, and random seeds by the end
+of the Course Week 5 release checkpoint (R0), before Week 6 begins.
+Document this in <code>protocol.yaml</code>.</li>
+<li><strong>Pre-processing Hygiene:</strong> Fit all scalers, encoders,
+PCA/LDA projections, and feature selectors on training data only; then
+transform validation and test sets.</li>
+<li><strong>Sealed Test Set:</strong> Keep the final test partition
+sealed until cross-model comparison; all hyperparameter tuning occurs
+strictly on training/validation folds.</li>
+<li><strong>Sequential Views:</strong> For sequential models (HMM/CRF),
+derive an ordered, temporally continuous view from the same underlying
+dataset and document the derivation.</li>
+<li><strong>Model Suitability Study:</strong> If a syllabus model is
+genuinely mismatched with your fixed prediction task, submit a rigorous
+Model Suitability Study explaining the theoretical mismatch rather than
+forcing a scientifically meaningless run.</li>
+</ul>
+<h2 id="canonical-use-case-and-approved-alternatives">2.1 Canonical Use
+Case and Approved Alternatives</h2>
+<ul>
+<li><strong>Canonical Dataset:</strong> UCI Human Activity Recognition
+Using Smartphones (UCI HAR). The stable task is: <em>predict a user’s
+current physical activity from smartphone inertial sensor
+measurements</em>. For HMM/CRF, temporal continuity is exploited to
+smooth or decode activity sequences over time.</li>
+<li><strong>Structural Exemplar:</strong> The prior-cohort report
+<em>“Detect AI Generated Text”</em> serves as a <strong>structural and
+architectural exemplar</strong> for assembling a theory → code →
+experiment → reflection dossier. It is not an answer key. Students must
+not copy its text, code, tables, or results. If text detection is
+approved as a custom use case, a single dataset must be frozen and any
+sequence transformation justified explicitly.</li>
+</ul>
+<h1 id="recommended-study-stack-repositories-mooc-and-textbooks">3.
+Recommended Study Stack: Repositories, MOOC, and Textbooks</h1>
+<div class="card-grid-3">
+<div class="info-card primary">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;ML-From-Scratch&lt;/span&gt;
+  &lt;span class=&quot;badge badge-depth-a&quot;&gt;Classical ML&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  &lt;strong&gt;Primary code microscope&lt;/strong&gt; for Decision Tree, Perceptron/MLP, Naive Bayes, GA, SVM, PCA/LDA, and Ensembles.&lt;br&gt;
+  &lt;em&gt;Rule: Read only after committing your own first attempt. Trace equations → code lines.&lt;/em&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="info-card success">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;numpy-ml&lt;/span&gt;
+  &lt;span class=&quot;badge badge-depth-a&quot;&gt;HMM &amp; Sequences&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  &lt;strong&gt;Primary sequence reference&lt;/strong&gt; for HMM, Viterbi decoding, likelihood computation, and Forward-Backward recursions.&lt;br&gt;
+  &lt;em&gt;Rule: Implement one core routine yourself first; then dissect numpy-ml.&lt;/em&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="info-card warning">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;pyprobml&lt;/span&gt;
+  &lt;span class=&quot;badge badge-depth-b&quot;&gt;Probabilistic Depth&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  &lt;strong&gt;Theory-to-code bridge&lt;/strong&gt; for Kevin Murphy’s &lt;em&gt;Probabilistic Machine Learning&lt;/em&gt;.&lt;br&gt;
+  &lt;em&gt;Rule: Best for Bayesian formulation, graphical models, and conceptual checks.&lt;/em&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<h2 id="recommended-video-mooc-nptel-introduction-to-machine-learning">3.1
+Recommended Video MOOC: NPTEL Introduction to Machine Learning</h2>
+<ul>
+<li><strong>Primary Video Companion:</strong> NPTEL/SWAYAM,
+<em>Introduction to Machine Learning</em>, Prof. Balaraman Ravindran,
+IIT Madras (<a href="https://nptel.ac.in/courses/106106139">Course
+Link</a>).</li>
+<li><strong>Syllabus Match:</strong> Matches CO3117 closely:
+bias-variance, logistic regression, LDA, perceptron, SVM, neural
+networks, backpropagation, MLE/MAP, decision trees, cross-validation,
+bagging/boosting, Naive Bayes, Bayesian networks, and HMMs.</li>
+<li><strong>Active Viewing Routine (3–2–1 Protocol):</strong>
+<ol type="1">
+<li><em>Before watching:</em> Write 3 questions or predictions.</li>
+<li><em>While watching:</em> Pause at least twice to derive the next
+mathematical step before the lecturer explains it.</li>
+<li><em>After watching:</em> Close video/notes and write 1 compact
+concept map from memory.</li>
+</ol></li>
+</ul>
+<h2 id="reference-textbooks-and-their-specific-roles">3.2 Reference
+Textbooks and Their Specific Roles</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Course Text / Reference</th>
+<th>Recommended Pedagogical Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Müller &amp; Guido (2017)</strong>, <em>Introduction to
+Machine Learning with Python</em></td>
+<td>Practical classical ML, preprocessing, model behavior, evaluation,
+and scikit-learn benchmarking.</td>
+</tr>
+<tr>
+<td><strong>Chollet (2021)</strong>, <em>Deep Learning with Python</em>,
+2nd ed.</td>
+<td>Neural network intuition, gradient descent dynamics, backpropagation
+mechanics.</td>
+</tr>
+<tr>
+<td><strong>Murphy (2022)</strong>, <em>Probabilistic Machine Learning:
+An Introduction</em></td>
+<td>Primary theory reference for probability, Bayesian learning,
+graphical models, and inference.</td>
+</tr>
+<tr>
+<td><strong>Tom Mitchell (1997)</strong>, <em>Machine Learning</em></td>
+<td>Foundational conceptual treatment: concept learning, decision trees,
+hypothesis spaces.</td>
+</tr>
+<tr>
+<td><strong>Stephen Marsland (2009)</strong>, <em>Machine Learning: An
+Algorithmic Perspective</em></td>
+<td>Algorithmic implementation perspective; converting mathematics into
+NumPy code.</td>
+</tr>
+<tr>
+<td><strong>Cao Hoàng Trụ (2008)</strong>, <em>Trí tuệ Nhân tạo = Thông
+minh + Giải thuật</em></td>
+<td>Vietnamese-language conceptual depth, AI context, and heuristic
+search foundations.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="required-learning-workflow-for-every-major-model-family">4.
+Required Learning Workflow for Every Major Model Family</h1>
+<div class="workflow-pipeline">
+<div class="workflow-stage">
+<pre><code>&lt;div class=&quot;step-number&quot;&gt;1&lt;/div&gt;
+&lt;div class=&quot;step-title&quot;&gt;Understand&lt;/div&gt;
+&lt;div class=&quot;step-desc&quot;&gt;Read notes/textbook. Formulate assumptions, objective, update rule, failure modes.&lt;/div&gt;</code></pre>
+</div>
+<div class="workflow-stage">
+<pre><code>&lt;div class=&quot;step-number&quot;&gt;2&lt;/div&gt;
+&lt;div class=&quot;step-title&quot;&gt;First Attempt&lt;/div&gt;
+&lt;div class=&quot;step-desc&quot;&gt;Solve written drill. Code core mechanism in NumPy before checking references. &lt;strong&gt;Commit state.&lt;/strong&gt;&lt;/div&gt;</code></pre>
+</div>
+<div class="workflow-stage">
+<pre><code>&lt;div class=&quot;step-number&quot;&gt;3&lt;/div&gt;
+&lt;div class=&quot;step-title&quot;&gt;Dissect&lt;/div&gt;
+&lt;div class=&quot;step-desc&quot;&gt;Inspect reference repo. Map 3+ mathematical steps to exact code line numbers.&lt;/div&gt;</code></pre>
+</div>
+<div class="workflow-stage">
+<pre><code>&lt;div class=&quot;step-number&quot;&gt;4&lt;/div&gt;
+&lt;div class=&quot;step-title&quot;&gt;Modify&lt;/div&gt;
+&lt;div class=&quot;step-desc&quot;&gt;Repair implementation or make assigned non-trivial modification. &lt;strong&gt;Preserve history.&lt;/strong&gt;&lt;/div&gt;</code></pre>
+</div>
+<div class="workflow-stage">
+<pre><code>&lt;div class=&quot;step-number&quot;&gt;5&lt;/div&gt;
+&lt;div class=&quot;step-title&quot;&gt;Benchmark&lt;/div&gt;
+&lt;div class=&quot;step-desc&quot;&gt;Compare against scikit-learn on identical splits, preprocessing, and test data.&lt;/div&gt;</code></pre>
+</div>
+<div class="workflow-stage">
+<pre><code>&lt;div class=&quot;step-number&quot;&gt;6&lt;/div&gt;
+&lt;div class=&quot;step-title&quot;&gt;Explain&lt;/div&gt;
+&lt;div class=&quot;step-desc&quot;&gt;Update weekly post, MODEL_LOG, exam sheet. Commit and push weekly tag.&lt;/div&gt;</code></pre>
+</div>
+</div>
+<h2 id="implementation-depth-classification">4.1 Implementation-Depth
+Classification</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Depth Level</th>
+<th>Meaning</th>
+<th>Minimum Verifiable Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="badge badge-depth-a">Depth A — BUILD</span></td>
+<td>Author the core algorithm yourself in NumPy/Python without
+high-level estimator libraries.</td>
+<td>Mathematical derivation; clean NumPy code; unit tests against
+synthetic cases; pre-reference and post-reference commits.</td>
+</tr>
+<tr>
+<td><span class="badge badge-depth-b">Depth B — DISSECT &amp;
+MODIFY</span></td>
+<td>Study an approved reference implementation, explain its
+architecture, and execute a non-trivial adaptation.</td>
+<td>Exact code attribution; line-by-line mapping; meaningful diff;
+controlled experiment demonstrating effect of modification.</td>
+</tr>
+<tr>
+<td><span class="badge badge-depth-c">Depth C — APPLY &amp;
+BENCHMARK</span></td>
+<td>Use an approved reference library to evaluate applicability,
+parameter sensitivity, and limits.</td>
+<td>Justified hyperparameters; controlled benchmark; confusion matrix;
+comprehensive error/limitation analysis.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="syllabus-to-assignment-model-matrix">4.2 Syllabus-to-Assignment
+Model Matrix</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Syllabus Topic</th>
+<th>Model Family</th>
+<th>Target Depth</th>
+<th>Required Core Artifact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ch. 1</strong></td>
+<td>Foundations &amp; Workflow</td>
+<td>Analysis</td>
+<td>Learning curves, bias-variance diagnosis, leakage check, data
+protocol.</td>
+</tr>
+<tr>
+<td><strong>Ch. 2</strong></td>
+<td>Decision Tree</td>
+<td><span class="badge badge-depth-b">Depth B</span> (Catch-up)</td>
+<td>Implement impurity/split routine; inspect tree stopping; evaluate
+pruning.</td>
+</tr>
+<tr>
+<td><strong>Ch. 3</strong></td>
+<td>Perceptron &amp; MLP</td>
+<td><span class="badge badge-depth-a">Depth A</span></td>
+<td>Explicit forward/backward pass in NumPy; numerical gradient check;
+capacity test.</td>
+</tr>
+<tr>
+<td><strong>Ch. 4</strong></td>
+<td>Naive Bayes</td>
+<td><span class="badge badge-depth-a">Depth A</span></td>
+<td>Own Naive Bayes classifier; Laplace/Gaussian smoothing; assumption
+analysis.</td>
+</tr>
+<tr>
+<td><strong>Ch. 5</strong></td>
+<td>Genetic Algorithm</td>
+<td><span class="badge badge-depth-b">Depth B</span></td>
+<td>Student-authored representation, fitness, selection, crossover,
+mutation for search.</td>
+</tr>
+<tr>
+<td><strong>Ch. 6</strong></td>
+<td>Bayesian Networks &amp; HMM</td>
+<td>HMM: <span class="badge badge-depth-a">Depth A</span><br>BN: <span class="badge badge-depth-c">Depth C</span></td>
+<td>Own Viterbi or Forward core; numpy-ml validation; d-separation
+reasoning.</td>
+</tr>
+<tr>
+<td><strong>Ch. 7</strong></td>
+<td>Support Vector Machines</td>
+<td><span class="badge badge-depth-b">Depth B</span> + <span class="badge badge-depth-c">Depth C</span></td>
+<td>Dissect hinge-loss/margin; linear vs RBF kernel; C-parameter
+sensitivity study.</td>
+</tr>
+<tr>
+<td><strong>Ch. 8</strong></td>
+<td>PCA &amp; LDA</td>
+<td>PCA: <span class="badge badge-depth-a">Depth A</span><br>LDA: <span class="badge badge-depth-c">Depth C</span></td>
+<td>Own PCA projection via SVD/eigensystem; reconstruction check; PCA vs
+LDA study.</td>
+</tr>
+<tr>
+<td><strong>Ch. 9</strong></td>
+<td>Ensembles &amp; AdaBoost</td>
+<td><span class="badge badge-depth-b">Depth B</span> + <span class="badge badge-depth-c">Depth C</span></td>
+<td>Bagging vs boosting comparison; AdaBoost sample reweighting &amp;
+weighted vote trace.</td>
+</tr>
+<tr>
+<td><strong>Ch. 10</strong></td>
+<td>Discriminative &amp; Synthesis</td>
+<td>Logistic: <span class="badge badge-depth-a">Depth A</span><br>CRF:
+<span class="badge badge-depth-c">Depth C</span></td>
+<td>Own multiclass logistic/softmax; MaxEnt connection; CRF vs HMM
+suitability study.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="repository-structure-progress-dashboard-and-commit-standards">5.
+Repository Structure, Progress Dashboard, and Commit Standards</h1>
+<p>All work is maintained in one continuous GitHub repository assigned
+to the student
+(<code>HCMUT-CO3117-261/ml-&lt;student-id&gt;</code>).</p>
+<pre><code>co3117-ml-individual/
+├── README.md                          Overview and project navigation
+├── PROGRESS.md                        Weekly progress dashboard (verified by tools/check.py)
+├── MODEL_LOG.md                       Cumulative catalog of evaluated models and metrics
+├── AI_USE.md                          Mandatory log of AI interactions and inquiry trails
+├── REFERENCES.md                      Full bibliographic and code repository citations
+├── SUBMISSION_PART1.md                Part I executive summary and package manifest
+├── SUBMISSION_PART2.md                Part II final report summary and cross-model synthesis
+├── protocol.yaml                      Frozen dataset specifications and splitting policies
+├── homework/                          Handwritten homework sheets (HW1–HW5) and guides
+│   ├── hw1-problems.pdf ... hw5-problems.pdf
+│   └── hw1-guide.md ... hw5-guide.md
+├── docs/
+│   ├── index.md                       Knowledge base index
+│   ├── pre-release/
+│   │   └── PRE_RELEASE_CATCHUP.md     W01–W04 consolidated catch-up post
+│   └── weekly/
+│       ├── w05-perceptron-ann.md      W05 theory and experiment post
+│       ├── w06-naive-bayes.md         W06 theory and experiment post
+│       └── ... w15-synthesis.md
+├── exercises/
+│   ├── release-baseline-w01-w04.pdf   Release diagnostic scan (Foundations &amp; Decision Tree)
+│   ├── w05-first-attempt.pdf          Weekly handwritten drill scans
+│   └── w05-corrections.md             Weekly markdown corrections
+├── exam/
+│   ├── a4-notes-part1-midterm.pdf     Part I living two-page A4 exam sheet
+│   ├── midterm-reflection.md          Post-midterm error analysis and reflection
+│   ├── a4-notes-part2-final.pdf       Part II final two-page A4 exam sheet
+│   └── mock-final-first-attempt.pdf   90-minute mock final exam paper
+├── src/                               NumPy from-scratch and adapter implementations
+├── experiments/                       Controlled experiment scripts
+├── results/                           Generated figures, logs, and metrics.csv
+└── tools/
+    ├── check.py                       Automated repository self-check script
+    └── course.yaml                    Course calendar, deadlines, and checkpoint configuration</code></pre>
+<h2 id="progress.md-course-dashboard">5.1 PROGRESS.md: Course
+Dashboard</h2>
+<p><code>PROGRESS.md</code> contains one row per Course Week.
+<code>tools/check.py</code> validates every row up to the current active
+week.</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Period</th>
+<th>Topic</th>
+<th>Post</th>
+<th>Drill</th>
+<th>First Evidence</th>
+<th>Revision Commit</th>
+<th>Tag</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>W01–W04</strong></td>
+<td>PRE-RELEASE Catch-up (Foundations, Tree)</td>
+<td><a href="docs/pre-release/PRE_RELEASE_CATCHUP.md">catch-up</a></td>
+<td><a href="exercises/release-baseline-w01-w04.pdf">baseline</a></td>
+<td><em>(current date)</em></td>
+<td><em>(catch-up)</em></td>
+<td><code>release-baseline</code></td>
+<td><strong>PRE-RELEASE</strong></td>
+</tr>
+<tr>
+<td><strong>W05</strong></td>
+<td>Perceptron &amp; ANN + Repo Onboarding</td>
+<td><a href="docs/weekly/w05-perceptron-ann.md">post</a></td>
+<td><a href="exercises/w05-drill.pdf">drill</a></td>
+<td><em>hash1</em></td>
+<td><em>hash2</em></td>
+<td><code>w05</code></td>
+<td><strong>ACTIVE</strong></td>
+</tr>
+<tr>
+<td><strong>W06</strong></td>
+<td>Bayesian Learning / Naive Bayes</td>
+<td><a href="docs/weekly/w06-naive-bayes.md">post</a></td>
+<td><a href="exercises/w06-drill.pdf">drill</a></td>
+<td><em>hash1</em></td>
+<td><em>hash2</em></td>
+<td><code>w06</code></td>
+<td>Scheduled</td>
+</tr>
+<tr>
+<td><strong>W07</strong></td>
+<td>Genetic Algorithms &amp; Bayesian Networks</td>
+<td><a href="docs/weekly/w07-ga-bn.md">post</a></td>
+<td><a href="exercises/w07-drill.pdf">drill</a></td>
+<td><em>hash1</em></td>
+<td><em>hash2</em></td>
+<td><code>w07</code>, <code>part1-final</code></td>
+<td>Scheduled</td>
+</tr>
+<tr>
+<td><strong>W08</strong></td>
+<td>MIDTERM (16 Oct 2026)</td>
+<td><a href="exam/midterm-reflection.md">reflection</a></td>
+<td><a href="exercises/w08-rehearsal.pdf">rehearsal</a></td>
+<td>n/a</td>
+<td>n/a</td>
+<td><code>w08-midterm</code></td>
+<td><strong>MIDTERM</strong></td>
+</tr>
+<tr>
+<td><strong>W09–W15</strong></td>
+<td>Part II Models &amp; Final Synthesis</td>
+<td><em>(weekly posts)</em></td>
+<td><em>(weekly drills)</em></td>
+<td><em>hashes</em></td>
+<td><em>hashes</em></td>
+<td><code>w09</code>..<code>w15</code>, <code>part2-final</code></td>
+<td>Scheduled</td>
+</tr>
+</tbody>
+</table>
+<h2 id="commit-and-tagging-policy">5.2 Commit and Tagging Policy</h2>
+<ul>
+<li><strong>Two-State Rule:</strong> Each active week preserves: (i)
+first attempt before reference code / AI assistance, and (ii)
+corrected/extended state after testing and benchmarking.</li>
+<li><strong>Commit Message Convention:</strong> Tag commits with
+standard academic tags: <code>[W05][baseline] release setup</code>,
+<code>[W05][code] own perceptron forward pass</code>,
+<code>[W06][theory] Naive Bayes conditional independence derivation</code>.</li>
+<li><strong>Git Tags:</strong> Create tag <code>release-baseline</code>
+at R0, then weekly tags <code>w05</code>, <code>w06</code>, …,
+<code>w15</code>. Graded milestones are tagged <code>part1-final</code>
+(14 Oct 23:59) and <code>part2-final</code>. <strong>Do not fabricate
+historical w01–w04 tags.</strong></li>
+</ul>
+<h1 id="weekly-wikiblog-post-the-living-knowledge-dossier">6. Weekly
+Wiki/Blog Post: The Living Knowledge Dossier</h1>
+<p>Submit one combined 500–900 word PRE-RELEASE catch-up post for
+W01–W04, then one concise 350–700 word post for each ordinary week
+W05–W07 and W09–W15. Week 8 requires only a compact midterm
+reflection.</p>
+<ol type="1">
+<li><strong>A. Concept Capsule:</strong> Mathematical definition,
+probabilistic assumptions, hypothesis space, objective function, and
+failure modes.</li>
+<li><strong>B. One Derivation or Worked Example:</strong> A step-by-step
+mathematical proof, numeric calculation, d-separation analysis, or
+gradient derivation.</li>
+<li><strong>C. Code-to-Theory Trace:</strong> Map 2–4 mathematical
+equations to exact function and line numbers in your own code and cited
+reference code.</li>
+<li><strong>D. One Controlled Experiment:</strong> Focus on one clear
+experimental variable (learning rate, depth, smoothing parameter,
+regularization strength
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math>).</li>
+<li><strong>E. Failure &amp; Misconception Analysis:</strong> One
+empirical failure case, edge-case vulnerability, or conceptual
+misunderstanding analyzed in depth.</li>
+<li><strong>F. Written-Exam Capsule:</strong> 4–8 sentences explaining
+the week’s core theoretical concept concisely without referencing
+code.</li>
+<li><strong>G. Reflection:</strong> Concrete statement of what is now
+understood that was previously unclear, and what remains uncertain.</li>
+<li><strong>H. Inquiry Trail (Mandatory when AI is used):</strong>
+Question asked, pre-AI attempt hash, AI suggestion summarized,
+textbook/MOOC verification source, and what can now be reproduced
+independently.</li>
+</ol>
+<h1 id="written-exam-track-and-handwritten-homework-addendum">7.
+Written-Exam Track and Handwritten Homework Addendum</h1>
+<h2 id="weekly-first-attempt-drill">7.1 Weekly First-Attempt Drill</h2>
+<ul>
+<li>Complete one 15–25 minute closed-book, handwritten drill (pen on
+paper or tablet stylus) with <strong>no code, no Internet search, no
+reference repository, and no AI</strong>.</li>
+<li>Commit the raw scanned PDF
+(<code>exercises/wNN-first-attempt.pdf</code>) BEFORE consulting any
+notes or solutions.</li>
+<li>Afterward, review course notes/textbooks, write corrections in
+Markdown (<code>exercises/wNN-corrections.md</code>), and commit the
+corrections. Never delete or overwrite the original attempt.</li>
+</ul>
+<h2 id="living-two-page-a4-summary-sheet">7.2 Living Two-Page A4 Summary
+Sheet</h2>
+<p>Maintain a living 2-page A4 reference sheet: - <strong>Part I
+Version:</strong> Due <strong>14 October 2026</strong> for midterm
+preparation. - <strong>Part II Final Version:</strong> Due <strong>2
+calendar days before final exam</strong>. - Content: Canonical
+equations, algorithmic steps, concise comparison tables, tiny worked
+examples.</p>
+<h2 id="final-mock-exam">7.3 Final Mock Exam</h2>
+<p>In Week 15, execute one self-timed, 90-minute closed-book mock final
+exam under identical conditions to the sample final (code 504), using
+only your two A4 summary sheets.</p>
+<h2 id="handwritten-homework-sets-hw1-to-hw5-addendum">7.4 Handwritten
+Homework Sets (HW1 to HW5 Addendum)</h2>
+<p>Five structured handwritten homework sets accompany the weekly drills
+in Part I. They represent dedicated diagnostic practice and incorporate
+an <strong>Assignment Bridge</strong> connecting foundational theory
+directly to your longitudinal course project.</p>
+<div class="card-grid-2">
+<div class="info-card primary">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;Batch 1: Due Wed 07 Oct 2026 • 07:00 AM&lt;/span&gt;
+  &lt;span class=&quot;badge badge-part1&quot;&gt;Checkpoint 1&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;HW1:&lt;/strong&gt; Foundations, Evaluation, and Generalisation (Tag: &lt;code&gt;hw1&lt;/code&gt;)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;HW2:&lt;/strong&gt; Decision Trees: Impurity, Splits, and Pruning (Tag: &lt;code&gt;hw2&lt;/code&gt;)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;HW3:&lt;/strong&gt; Neural Networks: Perceptron, Dynamics, and Backprop (Tag: &lt;code&gt;hw3&lt;/code&gt;)&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="info-card accent">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;Batch 2: Due Wed 14 Oct 2026 • 23:59 PM&lt;/span&gt;
+  &lt;span class=&quot;badge badge-part1&quot;&gt;Part I Closeout&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;HW4:&lt;/strong&gt; Probabilistic Learning &amp; Graphical Models (Tag: &lt;code&gt;hw4&lt;/code&gt;)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;HW5:&lt;/strong&gt; Genetic Algorithms: Encoding, Search &amp; Tuning (Tag: &lt;code&gt;hw5&lt;/code&gt;)&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Format:</strong> Handwritten step-by-step working; scan into
+a single PDF under 5 MB at
+<code>homework/hwN-submission.pdf</code>.</li>
+<li><strong>Validation:</strong> Test locally using
+<code>python tools/check.py --checkpoint hwN</code>, then submit via Git
+tag: <code>git tag hwN &amp;&amp; git push origin hwN</code>.</li>
+<li><strong>Formative Self-Checking Policy:</strong> No official worked
+solution keys are distributed. After tagging your submission, verify
+steps using lecture slides, study discussions, and AI Socratic
+prompting. Record any findings in
+<code>homework/hwN-corrections.md</code>. Never delete or re-tag the
+original submission.</li>
+<li><strong>Activity 5 (Assignment Bridge):</strong> Every homework set
+concludes with an application problem executed directly on your own
+course project dataset.</li>
+</ul>
+<h1 id="visual-15-week-syllabus-aligned-progress-plan">8. Visual 15-Week
+Syllabus-Aligned Progress Plan</h1>
+<div class="callout important">
+<div class="callout-title">
+📅 Master Roadmap: Part I vs. Part II Breakdown
+</div>
+<div>
+The 15-week semester is structured into TWO distinct operational phases
+separated by the Week 8 Midterm. Notice that Course Week 5 marks the
+official active release for prospective Git tracking.
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th style="width: 14%;">
+Course Week &amp; Date
+</th>
+<th style="width: 20%;">
+Curriculum Topic
+</th>
+<th style="width: 33%;">
+Repository &amp; Empirical Evidence
+</th>
+<th style="width: 33%;">
+Written Drill &amp; Assessment Milestones
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<strong>W01</strong><br><span class="badge badge-prerelease">Pre-Release</span><br>26 Aug (Cal 35)
+</td>
+<td>
+<strong>Foundations of ML</strong><br>Metrics, Bias-Variance,
+Overfitting
+</td>
+<td>
+<strong>RETROSPECTIVE ONLY.</strong> Consolidated baseline pipeline,
+data leakage audit checklist, train/val learning curve diagnosis in
+catch-up post.
+</td>
+<td>
+Covered in release-day W01–W04 baseline diagnostic: definitions,
+generalization bounds, curve diagnosis.
+</td>
+</tr>
+<tr>
+<td>
+<strong>W02–W04</strong><br><span class="badge badge-prerelease">Pre-Release</span><br>09–16 Sep (Cal
+37–38)
+</td>
+<td>
+<strong>Decision Trees</strong><br>Entropy, Information Gain, Pruning
+</td>
+<td>
+<strong>RETROSPECTIVE ONLY.</strong> Implement 1 impurity/split routine
+in NumPy; inspect reference tree; stopping/pruning comparison.
+</td>
+<td>
+Covered in release-day baseline: Information gain calculation,
+continuous threshold splits, pruning logic.
+</td>
+</tr>
+<tr class="highlight-row">
+<td>
+<strong>W05 — RELEASE</strong><br><span class="badge badge-part1">Active
+Start</span><br>23–30 Sep (Cal 39–40)
+</td>
+<td>
+<strong>Perceptron, Delta Rule &amp; Neural Networks (ANN)</strong>
+</td>
+<td>
+<strong>PROSPECTIVE EVIDENCE STARTS.</strong> Initialize repo skeleton,
+<code>protocol.yaml</code>, <code>PROGRESS.md</code>,
+<code>AI_USE.md</code>. Implement own Perceptron and small MLP with
+explicit forward/backward pass. Tag: <code>release-baseline</code>,
+<code>w05</code>.
+</td>
+<td>
+<strong>Written Drills:</strong><br>(A) Perceptron geometric
+update.<br>(B) Linear separability &amp; XOR failure.<br>(C) Chain rule
+&amp; backpropagation dynamics.<br><strong>HW1, HW2, HW3</strong> due 07
+Oct 07:00 AM.
+</td>
+</tr>
+<tr>
+<td>
+<strong>W06</strong><br><span class="badge badge-part1">Part
+I</span><br>30 Sep–07 Oct (Cal 40)
+</td>
+<td>
+<strong>Bayesian Learning &amp; Naive Bayes</strong>
+</td>
+<td>
+Author own Naive Bayes classifier in NumPy. Laplace smoothing and
+Gaussian feature modeling. Benchmark against scikit-learn. Tag:
+<code>w06</code>.
+</td>
+<td>
+<strong>Written Drill:</strong><br>(A) Bayes theorem derivation.<br>(B)
+Conditional independence assumption.<br>(C) Zero-frequency
+smoothing.<br>(D) Generative vs discriminative reasoning.
+</td>
+</tr>
+<tr>
+<td>
+<strong>W07</strong><br><span class="badge badge-part1">Part I
+Closeout</span><br>07–14 Oct (Cal 41)
+</td>
+<td>
+<strong>Genetic Algorithms &amp; Bayesian Networks (TAN)</strong>
+</td>
+<td>
+GA chromosome representation, fitness function,
+selection/crossover/mutation. Small BN/TAN factorization and
+d-separation checks. Consolidate Part I portfolio. Tag:
+<code>w07</code>.
+</td>
+<td>
+<strong>Written Drill:</strong> BN joint factorization, d-separation
+under evidence, NB vs TAN.<br><strong>HW4, HW5</strong> due 14 Oct
+23:59.<br><strong>PART I FINAL DUE:</strong> 14 Oct 23:59 (Tag:
+<code>part1-final</code>).
+</td>
+</tr>
+<tr style="background-color: #f1f5f9;">
+<td>
+<strong>W08 — MIDTERM</strong><br><span class="badge badge-depth-b">Protected Week</span><br>16 Oct 2026
+</td>
+<td>
+<strong>MIDTERM EXAMINATION</strong><br>Protected Written Exam Week
+</td>
+<td>
+<strong>NO NEW MODEL IMPLEMENTATIONS.</strong> Part I is sealed.
+Complete timed exam rehearsal before exam; post-midterm reflection note
+within 72h. Tag: <code>w08-midterm</code>.
+</td>
+<td>
+Formal written midterm exam covering syllabus Chapters 1 to 6. Focus on
+concise proofs, derivations, and model comparisons.
+</td>
+</tr>
+<tr>
+<td>
+<strong>W09</strong><br><span class="badge badge-part2">Part
+II</span><br>21–28 Oct (Cal 43)
+</td>
+<td>
+<strong>Hidden Markov Models (HMM)</strong><br>Sequence Modeling
+</td>
+<td>
+Implement own Viterbi or Forward algorithm in NumPy. Validate on
+synthetic sequence; dissect numpy-ml; compare independent vs
+sequence-aware predictions. Tag: <code>w09</code>.
+</td>
+<td>
+<strong>Written Drill:</strong><br>(A) HMM components &amp; joint
+factorization.<br>(B) Forward recursion steps.<br>(C) Viterbi decoding
+dynamic programming.
+</td>
+</tr>
+<tr>
+<td>
+<strong>W10–W11</strong><br><span class="badge badge-part2">Part
+II</span><br>28 Oct–11 Nov (Cal 44–45)
+</td>
+<td>
+<strong>Support Vector Machines (SVM)</strong><br>Linear &amp; Kernel
+Methods
+</td>
+<td>
+Dissect maximum-margin formulation and hinge loss. Linear vs RBF kernel
+comparison. Parameter sensitivity
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>,</mo><mi>γ</mi></mrow><annotation encoding="application/x-tex">C, \gamma</annotation></semantics></math>)
+on fixed dataset. Tags: <code>w10</code>, <code>w11</code>.
+</td>
+<td>
+<strong>Written Drill:</strong><br>(A) Support vectors and margin
+width.<br>(B) Dual representation &amp; Kernel trick.<br>(C) SVM vs
+Logistic Regression comparison.
+</td>
+</tr>
+<tr>
+<td>
+<strong>W12–W13</strong><br><span class="badge badge-part2">Part
+II</span><br>11–25 Nov (Cal 46–47)
+</td>
+<td>
+<strong>Dimensionality Reduction</strong><br>PCA &amp; LDA
+</td>
+<td>
+Implement own PCA via SVD/eigensystem in NumPy. Reconstruction error
+analysis. Compare unsupervised PCA against supervised LDA
+class-separation. Tags: <code>w12</code>, <code>w13</code>.
+</td>
+<td>
+<strong>Written Drill:</strong><br>(A) Curse of dimensionality.<br>(B)
+Variance maximization vs decorrelation.<br>(C) Fisher criterion and max
+LDA dimensions.
+</td>
+</tr>
+<tr>
+<td>
+<strong>W14</strong><br><span class="badge badge-part2">Part
+II</span><br>25 Nov–02 Dec (Cal 48)
+</td>
+<td>
+<strong>Ensemble Learning</strong><br>Bagging, Boosting, AdaBoost
+</td>
+<td>
+Bagging vs Boosting benchmark on fixed dataset. Step-by-step trace of
+AdaBoost sample reweighting and weighted voting. Tag: <code>w14</code>.
+</td>
+<td>
+<strong>Written Drill:</strong><br>(A) Variance reduction vs bias
+reduction.<br>(B) AdaBoost weight update derivation.<br>(C) Margin
+explanation in boosting.
+</td>
+</tr>
+<tr class="highlight-row">
+<td>
+<strong>W15 — SYNTHESIS</strong><br><span class="badge badge-part2">Final Package</span><br>02–09 Dec (Cal 49)
+</td>
+<td>
+<strong>Generative vs. Discriminative, CRF &amp; Final
+Synthesis</strong>
+</td>
+<td>
+Author multiclass Logistic Regression / Softmax in NumPy. Model
+suitability study for CRF. Assemble Master Comparison Table and final
+report. Complete 90-min mock final. Tag: <code>w15</code>.
+</td>
+<td>
+<strong>Written Drill:</strong> Comprehensive comparative
+review.<br><strong>PART II FINAL DUE:</strong> 2 calendar days before
+official final exam date (Tag: <code>part2-final</code>).
+</td>
+</tr>
+</tbody>
+</table>
+<h1 id="common-experimental-protocol-and-per-model-record">9. Common
+Experimental Protocol and Per-Model Record</h1>
+<p>To ensure scientific rigor across all 15 weeks, every experiment must
+adhere to the standardized configuration defined in
+<code>protocol.yaml</code>:</p>
+<ul>
+<li><strong>Primary Metric:</strong> Macro-F1 score for multiclass
+classification. Always report Accuracy and Confusion Matrix as secondary
+evidence.</li>
+<li><strong>Split Policy:</strong> Subject-aware / group-aware splitting
+to prevent data leakage across train, validation, and test
+partitions.</li>
+<li><strong>Controlled Tuning:</strong> Hyperparameter optimization is
+performed strictly within training/validation sets. The test partition
+remains sealed.</li>
+<li><strong>Failure Analysis:</strong> For every major model family,
+inspect and document at least 5 representative classification errors or
+1 systematic failure pattern.</li>
+</ul>
+<h1 id="two-graded-submission-milestones-and-ownership-defense">10. Two
+Graded Submission Milestones and Ownership Defense</h1>
+<div class="card-grid-2">
+<div class="info-card primary">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;Part I: Pre-Midterm Portfolio (40 pts)&lt;/span&gt;
+  &lt;span class=&quot;badge badge-part1&quot;&gt;Due 14 Oct 23:59&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  Includes W01–W04 catch-up, W05 Perceptron/ANN, W06 Naive Bayes, W07 GA &amp; BN/TAN, weekly posts, written drills, HW1–HW5, &lt;code&gt;SUBMISSION_PART1.md&lt;/code&gt;, &lt;code&gt;part1_summary.pdf&lt;/code&gt;, and &lt;code&gt;a4-notes-part1-midterm.pdf&lt;/code&gt;. Tagged as &lt;code&gt;part1-final&lt;/code&gt;.
+&lt;/div&gt;</code></pre>
+</div>
+<div class="info-card accent">
+<pre><code>&lt;div class=&quot;info-card-header&quot;&gt;
+  &lt;span&gt;Part II: Post-Midterm + Synthesis (60 pts)&lt;/span&gt;
+  &lt;span class=&quot;badge badge-part2&quot;&gt;Due 2 Days before Final Exam&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class=&quot;info-card-body&quot;&gt;
+  Includes post-midterm weekly evidence, HMM, SVM, PCA/LDA, Ensembles, Logistic/MaxEnt/CRF, Master Comparison Table, 90-min mock final exam paper, &lt;code&gt;SUBMISSION_PART2.md&lt;/code&gt;, &lt;code&gt;part2_final_report.pdf&lt;/code&gt;, and &lt;code&gt;a4-notes-part2-final.pdf&lt;/code&gt;. Tagged as &lt;code&gt;part2-final&lt;/code&gt;.
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+<h2 id="individual-ownership-checks">10.1 Individual Ownership
+Checks</h2>
+<p>The instructor may select any submitted artifact at random and
+request an impromptu individual verification: - Derive the core equation
+or algorithm on a whiteboard without reference material. - Locate the
+exact function and line in your code and explain its mapping to theory.
+- Live-modify a parameter or function and predict its empirical effect
+prior to running. - Answer an exam-style constructed-response
+theoretical question orally. - Explain the precise conceptual
+progression between your first-attempt and final commit.</p>
+<h1 id="evaluation-rubric-100-point-allocation">11. Evaluation Rubric
+(100-Point Allocation)</h1>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Evaluation Criterion</th>
+<th>Pts (P1 + P2)</th>
+<th>Full-Credit Standards</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Weekly Progress &amp; Git Ownership</strong></td>
+<td><strong>12</strong> (5 + 7)</td>
+<td>Honest release baseline + regular weekly checkpoints; clean
+two-state commit history; standard academic tags; no back-dating or
+last-minute code dumps.</td>
+</tr>
+<tr>
+<td><strong>2. Weekly Wiki/Blog Knowledge Dossier</strong></td>
+<td><strong>13</strong> (6 + 7)</td>
+<td>Rigorous concept capsules, derivations, code-to-theory traces,
+focused experiments, and reflection entries.</td>
+</tr>
+<tr>
+<td><strong>3. Written-Exam Portfolio &amp; Homework</strong></td>
+<td><strong>15</strong> (8 + 7)</td>
+<td>Release baseline diagnostic, weekly handwritten drills, HW1–HW5
+completed, living 2-page A4 sheets, and 90-min final mock paper.</td>
+</tr>
+<tr>
+<td><strong>4. Required From-Scratch Implementations</strong></td>
+<td><strong>18</strong> (8 + 10)</td>
+<td>Depth-A algorithms authored in NumPy without high-level estimator
+libraries, fully unit-tested and verified.</td>
+</tr>
+<tr>
+<td><strong>5. Reference-Repository Dissection &amp;
+Adaptation</strong></td>
+<td><strong>10</strong> (4 + 6)</td>
+<td>Line-by-line mapping of ML-From-Scratch/numpy-ml; non-trivial
+student modifications demonstrating clear understanding.</td>
+</tr>
+<tr>
+<td><strong>6. Experimental Design &amp; Controlled
+Benchmarking</strong></td>
+<td><strong>12</strong> (4 + 8)</td>
+<td>Fixed dataset invariants, leak-free preprocessing, fair benchmarking
+against scikit-learn, sealed test sets.</td>
+</tr>
+<tr>
+<td><strong>7. Evaluation, Error Analysis &amp;
+Limitations</strong></td>
+<td><strong>10</strong> (3 + 7)</td>
+<td>Meaningful metric interpretation, confusion matrix diagnostics,
+documented failure modes, model trade-offs.</td>
+</tr>
+<tr>
+<td><strong>8. Reproducibility &amp; Code Quality</strong></td>
+<td><strong>5</strong> (1 + 4)</td>
+<td>Reproducible seeds, modular code structure, environment definition,
+automated test compliance.</td>
+</tr>
+<tr>
+<td><strong>9. Final Synthesis Report &amp; Academic
+Discipline</strong></td>
+<td><strong>5</strong> (1 + 4)</td>
+<td>Concise synthesis (6–8 pages), cross-model comparison, transparent
+AI disclosure, proper citations.</td>
+</tr>
+<tr>
+<td><strong>TOTAL</strong></td>
+<td><strong>100</strong> (40 + 60)</td>
+<td>Converted directly to course assignment weight in CO3117
+syllabus.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="academic-integrity-ai-assisted-inquiry-based-learning-ibl-protocol">12.
+Academic Integrity &amp; AI-Assisted Inquiry-Based Learning (IBL)
+Protocol</h1>
+<p>AI assistants and external repositories may support learning only
+when they stimulate independent questioning, hypothesis formulation, and
+rigorous derivation. Productive struggle must always precede tool
+consultation.</p>
+<pre><code>0. FRAME      Write learning question and initial hypothesis before opening AI.
+    ↓
+1. ATTEMPT    Solve/derive/code independently. Commit raw attempt to Git history.
+    ↓
+2. INQUIRE    Ask AI for ONE Socratic hint, diagnostic question, or counterexample at a time.
+    ↓
+3. VERIFY     Cross-check AI responses against lecture notes, Murphy, or Ravindran MOOC.
+    ↓
+4. RECONSTRUCT Close AI window. Re-derive or re-code from memory in your own structure.
+    ↓
+5. TRANSFER   Solve a parameter variation or edge case not present in the original prompt.
+    ↓
+6. TEACH-BACK Explain the concept concisely as if teaching a peer (exam capsule).
+    ↓
+7. RETRIEVAL  Reproduce key derivation after 24–72 hours closed-book.</code></pre>
+<ul>
+<li><strong>Prohibited Uses:</strong> Generating first-attempt drills,
+pasting AI code into Depth-A components, generating synthetic weekly
+posts, or disguising external solutions.</li>
+<li><strong>Disclosure:</strong> Every AI interaction is recorded in
+<code>AI_USE.md</code> (Date, Learning Question, Pre-AI Commit, AI Tool,
+Prompt Purpose, Hint Summary, Verification Source, Closed-Book
+Status).</li>
+</ul>
+<h1 id="final-synthesis-report-structure-68-pages">13. Final Synthesis
+Report Structure (6–8 Pages)</h1>
+<ol type="1">
+<li><strong>Problem &amp; Dataset (0.5 page):</strong> Fixed use case,
+target variable, split policy, leakage controls.</li>
+<li><strong>Representations &amp; Protocol (0.5 page):</strong> Static
+vs sequential representations, tuning protocols.</li>
+<li><strong>Model-Family Map (1–1.5 pages):</strong> Compact
+mathematical formulation and implementation depths.</li>
+<li><strong>Empirical Results (1–1.5 pages):</strong> Master Comparison
+Table and most diagnostic curves.</li>
+<li><strong>Error &amp; Limitation Analysis (1 page):</strong>
+Systematic confusion patterns and inductive bias effects.</li>
+<li><strong>Cross-Model Synthesis (1 page):</strong> Generative vs
+discriminative, parametric vs non-parametric, bias vs variance.</li>
+<li><strong>Ownership &amp; Learning Reflection (0.5 page):</strong>
+Major conceptual shifts and corrected misconceptions.</li>
+<li><strong>Reproducibility &amp; References (0.5 page):</strong>
+Execution commands, environment, full citations.</li>
+</ol>
+<hr />
+<p><em>CO3117 Machine Learning • Semester HK261 • Faculty of Computer
+Science and Engineering, HCMUT, VNU-HCM</em></p>
+</body>
+</html>

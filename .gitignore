@@ -6,6 +6,7 @@ dist/
 build/
 *.egg
 .eggs/
+.pytest_cache/
 
 # === Virtual Environment ===
 venv/
@@ -24,10 +25,20 @@ env/
 Thumbs.db
 desktop.ini
 
-# === Data (large files) ===
+# === Data & Artifacts (large files forbidden by check.py) ===
 data/raw/
 data/processed/
+data/UCI*/
 *.zip
+*.tar.gz
+*.pkl
+*.joblib
+*.npy
+*.npz
+*.h5
+*.pt
+*.ckpt
+.env
 
 # === Jupyter ===
 .ipynb_checkpoints/

@@ -1,10 +1,18 @@
-# SUBMISSION_PART2.md — Part II Post-Midterm + Final Portfolio
+# SUBMISSION PART 2
 
-> **Deadline:** Exactly 2 calendar days before the official final exam  
-> **Tag:** `part2-final`  
-> **Weight:** 60 / 100 points
+- Tag: `part2-final`
+- Deadline: Exactly 2 calendar days before the official final exam
+- Commit (full hash):
+- Report: report/part2_final_report.pdf
+- Two-A4 exam sheet: exam/a4-notes-part2-final.pdf
+- Reproduce: exact commands, environment file, seeds
+- Mock final: exam/mock-final-first-attempt.pdf, exam/mock-final-corrections.md; midterm reflection: exam/midterm-reflection.md
+- Cumulative comparison: results/metrics.csv and the report outline of assignment Section 13
+- Known limitations and errata (Part I corrections go here, for example in PART1_ERRATA.md):
 
-## Checklist
+---
+
+## Part II Verification Checklist
 
 ### Post-Midterm Models
 - [ ] **HMM / Sequence modeling** (Depth A core + B): own Forward or Viterbi, numpy-ml validation, sequence vs independent comparison
@@ -33,11 +41,8 @@
 - [ ] Midterm error/reflection note (W08)
 
 ### Final Deliverables
-- [ ] `part2_final_report.pdf` — Final synthesis report (6–8 pages)
+- [ ] `report/part2_final_report.pdf` — Final synthesis report (6–8 pages)
 - [ ] MODEL_LOG.md complete for all models
 - [ ] Cumulative model comparison table
 - [ ] Cross-model synthesis (generative vs discriminative, bias/variance, etc.)
 - [ ] Tag `part2-final` created
-
-## Submission Notes
-<!-- Add any notes about the submission here -->

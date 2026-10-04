@@ -1,6 +1,6 @@
-"""
-metrics.py — Evaluation Metrics for CO3117 ML Assignment
+"""Metrics used across the semester (primary metric: macro-F1).
 
+Evaluation Metrics for CO3117 ML Assignment
 Primary metric: Macro-F1
 Secondary: Accuracy, Confusion Matrix
 """
@@ -98,7 +98,6 @@ def print_classification_report(y_true, y_pred, class_names=None):
 
 
 if __name__ == "__main__":
-    # Quick sanity test
     y_true = np.array([0, 0, 1, 1, 2, 2])
     y_pred = np.array([0, 1, 1, 1, 2, 0])
     print("Sanity test:")

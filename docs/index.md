@@ -1,6 +1,11 @@
-# CO3117 Machine Learning — Knowledge Base
+# Learning dossier — Knowledge Base
 
-> Individual Longitudinal Assignment | HK261 | HCMUT
+> CO3117 Machine Learning | Individual Longitudinal Assignment | HK261 | HCMUT
+
+- [Assignment text (PDF)](assignment/ASSIGNMENT.pdf) / [HTML](assignment/ASSIGNMENT.html)
+- [START_HERE](../START_HERE.md)
+
+---
 
 ## 📚 Wiki / Blog Index
 

@@ -1,0 +1,11 @@
+# Frozen experimental protocol (assignment Section 2 and 9). Fill every field by the release-baseline
+# tag. After that, changes are allowed only with a dated note in PROGRESS.md explaining why.
+dataset: "UCI Human Activity Recognition Using Smartphones"
+dataset_version: "v1.0 (https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones)"
+use_case: "Predict physical activity of a person from smartphone inertial sensor measurements"
+target: "Activity label (1: WALKING, 2: WALKING_UPSTAIRS, 3: WALKING_DOWNSTAIRS, 4: SITTING, 5: STANDING, 6: LAYING)"
+split_policy: "Subject-aware split: 21 subjects for training (70%), 9 subjects for sealed test set (30%)"
+primary_metric: "macro-F1"
+secondary_metrics: ["accuracy", "confusion matrix"]
+seeds: [42, 0, 1, 2, 3]
+baseline: "Majority-class classifier (always predict LAYING) and stratified random classifier"

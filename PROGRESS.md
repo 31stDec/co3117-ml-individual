@@ -1,29 +1,23 @@
-# PROGRESS.md — Instructor Dashboard
+# PROGRESS
 
-> **Student:** Phạm Minh Trí - 2353235  
-> **Last updated:** 2026-09-29
-
-## Progress Tracker
+One row per Course Week. Post and Drill are relative links; First evidence and Revision commit are
+commit hashes (at least 7 characters). `python tools/check.py` verifies every row up to the current week.
 
 | Period | Topic | Post | Drill | First evidence | Revision commit | Tag | Status |
-|--------|-------|------|-------|----------------|-----------------|-----|--------|
-| W01–W04 | PRE-RELEASE catch-up | [combined post](docs/pre-release/PRE_RELEASE_CATCHUP.md) | [release baseline](exercises/release-baseline-w01-w04.pdf) | c521df4 | catch-up completed | `release-baseline` | COMPLETED |
-| W05 | Perceptron / Delta + ANN/backprop + onboarding | [w05 post](docs/weekly/w05-perceptron-ann.md) | [w05 drill](exercises/w05-first-attempt.pdf) | 443faae | [corrections](exercises/w05-corrections.md) | `w05` | COMPLETED |
-| W06 | Bayesian learning / Naive Bayes | | | | | `w06` | NOT STARTED |
-| W07 | Genetic Algorithm + BN/TAN (Part I closeout) | | | | | `w07` | NOT STARTED |
-| W08 | **MIDTERM** (16 Oct 2026) | midterm reflection | midterm rehearsal | — | — | `w08-midterm` | NOT STARTED |
-| W09 | HMM / sequence modeling | | | | | `w09` | NOT STARTED |
-| W10 | SVM: maximum margin and soft margin | | | | | `w10` | NOT STARTED |
-| W11 | Kernel SVM and cross-model comparisons | | | | | `w11` | NOT STARTED |
-| W12 | PCA and curse of dimensionality | | | | | `w12` | NOT STARTED |
-| W13 | LDA, feature engineering, dim. reduction | | | | | `w13` | NOT STARTED |
-| W14 | Bagging, Boosting, AdaBoost | | | | | `w14` | NOT STARTED |
-| W15 | Gen. vs Discr.; Logistic/MaxEnt; CRF; synthesis | | | | | `w15` | NOT STARTED |
+|---|---|---|---|---|---|---|---|
+| W01-W04 | PRE-RELEASE catch-up (Foundations, Decision Tree) | [catch-up](docs/pre-release/PRE_RELEASE_CATCHUP.md) | [release baseline](exercises/release-baseline-w01-w04.pdf) | c521df4 | ccadbaf | release-baseline | PRE-RELEASE |
+| W05 | Perceptron, Delta Rule & Neural Networks (ANN) + onboarding | [post](docs/weekly/w05-perceptron-ann.md) | [drill](exercises/w05-first-attempt.pdf) | 48b97e7 | 3e741d5 | w05 | DONE |
+| W06 | Bayesian learning / Naive Bayes |  |  |  |  | w06 | ACTIVE |
+| W07 | Genetic Algorithms & Bayesian Networks (TAN), Part I closeout |  |  |  |  | w07, part1-final |  |
+| W08 | MIDTERM (16 Oct) |  |  | n/a | n/a | w08-midterm | MIDTERM |
+| W09 | HMM / sequence modelling |  |  |  |  | w09 |  |
+| W10 | SVM: maximum and soft margin |  |  |  |  | w10 |  |
+| W11 | Kernel SVM, cross-model comparison |  |  |  |  | w11 |  |
+| W12 | PCA, curse of dimensionality |  |  |  |  | w12 |  |
+| W13 | LDA, feature engineering |  |  |  |  | w13 |  |
+| W14 | Bagging, boosting, AdaBoost |  |  |  |  | w14 |  |
+| W15 | Generative vs discriminative, Logistic/MaxEnt, CRF, synthesis |  |  |  |  | w15, part2-final |  |
 
-## Submission Milestones
-
-| Milestone | Deadline | Tag | Status |
-|-----------|----------|-----|--------|
-| R0 — Setup gate | Before W06 class + 1 day | `release-baseline` | ✅ COMPLETED |
-| **Part I** — Pre-midterm portfolio | **14 October 2026** | `part1-final` | ⬜ TODO |
-| **Part II** — Final portfolio | 2 days before final exam | `part2-final` | ⬜ TODO |
+Status values: PRE-RELEASE (W01-W04), ACTIVE (current week), DONE (tag pushed), MIDTERM (W08).
+W08: link the compact entry and the timed rehearsal if you have them (for example `docs/weekly/w08-midterm.md`,
+`exercises/w08-rehearsal.pdf`); the two-state commit rule does not apply.
