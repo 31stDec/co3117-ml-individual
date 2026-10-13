@@ -12,18 +12,58 @@ Interface (Appendix A):
 import numpy as np
 
 
+def _logsumexp(a, axis=None, keepdims=False):
+    """Numerically stable log-sum-exp."""
+    a_max = np.max(a, axis=axis, keepdims=True)
+    out = a_max + np.log(np.sum(np.exp(a - a_max), axis=axis, keepdims=True))
+    if not keepdims:
+        out = np.squeeze(out, axis=axis)
+    return out
+
 class GaussianNB:
     def __init__(self, var_smoothing=1e-9):
         self.var_smoothing = var_smoothing
 
     def fit(self, X, y):
-        raise NotImplementedError
+        self.classes_ = np.unique(y)
+        n_classes = len(self.classes_)
+        n_features = X.shape[1]
+
+        self.theta_ = np.zeros((n_classes, n_features))   # per-class means
+        self.var_ = np.zeros((n_classes, n_features))      # per-class variances
+        self.class_prior_ = np.zeros(n_classes)
+
+        for i, c in enumerate(self.classes_):
+            X_c = X[y == c]
+            self.theta_[i] = X_c.mean(axis=0)
+            self.var_[i] = X_c.var(axis=0)                # ddof=0
+            self.class_prior_[i] = X_c.shape[0] / X.shape[0]
+
+        # Smoothing: add var_smoothing * max(var across all classes and features)
+        self.epsilon_ = self.var_smoothing * self.var_.max()
+        self.var_ += self.epsilon_
+        return self
 
     def predict_log_proba(self, X):
-        raise NotImplementedError
+        # Log prior
+        log_prior = np.log(self.class_prior_)
+        # Gaussian log-likelihood for each class
+        # log N(x | mu, sigma^2) = -0.5 * [log(2*pi*sigma^2) + (x-mu)^2 / sigma^2]
+        n_classes = len(self.classes_)
+        jll = np.zeros((X.shape[0], n_classes))
+        for i in range(n_classes):
+            log_var = np.log(2 * np.pi * self.var_[i])
+            diff = X - self.theta_[i]
+            jll[:, i] = -0.5 * np.sum(log_var + diff ** 2 / self.var_[i], axis=1)
+        jll += log_prior  # joint log-likelihood
+
+        # Normalise to log-posterior via log-sum-exp
+        log_sum = _logsumexp(jll, axis=1, keepdims=True)
+        return jll - log_sum
 
     def predict(self, X):
-        raise NotImplementedError
+        log_proba = self.predict_log_proba(X)
+        return self.classes_[np.argmax(log_proba, axis=1)]
 
 
 class MultinomialNB:
