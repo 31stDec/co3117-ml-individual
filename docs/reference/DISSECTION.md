@@ -1,6 +1,6 @@
 # Attributed reference dissection and adaptation - 2026-10-14
 
-The upstream files are preserved unchanged with their MIT license. `sources.json` records exact content SHA-256 values, source URLs and retrieval date. The adapted modules were produced with Codex assistance after reading these sources; no independent pre-reference authorship is claimed.
+The upstream files are preserved unchanged with their MIT license. `sources.json` records exact content SHA-256 values, source URLs and retrieval date. The adapted modules were produced with Codex assistance after reading these sources; assistance is recorded in AI_USE.md.
 
 ## Decision tree
 

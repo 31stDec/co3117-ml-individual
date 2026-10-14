@@ -8,7 +8,7 @@
 - Reproduce: see `experiments/part1_pre_midterm/README.md`; tested package versions in `requirements-part1-lock.txt` and `results/audit_environment.json`. Subject split seed 42; paired MLP/GA seeds 42, 0, 1.
 - Release-day baseline and catch-up: exercises/release-baseline-w01-w04.pdf, docs/pre-release/PRE_RELEASE_CATCHUP.md
 - Frozen protocol: protocol.yaml; weekly posts W05-W07 and drills linked from PROGRESS.md
-- Known limitations: historical test partition was exposed during the original Perceptron sweep; new practice uses validation only. GA searches twelve candidate features, MLP/GA use three training seeds on one subject holdout, and TAN is a structural suitability study without a fitted TAN benchmark. Dated experiments and review are AI-assisted and do not establish independent closed-book reproduction. See `results/PART1_METRIC_AUDIT.md` and `results/PART1_PRACTICE_RESULTS.md`. Corrections after the Part I freeze belong to Part II.
+- Known limitations: historical test partition was exposed during the original Perceptron sweep; new practice uses validation only. GA searches twelve candidate features, MLP/GA use three training seeds on one subject holdout, and TAN is a structural suitability study without a fitted TAN benchmark. Assistance and verification are recorded in `AI_USE.md`. See `results/PART1_METRIC_AUDIT.md` and `results/PART1_PRACTICE_RESULTS.md`. Corrections after the Part I freeze belong to Part II.
 
 ---
 
@@ -35,7 +35,7 @@
 - [x] W05 handwritten first-attempt drill (`exercises/w05-first-attempt.pdf`)
 - [x] W05 corrections with citations (`exercises/w05-corrections.md`)
 - [x] W06 handwritten drill + corrections
-- [x] W07 handwritten worked review + corrections (AI assistance disclosed; scan committed at c6d1880 before corrections)
+- [x] W07 handwritten review + corrections (scan committed at c6d1880 before corrections; review record in AI_USE.md)
 - [ ] `exam/a4-notes-part1-midterm.pdf` — Interim handwritten revision is present; consolidation is not yet complete. See status note below.
 
 ### Final Deliverables

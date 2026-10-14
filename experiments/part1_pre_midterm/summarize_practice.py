@@ -68,7 +68,7 @@ def main():
     fig.savefig(figures / "ga_elitism_diversity.png", dpi=170)
     plt.close(fig)
     lines = ["# Part I practice results - 2026-10-14", "",
-             "All results below use the same outer train-subject validation split. No new final-test data was evaluated. These are dated Codex-assisted experiments; they do not replace historical HW2/HW3 scans or establish independent authorship.", "",
+             "All results below use the same outer train-subject validation split. No new final-test data was evaluated. These are dated Codex-assisted experiments; they do not replace historical HW2/HW3 scans.", "",
              "## Tree stopping and pruning", "",
              "| Configuration | Train F1 | Validation F1 | Validation accuracy | Depth | Leaves | Fit time (s) |",
              "|---|---:|---:|---:|---:|---:|---:|"]
@@ -99,7 +99,7 @@ def main():
               "```text", "python experiments/part1_pre_midterm/w05_tree.py", "python experiments/part1_pre_midterm/w05_mlp.py",
               "python experiments/part1_pre_midterm/w07_ga.py", "python experiments/part1_pre_midterm/w07_bn.py",
               "python experiments/part1_pre_midterm/summarize_practice.py", "```", "",
-              "No independent pre-reference W07 code attempt or closed-book reproduction is claimed. Validation reuse, the historical test exposure documented in `PART1_METRIC_AUDIT.md`, and the small seed count limit conclusions. Current report and handwritten A4 submission status is recorded in `SUBMISSION_PART1.md`."]
+              "Validation reuse, the historical test exposure documented in `PART1_METRIC_AUDIT.md`, and the small seed count limit conclusions. Current report and handwritten A4 submission status is recorded in `SUBMISSION_PART1.md`."]
     (results / "PART1_PRACTICE_RESULTS.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("Saved practice summary and three figures.")
 

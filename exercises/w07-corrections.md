@@ -3,7 +3,7 @@
 > **Reviewed on:** 2026-10-14
 > **Artifact:** [Handwritten W07 drill](w07-first-attempt.pdf), two pages.
 > **Scan commit:** `c6d1880cd4abf16d2b7ffef7399bcf876e59f2fb`, added before this corrections file.
-> **Assistance:** The questions and worked answers were supplied in the Codex conversation before the handwritten copy. This is an AI-assisted worked review, not evidence of independent closed-book reproduction. The original scan is preserved.
+> **Review record:** Verification and assistance are recorded in [AI_USE.md](../AI_USE.md). The original scan is preserved.
 
 ## Q1. Genetic algorithm
 
@@ -56,8 +56,8 @@ $$P(Y,X_1,X_2,X_3)=P(Y)P(X_1\mid Y)P(X_2\mid Y,X_1)P(X_3\mid Y,X_2).$$
 
 The independence assumption, plausible HAR feature-dependence example, and parameter/structure-learning trade-off are correct. The written explanation indicates a transcription error in the NB formula rather than a demonstrated conceptual misunderstanding.
 
-## Review outcome and provenance
+## Review outcome
 
-All four topics are addressed, with one notation correction in Q4. The scan remains unchanged. Verification consists of recomputing the supplied GA operations, parent-based factorization/parameter count, d-separation paths, and the conditional-independence algebra above against the worked drill in this conversation.
+All four topics are addressed, with one notation correction in Q4. Verification covers the GA calculations, parent-based factorization and parameter count, d-separation paths, and the conditional-independence algebra above. The scan remains unchanged.
 
-This review does not assign an instructor score or claim independent reproduction. The scan has its own commit above; this corrections file belongs to the later revision commit. W07 progress fields record the actual evidence hashes.
+The scan has its own commit above; this corrections file belongs to the later revision commit. W07 progress fields record the evidence hashes. Verification sources and assistance are recorded in AI_USE.md.

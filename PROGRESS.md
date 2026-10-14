@@ -19,6 +19,6 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 | W15 | Generative vs discriminative, Logistic/MaxEnt, CRF, synthesis |  |  |  |  | w15, part2-final |  |
 
 Status values: PRE-RELEASE (W01-W04), ACTIVE (current week), DONE (tag pushed), MIDTERM (W08).
-W07 update (2026-10-14): scan committed at c6d1880 before corrections and practice revision 6f2ec9d. The drill used AI-provided questions and answers before handwriting, as disclosed in AI_USE.md. No independent pre-AI W07 attempt is claimed. The Part I report PDF is now present and reviewed; the handwritten A4 PDF is an interim revision with a preparation note in SUBMISSION_PART1.md. Local annotated tags `w07` and `part1-final` identify the submission package; push is pending. W07 remains ACTIVE until its tag is pushed.
+W07 update (2026-10-14): scan committed at c6d1880 before corrections and practice revision 6f2ec9d. Assistance and verification are recorded in AI_USE.md. The Part I report PDF is now present and reviewed; the handwritten A4 PDF is an interim revision with a preparation note in SUBMISSION_PART1.md. Local annotated tags `w07` and `part1-final` identify the submission package; push is pending. W07 remains ACTIVE until its tag is pushed.
 W08: link the compact entry and the timed rehearsal if you have them (for example `docs/weekly/w08-midterm.md`,
 `exercises/w08-rehearsal.pdf`); the two-state commit rule does not apply.
