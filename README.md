@@ -26,7 +26,14 @@
 | Split | Subject-aware split (no entity leakage) |
 | Primary metric | Macro-F1 |
 | Random seed | 42 |
-| Test set | Sealed — used only for final comparison |
+| Test set | Previously exposed during the historical Perceptron learning-rate sweep |
+
+The official subject-based train/test split remains unchanged. Current Part I
+experiments compare models on a subject-held-out validation split within the
+official training population; parameter comparisons do not use the test set.
+Historical test reruns are reported separately as descriptive results from the
+previously exposed partition. See the [evaluation audit](results/PART1_METRIC_AUDIT.md)
+and [practice results](results/PART1_PRACTICE_RESULTS.md).
 
 ## 🚀 Quick Start
 
