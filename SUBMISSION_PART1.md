@@ -2,7 +2,7 @@
 
 - Tag: `part1-final`
 - Deadline: 14 October 2026, 23:59 (48 hours before midterm)
-- Commit (full hash):
+- Commit (full hash): final package pending; completed practice revision `f44ef9e2aff5909dfedf62acf7cad4e284717477`, with scan evidence `fcfbdc8b10950367b5b1edc643bbccee3747d3b7` preceding corrections.
 - Report: report/part1_summary.pdf
 - Two-A4 exam sheet: exam/a4-notes-part1-midterm.pdf
 - Reproduce: see `experiments/part1_pre_midterm/README.md`; tested package versions in `requirements-part1-lock.txt` and `results/audit_environment.json`. Subject split seed 42; paired MLP/GA seeds 42, 0, 1.

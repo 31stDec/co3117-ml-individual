@@ -53,4 +53,4 @@ The results support feature compression, not a reliable performance gain. Three 
 
 ## H. Inquiry Trail
 
-Codex supplied the worked drill and assisted these dated implementations and reference dissection. Scan commit `fcfbdc8` preserves the handwritten copy before corrections. Existing snapshot `5422f3a` predates this work, but is not an independent W07 code attempt. Verification uses saved reference source, numerical tests, BN enumeration and measured HAR results. AI_USE records assistance; independent closed-book reproduction is pending.
+Codex supplied the worked drill and assisted these dated implementations and reference dissection. Scan commit `fcfbdc8` precedes corrections/practice revision `f44ef9e`. Existing snapshot `5422f3a` predates this work, but is not an independent W07 code attempt. Verification uses saved reference source, numerical tests, BN enumeration and measured HAR results. AI_USE records assistance; independent closed-book reproduction is pending.

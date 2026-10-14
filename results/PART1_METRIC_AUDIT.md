@@ -59,4 +59,4 @@ Verification on 14 Oct: 30 tests passed and 15 optional tests were skipped at ch
 
 ## Remaining Part I work
 
-Follow-up work on 14 Oct added the attributed Tree/GA adaptations, MLP capacity experiments, BN/TAN checks and W07 handwritten worked-review scan/corrections. See `PART1_PRACTICE_RESULTS.md` for measured results and provenance. Independent ownership/reproduction is not established by automated checks. The Part I report and two-A4 sheet remain deferred; actual scan/revision commit hashes and the final package tag still need to be recorded.
+Follow-up work on 14 Oct added the attributed Tree/GA adaptations, MLP capacity experiments, BN/TAN checks and W07 handwritten worked-review scan/corrections. Scan evidence fcfbdc8 precedes practice/corrections revision f44ef9e; see PROGRESS.md and `PART1_PRACTICE_RESULTS.md`. Independent ownership/reproduction is not established by automated checks. The Part I report and two-A4 sheet remain deferred; the final package tag has not been created or pushed.
