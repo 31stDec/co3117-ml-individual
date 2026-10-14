@@ -67,4 +67,4 @@ python experiments/part1_pre_midterm/w07_bn.py
 python experiments/part1_pre_midterm/summarize_practice.py
 ```
 
-No independent pre-reference W07 code attempt or closed-book reproduction is claimed. Validation reuse, the historical test exposure documented in `PART1_METRIC_AUDIT.md`, and the small seed count limit conclusions. The two final PDF documents remain deferred.
+No independent pre-reference W07 code attempt or closed-book reproduction is claimed. Validation reuse, the historical test exposure documented in `PART1_METRIC_AUDIT.md`, and the small seed count limit conclusions. Current report and handwritten A4 submission status is recorded in `SUBMISSION_PART1.md`.

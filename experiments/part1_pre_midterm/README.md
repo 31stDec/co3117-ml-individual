@@ -30,7 +30,7 @@ Run in this order to create the saved results and three figures. Defaults are fi
 
 These commands never load the official final-test subset. GA feature ranking and fitness use only an inner split of outer-fit subjects. Predictions for the chosen mask are evaluated on outer validation after search, and no variant is selected using final-test scores.
 
-Detailed conclusions and limitations are in `results/PART1_PRACTICE_RESULTS.md`; source attribution and exact function/line mapping are in `docs/reference/DISSECTION.md`. The two final PDFs are deferred.
+Detailed conclusions and limitations are in `results/PART1_PRACTICE_RESULTS.md`; source attribution and exact function/line mapping are in `docs/reference/DISSECTION.md`. Current report and handwritten A4 submission status is recorded in `SUBMISSION_PART1.md`.
 
 The recorded environment uses Python 3.13.13. For its tested dependencies, use `requirements-part1-lock.txt`; the broader `requirements.txt` remains the course setup file. Numerical kernels in the new paired experiments use one BLAS thread.
 

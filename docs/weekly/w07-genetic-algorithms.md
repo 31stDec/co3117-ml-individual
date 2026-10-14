@@ -49,7 +49,7 @@ A GA balances selection with stochastic variation. Its encoding and fitness defi
 
 ## G. Experiment Reflection
 
-The results support feature compression, not a reliable performance gain. Three seeds on one holdout cannot establish population uncertainty. Continuous TAN is studied structurally; no fitted TAN accuracy is claimed. Final PDFs remain deferred.
+The results support feature compression, not a reliable performance gain. Three seeds on one holdout cannot establish population uncertainty. Continuous TAN is studied structurally; no fitted TAN accuracy is claimed. The report PDF is present; the handwritten A4 PDF is an interim revision. Current package status is recorded in SUBMISSION_PART1.md.
 
 ## H. Inquiry Trail
 

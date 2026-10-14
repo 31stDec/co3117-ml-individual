@@ -1,10 +1,10 @@
 # SUBMISSION PART 1
 
-- Tag: `part1-final`
+- Tags: `w07`, `part1-final` (local annotated checkpoints; push pending)
 - Deadline: 14 October 2026, 23:59 (48 hours before midterm)
-- Commit (full hash): final package pending; completed practice revision `f44ef9e2aff5909dfedf62acf7cad4e284717477`, with scan evidence `fcfbdc8b10950367b5b1edc643bbccee3747d3b7` preceding corrections.
+- Commit: the final package is identified by `part1-final^{commit}`; obtain its full hash with `git rev-parse "part1-final^{commit}"`. Completed practice revision `f44ef9e2aff5909dfedf62acf7cad4e284717477`, with scan evidence `fcfbdc8b10950367b5b1edc643bbccee3747d3b7` preceding corrections.
 - Report: report/part1_summary.pdf
-- Two-A4 exam sheet: exam/a4-notes-part1-midterm.pdf
+- Two-A4 exam sheet: exam/a4-notes-part1-midterm.pdf — uploaded interim handwritten revision; see the submission note below.
 - Reproduce: see `experiments/part1_pre_midterm/README.md`; tested package versions in `requirements-part1-lock.txt` and `results/audit_environment.json`. Subject split seed 42; paired MLP/GA seeds 42, 0, 1.
 - Release-day baseline and catch-up: exercises/release-baseline-w01-w04.pdf, docs/pre-release/PRE_RELEASE_CATCHUP.md
 - Frozen protocol: protocol.yaml; weekly posts W05-W07 and drills linked from PROGRESS.md
@@ -36,13 +36,14 @@
 - [x] W05 corrections with citations (`exercises/w05-corrections.md`)
 - [x] W06 handwritten drill + corrections
 - [x] W07 handwritten worked review + corrections (AI assistance disclosed; scan committed at fcfbdc8 before corrections)
-- [ ] `exam/a4-notes-part1-midterm.pdf` — Living two-A4 exam sheet (Part I version)
+- [ ] `exam/a4-notes-part1-midterm.pdf` — Interim handwritten revision is present; consolidation is not yet complete. See status note below.
 
 ### Final Deliverables
-- [ ] `report/part1_summary.pdf` — Part I summary report
+- [x] `report/part1_summary.pdf` — Part I summary report; Overleaf export reviewed on 14 October 2026
 - [x] `MODEL_LOG.md` updated for all Part I models and suitability studies
 - [x] Dataset, target and official train/test populations unchanged; internal validation and test-exposure limitation documented
-- [ ] Tag `part1-final` created and pushed before 14 Oct 2026, 23:59
+- [x] Local annotated tags `w07` and `part1-final` created for the submission package
+- [ ] Push `main`, `w07` and `part1-final` before 14 Oct 2026, 23:59
 
 ## Current working-tree package
 
@@ -52,4 +53,9 @@
 - `results/figures/`: three checked figures for tree complexity, MLP capacity and GA elitism/diversity.
 - `docs/experiments/PART1_PLAN.md`: settings and expected effects recorded before running.
 - `docs/reference/`: exact reference snapshots, source hashes, MIT license and dissection/adaptation mapping.
-- Final report and two-A4 sheet: intentionally deferred at the user's request; not yet present.
+- Final report: `report/part1_summary.pdf` is present; the 11-page Overleaf export has been reviewed for layout and the previously overflowing paths now wrap within the margins.
+- Two-A4 sheet: current two-page handwritten revision is present; completion and further mock-test-based refinement are planned, as recorded below.
+
+## Handwritten A4 notes - interim submission note (2026-10-14)
+
+I started revising these handwritten notes after the mock test on Sunday, 11 October. This submitted version records my current progress; the consolidation is not yet complete because of my examination schedule. After completing two other examinations on the morning of 15 October, I plan to continue and complete the notes. I will then refine them again using the online mock test scheduled for that afternoon, before the ML midterm on 16 October.
