@@ -2,7 +2,7 @@
 
 - Tags: `w07`, `part1-final` (local annotated checkpoints; push pending)
 - Deadline: 14 October 2026, 23:59 (48 hours before midterm)
-- Commit: the final package is identified by `part1-final^{commit}`; obtain its full hash with `git rev-parse "part1-final^{commit}"`. Completed practice revision `f44ef9e2aff5909dfedf62acf7cad4e284717477`, with scan evidence `fcfbdc8b10950367b5b1edc643bbccee3747d3b7` preceding corrections.
+- Commit: the final package is identified by `part1-final^{commit}`; obtain its full hash with `git rev-parse "part1-final^{commit}"`. Completed practice revision `6f2ec9da576b1cb23db3c987f266d1c675f52cec`, with scan evidence `c6d1880cd4abf16d2b7ffef7399bcf876e59f2fb` preceding corrections.
 - Report: report/part1_summary.pdf
 - Two-A4 exam sheet: exam/a4-notes-part1-midterm.pdf — uploaded interim handwritten revision; see the submission note below.
 - Reproduce: see `experiments/part1_pre_midterm/README.md`; tested package versions in `requirements-part1-lock.txt` and `results/audit_environment.json`. Subject split seed 42; paired MLP/GA seeds 42, 0, 1.
@@ -35,7 +35,7 @@
 - [x] W05 handwritten first-attempt drill (`exercises/w05-first-attempt.pdf`)
 - [x] W05 corrections with citations (`exercises/w05-corrections.md`)
 - [x] W06 handwritten drill + corrections
-- [x] W07 handwritten worked review + corrections (AI assistance disclosed; scan committed at fcfbdc8 before corrections)
+- [x] W07 handwritten worked review + corrections (AI assistance disclosed; scan committed at c6d1880 before corrections)
 - [ ] `exam/a4-notes-part1-midterm.pdf` — Interim handwritten revision is present; consolidation is not yet complete. See status note below.
 
 ### Final Deliverables

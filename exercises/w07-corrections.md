@@ -2,7 +2,7 @@
 
 > **Reviewed on:** 2026-10-14
 > **Artifact:** [Handwritten W07 drill](w07-first-attempt.pdf), two pages.
-> **Scan commit:** `fcfbdc8b10950367b5b1edc643bbccee3747d3b7`, added before this corrections file.
+> **Scan commit:** `c6d1880cd4abf16d2b7ffef7399bcf876e59f2fb`, added before this corrections file.
 > **Assistance:** The questions and worked answers were supplied in the Codex conversation before the handwritten copy. This is an AI-assisted worked review, not evidence of independent closed-book reproduction. The original scan is preserved.
 
 ## Q1. Genetic algorithm
