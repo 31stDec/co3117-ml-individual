@@ -39,8 +39,9 @@ class GaussianNB:
             self.var_[i] = X_c.var(axis=0)                # ddof=0
             self.class_prior_[i] = X_c.shape[0] / X.shape[0]
 
-        # Smoothing: add var_smoothing * max(var across all classes and features)
-        self.epsilon_ = self.var_smoothing * self.var_.max()
+        # Scale smoothing by the largest feature variance over all training rows.
+        # This includes between-class variation, unlike max(per-class variance).
+        self.epsilon_ = self.var_smoothing * np.var(X, axis=0).max()
         self.var_ += self.epsilon_
         return self
 

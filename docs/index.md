@@ -15,7 +15,7 @@
 ### Part I — Pre-Midterm (W05–W07)
 - [W05: Perceptron, Delta Rule & ANN/Backpropagation](weekly/w05-perceptron-ann.md)
 - [W06: Bayesian Learning / Naive Bayes](weekly/w06-naive-bayes.md)
-- [W07: Genetic Algorithm + BN/TAN (Part I Closeout)](weekly/w07-ga-bn.md)
+- [W07: Genetic Algorithm + BN/TAN (Part I Closeout)](weekly/w07-genetic-algorithms.md)
 
 ### Midterm
 - [W08: Midterm Preparation & Reflection](weekly/w08-midterm.md)

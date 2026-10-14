@@ -1,0 +1,4 @@
+# Preserve upstream reference snapshots byte-for-byte for the recorded SHA-256.
+docs/reference/decision_tree.py -text
+docs/reference/genetic_algorithm.py -text
+docs/reference/LICENSE -text

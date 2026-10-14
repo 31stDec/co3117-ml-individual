@@ -1,0 +1,23 @@
+[
+  {
+    "path": "mlfromscratch/unsupervised_learning/genetic_algorithm.py",
+    "url": "https://raw.githubusercontent.com/eriklindernoren/ML-From-Scratch/master/mlfromscratch/unsupervised_learning/genetic_algorithm.py",
+    "sha256": "3f1836628cc5c58032ffb20b37b490ed0b9641ce1eca0afdf321c0411c832ae1",
+    "snapshot": "docs\\reference\\genetic_algorithm.py",
+    "retrieved_on": "2026-10-14"
+  },
+  {
+    "path": "mlfromscratch/supervised_learning/decision_tree.py",
+    "url": "https://raw.githubusercontent.com/eriklindernoren/ML-From-Scratch/master/mlfromscratch/supervised_learning/decision_tree.py",
+    "sha256": "825d8963080da526683b709cff4aa2f190543c129faaf4696128f6dde74505f2",
+    "snapshot": "docs\\reference\\decision_tree.py",
+    "retrieved_on": "2026-10-14"
+  },
+  {
+    "path": "LICENSE",
+    "url": "https://raw.githubusercontent.com/eriklindernoren/ML-From-Scratch/master/LICENSE",
+    "sha256": "6a2c07890b09a85694f1a691aaa48ffddd3f6556128f5da8413d2bde957071e7",
+    "snapshot": "docs\\reference\\LICENSE",
+    "retrieved_on": "2026-10-14"
+  }
+]

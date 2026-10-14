@@ -8,29 +8,49 @@ Secondary: Accuracy, Confusion Matrix
 import numpy as np
 
 
+def _inputs_and_labels(y_true, y_pred, n_classes=None, labels=None):
+    y_true, y_pred = np.asarray(y_true), np.asarray(y_pred)
+    if y_true.ndim != 1 or y_pred.ndim != 1 or y_true.shape != y_pred.shape:
+        raise ValueError("Labels must be one-dimensional arrays of equal length.")
+    if y_true.size == 0:
+        raise ValueError("At least one sample is required.")
+    if n_classes is not None and labels is not None:
+        raise ValueError("Specify labels or n_classes, not both.")
+    if labels is None:
+        # Infer actual labels, not every integer from zero to the maximum label.
+        labels = np.arange(n_classes) if n_classes is not None else np.union1d(y_true, y_pred)
+    labels = np.asarray(labels)
+    if labels.ndim != 1 or not len(labels) or len(np.unique(labels)) != len(labels):
+        raise ValueError("labels must be a nonempty sequence of unique classes.")
+    if not np.isin(y_true, labels).all() or not np.isin(y_pred, labels).all():
+        raise ValueError("Every observed label must occur in labels.")
+    return y_true, y_pred, labels
+
+
 def accuracy(y_true, y_pred):
     """Compute classification accuracy."""
-    return np.mean(y_true == y_pred)
+    y_true, y_pred, _ = _inputs_and_labels(y_true, y_pred)
+    return float(np.mean(y_true == y_pred))
 
 
-def confusion_matrix(y_true, y_pred, n_classes=None):
+def confusion_matrix(y_true, y_pred, n_classes=None, *, labels=None):
     """
     Compute confusion matrix.
 
     Returns:
         cm: np.ndarray of shape (n_classes, n_classes)
-            cm[i, j] = number of samples with true label i predicted as j
+            Rows/columns follow labels, or sorted observed labels by default.
+            Legacy n_classes explicitly selects labels 0 through n_classes - 1.
     """
-    if n_classes is None:
-        n_classes = max(y_true.max(), y_pred.max()) + 1
-
-    cm = np.zeros((n_classes, n_classes), dtype=int)
+    y_true, y_pred, labels = _inputs_and_labels(y_true, y_pred, n_classes, labels)
+    indices = {label: i for i, label in enumerate(labels)}
+    cm = np.zeros((len(labels), len(labels)), dtype=int)
     for t, p in zip(y_true, y_pred):
-        cm[t, p] += 1
+        cm[indices[t], indices[p]] += 1
     return cm
 
 
-def precision_recall_f1_per_class(y_true, y_pred, n_classes=None):
+def precision_recall_f1_per_class(y_true, y_pred, n_classes=None, *, labels=None):
     """
     Compute precision, recall, and F1 for each class.
 
@@ -39,7 +59,7 @@ def precision_recall_f1_per_class(y_true, y_pred, n_classes=None):
         recall: np.ndarray of shape (n_classes,)
         f1: np.ndarray of shape (n_classes,)
     """
-    cm = confusion_matrix(y_true, y_pred, n_classes)
+    cm = confusion_matrix(y_true, y_pred, n_classes, labels=labels)
     n_classes = cm.shape[0]
 
     precision = np.zeros(n_classes)
@@ -62,28 +82,31 @@ def precision_recall_f1_per_class(y_true, y_pred, n_classes=None):
     return precision, recall, f1
 
 
-def macro_f1(y_true, y_pred, n_classes=None):
+def macro_f1(y_true, y_pred, n_classes=None, *, labels=None):
     """
     Compute Macro-F1 score (primary metric for CO3117 assignment).
 
-    Macro-F1 = average of per-class F1 scores.
+    Average over actual labels by default; use labels for a fixed class universe.
     """
-    _, _, f1 = precision_recall_f1_per_class(y_true, y_pred, n_classes)
-    return f1.mean()
+    _, _, f1 = precision_recall_f1_per_class(y_true, y_pred, n_classes, labels=labels)
+    return float(f1.mean())
 
 
-def print_classification_report(y_true, y_pred, class_names=None):
+def print_classification_report(y_true, y_pred, class_names=None, *, labels=None):
     """Print a formatted classification report."""
-    precision, recall, f1 = precision_recall_f1_per_class(y_true, y_pred)
+    y_true, y_pred, labels = _inputs_and_labels(y_true, y_pred, labels=labels)
+    precision, recall, f1 = precision_recall_f1_per_class(y_true, y_pred, labels=labels)
     n_classes = len(precision)
 
     if class_names is None:
-        class_names = [str(c) for c in range(n_classes)]
+        class_names = [str(c) for c in labels]
+    if len(class_names) != n_classes:
+        raise ValueError("class_names must contain one name per label.")
 
     print(f"{'Class':<25} {'Precision':>10} {'Recall':>10} {'F1':>10} {'Support':>10}")
     print("-" * 65)
 
-    cm = confusion_matrix(y_true, y_pred, n_classes)
+    cm = confusion_matrix(y_true, y_pred, labels=labels)
 
     for c in range(n_classes):
         support = cm[c, :].sum()

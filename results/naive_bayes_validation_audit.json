@@ -1,0 +1,108 @@
+{
+  "labels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "metadata": {
+    "split": "validation",
+    "seed": 42,
+    "fit_subjects": [
+      5,
+      6,
+      7,
+      11,
+      14,
+      16,
+      17,
+      19,
+      21,
+      22,
+      23,
+      26,
+      28,
+      29,
+      30
+    ],
+    "evaluation_subjects": [
+      1,
+      3,
+      8,
+      15,
+      25,
+      27
+    ],
+    "fit_samples": 5270,
+    "evaluation_samples": 2082
+  },
+  "macro_f1": 0.7223775271665082,
+  "accuracy": 0.7363112391930836,
+  "train_time_s": 0.022807999999713502,
+  "confusion_matrix": [
+    [
+      280,
+      88,
+      18,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      310,
+      5,
+      0,
+      0,
+      0
+    ],
+    [
+      18,
+      87,
+      175,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      6,
+      0,
+      323,
+      9,
+      1
+    ],
+    [
+      0,
+      7,
+      0,
+      264,
+      104,
+      0
+    ],
+    [
+      0,
+      27,
+      0,
+      17,
+      0,
+      341
+    ]
+  ],
+  "reference_comparison": {
+    "max_abs_log_posterior_difference": 5.587935447692871e-09,
+    "prediction_agreement": 1.0,
+    "epsilon": 5.719850120149415e-10
+  },
+  "probability_diagnostics": {
+    "log_loss": 7.150856462591283,
+    "mean_max_probability": 0.9970878430533336
+  },
+  "largest_directed_confusion": {
+    "true_label": 5,
+    "predicted_label": 4,
+    "count": 264
+  }
+}

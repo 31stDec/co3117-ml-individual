@@ -1,0 +1,23 @@
+model,chapter,depth,week,macro_f1,accuracy,train_time_s,notes
+majority_baseline,1,baseline,W05,0.052020,0.184918,0.0,Always predict LAYING; corrected six-class F1
+random_baseline,1,baseline,W05,0.164538,0.167627,0.0,Random with training distribution; seed=42; corrected six-class F1
+gaussian_nb,6,Depth-A,W06,0.722378,0.736311,0.0228,Subject-held-out validation; smoothing=1e-9; sklearn agreement=100%
+perceptron_ovr,4,Depth-A,W05,0.949570,0.954371,1.55,LR chosen on subject-held-out validation only; lr=0.001; epochs=100; seed=42
+tree_adapted_unlimited,2,Depth-B,W05,0.862417,0.871278,3.4144,Subject-held-out validation; depth=None; min_leaf=1; ccp_alpha=0
+tree_adapted_depth6,2,Depth-B,W05,0.871938,0.883285,2.4355,Subject-held-out validation; depth=6; min_leaf=1; ccp_alpha=0
+tree_adapted_leaf20,2,Depth-B,W05,0.854601,0.864553,2.6552,Subject-held-out validation; depth=None; min_leaf=20; ccp_alpha=0
+tree_sklearn_unpruned,2,Depth-C,W05,0.881521,0.888088,1.2358,Subject-held-out validation; depth=None; min_leaf=1; ccp_alpha=0
+tree_sklearn_pruned,2,Depth-C,W05,0.870621,0.877522,1.2501,Subject-held-out validation; depth=None; min_leaf=1; ccp_alpha=0.002
+mlp_width32_seed42,3,Depth-A,W05,0.952229,0.957253,1.2185,Subject-held-out validation; width=32; seed=42; SGD lr=0.05; epochs=60
+mlp_width64_seed42,3,Depth-A,W05,0.951373,0.955812,2.1257,Subject-held-out validation; width=64; seed=42; SGD lr=0.05; epochs=60
+mlp_width32_seed0,3,Depth-A,W05,0.956253,0.959654,1.2622,Subject-held-out validation; width=32; seed=0; SGD lr=0.05; epochs=60
+mlp_width64_seed0,3,Depth-A,W05,0.953948,0.958213,2.1124,Subject-held-out validation; width=64; seed=0; SGD lr=0.05; epochs=60
+mlp_width32_seed1,3,Depth-A,W05,0.939977,0.944765,1.2351,Subject-held-out validation; width=32; seed=1; SGD lr=0.05; epochs=60
+mlp_width64_seed1,3,Depth-A,W05,0.946010,0.950528,2.0682,Subject-held-out validation; width=64; seed=1; SGD lr=0.05; epochs=60
+ga_nb_all12,5,baseline,W07,0.740683,0.759366,0.0010,GA candidate baseline; 12 train-ranked features; outer validation
+ga_nb_elite0_seed42,5,Depth-B,W07,0.731027,0.752161,0.0776,Nested subject-split fitness; seed=42; elites=0; features=7; outer validation
+ga_nb_elite1_seed42,5,Depth-B,W07,0.731027,0.752161,0.0667,Nested subject-split fitness; seed=42; elites=1; features=7; outer validation
+ga_nb_elite0_seed0,5,Depth-B,W07,0.731027,0.752161,0.0982,Nested subject-split fitness; seed=0; elites=0; features=7; outer validation
+ga_nb_elite1_seed0,5,Depth-B,W07,0.731027,0.752161,0.1038,Nested subject-split fitness; seed=0; elites=1; features=7; outer validation
+ga_nb_elite0_seed1,5,Depth-B,W07,0.731027,0.752161,0.0830,Nested subject-split fitness; seed=1; elites=0; features=7; outer validation
+ga_nb_elite1_seed1,5,Depth-B,W07,0.740619,0.760327,0.0690,Nested subject-split fitness; seed=1; elites=1; features=8; outer validation

@@ -11,7 +11,7 @@
 
 **Bayes' theorem** provides the foundation: $P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)}$. The **Naive Bayes** classifier assumes conditional independence among features given the class label, decomposing the joint likelihood as $P(X|Y=c) = \prod_{j=1}^{d} P(x_j|Y=c)$.
 
-1. **Gaussian Naive Bayes** models each $P(x_j | Y=c)$ as a univariate Gaussian $\mathcal{N}(\mu_{cj}, \sigma^2_{cj})$, estimated from training data with `ddof=0`. A smoothing term $\epsilon = \texttt{var\_smoothing} \times \max(\sigma^2)$ is added to all variances to prevent division by zero and improve numerical stability.
+1. **Gaussian Naive Bayes** models each $P(x_j | Y=c)$ as a univariate Gaussian $\mathcal{N}(\mu_{cj}, \sigma^2_{cj})$, estimated from training data with `ddof=0`. A smoothing term $\epsilon = \texttt{var\_smoothing} \times \max_j \operatorname{Var}(X_{\cdot j})$ is added to all variances to prevent division by zero and improve numerical stability.
 2. **Classification** selects $\hat{y} = \arg\max_c \left[\log P(c) + \sum_j \log P(x_j | c)\right]$, avoiding floating-point underflow by working in log-space throughout.
 
 ---
@@ -31,15 +31,15 @@ Since $\log P(c_0) = \log P(c_1)$, the posterior favours $c_1$ by a log-odds mar
 ## C. Code-to-Theory Trace
 
 In [`src/from_scratch/naive_bayes.py`](../../src/from_scratch/naive_bayes.py):
-* `fit()`: Computes per-class mean (`theta_`), variance (`var_`, ddof=0), and prior (`class_prior_`). Adds `epsilon_ = var_smoothing * max(var)` to all variances.
-* `predict_log_proba()`: Computes joint log-likelihood $\log P(c) + \sum_j \log P(x_j|c)$, then normalises via log-sum-exp to yield calibrated log-posteriors.
+* `fit()`: Computes per-class mean (`theta_`), variance (`var_`, ddof=0), and prior (`class_prior_`). Adds `epsilon_ = var_smoothing * X.var(axis=0).max()` to all variances.
+* `predict_log_proba()`: Computes joint log-likelihood $\log P(c) + \sum_j \log P(x_j|c)$, then normalises via log-sum-exp to yield normalised log-posteriors (not necessarily calibrated).
 * `predict()`: Returns `classes_[argmax(log_proba)]`.
 
 ---
 
 ## D. One Controlled Experiment
 
-On the contract test dataset (3 Gaussian clusters, 240 samples, 3 features), comparing our from-scratch GaussianNB against sklearn:
+Contract comparisons below pass. A 14 Oct HAR benchmark fits 5,270 windows from 15 subjects and validates on 2,082 windows from six other train subjects: Macro-F1 0.7224, accuracy 0.7363, and 100% sklearn prediction agreement. Final test data is not used. Details: `results/naive_bayes_validation_audit.json`.
 
 | Check | Result |
 |---|---|
@@ -52,13 +52,13 @@ On the contract test dataset (3 Gaussian clusters, 240 samples, 3 features), com
 
 ## E. Failure / Misconception
 
-* **Initial mistake:** Forgetting to add `var_smoothing * max(var)` globally — only adding the raw `var_smoothing` constant. This caused divergence from sklearn on low-variance features. The correct formula adds `var_smoothing × (largest variance across all classes and features)` to every per-class per-feature variance, matching sklearn's implementation.
+* **14 Oct audit correction:** The earlier code scaled smoothing by the largest within-class variance. The required formula uses the largest feature variance over all training rows, including between-class variation. A new test with widely separated class means catches this difference. On HAR validation, 264 STANDING windows become SITTING. Mean maximum probability is 0.9971 despite accuracy 0.7363 (log loss 7.1509): normalisation does not ensure calibration.
 
 ---
 
 ## F. Written-Exam Capsule
 
-> Naive Bayes classifies by computing the MAP estimate under a conditional-independence assumption: $\hat{y} = \arg\max_c P(c) \prod_j P(x_j|c)$. Gaussian NB uses per-class normal distributions $\mathcal{N}(\mu_{cj}, \sigma^2_{cj})$ with population variance (ddof=0). Variance smoothing adds $\epsilon = \texttt{var\_smoothing} \times \max(\sigma^2)$ to prevent singularity. Despite the "naive" independence assumption, GNB is competitive on many real datasets because the decision boundary only requires correct posterior ranking, not calibrated probabilities.
+> Naive Bayes classifies by computing the MAP estimate under a conditional-independence assumption: $\hat{y} = \arg\max_c P(c) \prod_j P(x_j|c)$. Gaussian NB uses per-class normal distributions $\mathcal{N}(\mu_{cj}, \sigma^2_{cj})$ with population variance (ddof=0). Variance smoothing adds $\epsilon = \texttt{var\_smoothing} \times \max_j \operatorname{Var}(X_{\cdot j})$ to prevent singularity. Despite the "naive" independence assumption, GNB is competitive on many real datasets because the decision boundary only requires correct posterior ranking, not calibrated probabilities.
 
 ---
 

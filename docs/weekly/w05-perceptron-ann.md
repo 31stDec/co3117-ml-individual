@@ -45,11 +45,11 @@ On UCI HAR (561 features, 6 classes, subject-aware split), we evaluated our from
 
 | Model | Depth | Test Macro-F1 | Test Accuracy | Train Time (s) |
 |---|---|---|---|---|
-| Majority-class baseline | Baseline | 0.0440 | 0.1822 | 0.00 |
-| Stratified random baseline | Baseline | 0.1387 | 0.1639 | 0.00 |
-| **From-Scratch OvR Perceptron** | **Depth-A** | **0.8143** | **0.9494** | **12.50** |
+| Majority-class baseline | Baseline | 0.0514 | 0.1822 | 0.00 |
+| Stratified random baseline | Baseline | 0.1618 | 0.1639 | 0.00 |
+| **From-Scratch OvR Perceptron** | **Depth-A** | **0.9545** | **0.9539** | **7.09** |
 
-High dimensionality ($d=561$) makes linear separation effective, drastically outperforming baselines.
+The 14 Oct rerun uses the original fixed configuration with corrected six-class F1. The previously exposed test set cannot serve as fresh validation; see the [audit](../../results/PART1_METRIC_AUDIT.md). A new train-subject validation sweep gives F1 0.9496 for all five learning rates, so it provides no evidence of a learning-rate advantage.
 
 ---
 
@@ -68,7 +68,7 @@ High dimensionality ($d=561$) makes linear separation effective, drastically out
 
 ## G. Reflection
 
-* **Gained Insight:** High feature dimensions ($d=561$) substantially increase linear separability odds, explaining the strong 81.4% Macro-F1.
+* **Gained Insight:** High feature dimensions ($d=561$) substantially increase linear separability odds, explaining the rerun 95.45% Macro-F1.
 * **Next Target:** Implementing Gaussian Naive Bayes and handling feature variance smoothing in W06.
 
 ---

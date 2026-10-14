@@ -59,10 +59,10 @@ On UCI HAR (561 features, 6 classes, subject-aware split), we evaluated naive ba
 
 | Baseline Strategy | Test Accuracy | Test Macro-F1 | Observation |
 |---|---|---|---|
-| **Majority-Class** (Always predict `LAYING`) | 18.22% | **0.0440** | Zero recall on all minority classes |
-| **Stratified Random** (Prior distribution) | 16.39% | **0.1387** | Chance baseline across all classes |
+| **Majority-Class** (Always predict `LAYING`) | 18.22% | **0.0514** | Zero recall on all minority classes |
+| **Stratified Random** (Prior distribution) | 16.39% | **0.1618** | Chance baseline across all classes |
 
-Logged in `results/metrics.csv`. Any valid model must surpass Macro-F1 $= 0.14$.
+Corrected on 14 Oct to average over six actual classes; original values are preserved in Git and the [audit](../../results/PART1_METRIC_AUDIT.md). Logged in `results/metrics.csv`. Any valid model must surpass Macro-F1 $= 0.162$.
 
 ---
 
