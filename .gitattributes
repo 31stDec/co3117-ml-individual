@@ -2,3 +2,6 @@
 docs/reference/decision_tree.py -text
 docs/reference/genetic_algorithm.py -text
 docs/reference/LICENSE -text
+docs/reference/numpy_ml_hmm/hmm.py -text
+docs/reference/numpy_ml_hmm/misc.py -text
+docs/reference/numpy_ml_hmm/LICENSE -text
