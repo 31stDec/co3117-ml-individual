@@ -1,0 +1,17 @@
+{
+  "commit": "b0359af5285fbf9699d64fd5ec059493228af03e",
+  "files": {
+    "hmm.py": {
+      "source": "numpy_ml/hmm/hmm.py",
+      "sha256": "bde11928e41c300dd2b943f29ad03259c7407d5e02a102f1c982760e78fdafc9"
+    },
+    "misc.py": {
+      "source": "numpy_ml/utils/misc.py",
+      "sha256": "d81b4c1aa29c3ff68d41d9024109053f86731a9b073df40b8f35ec9e7a15ce6d"
+    },
+    "LICENSE": {
+      "source": "LICENSE",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    }
+  }
+}

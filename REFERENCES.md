@@ -24,6 +24,13 @@ repository path and commit). One line per source.
 
 ## Weekly Specific Citations
 
+### W09 HMM -- 2026-10-27
+
+- HCMUT, Faculty of Computer Science and Engineering. Hidden Markov Models, lecture slides dated 11 August 2026. Pages 8, 11-13: model definition and Forward; pages 20-25: Viterbi and backtracking. Local file: `C:/Users/USER/Downloads/ML/HMM.pdf`.
+- D. D. Bourgin, numpy-ml, commit `b0359af5285fbf9699d64fd5ec059493228af03e`. `numpy_ml/hmm/hmm.py`: `MultinomialHMM._forward`, `log_likelihood`, and `decode`; `numpy_ml/utils/misc.py`: `logsumexp`. https://github.com/ddbourgin/numpy-ml/tree/b0359af5285fbf9699d64fd5ec059493228af03e . Exact source snapshots, license, and SHA-256 hashes are saved in `docs/reference/numpy_ml_hmm/`.
+- Reyes-Ortiz et al., UCI Human Activity Recognition Using Smartphones, v1.0. Dataset README and https://doi.org/10.24432/C54S4K . Source for the subject split, 128-sample windows, and 50% overlap. The experiment reconstructs conservative continuous segments by checking overlap across all nine channels.
+- Installed scikit-learn, version recorded in `results/w09_hmm/audit.json`: `StandardScaler`, `MiniBatchKMeans`, `GroupShuffleSplit`, `f1_score`, `accuracy_score`, and `confusion_matrix`, used for preprocessing, quantization, subject separation, and evaluation.
+
 ### W05
 - Tom Mitchell (1997) *Machine Learning*, Chapter 4 (Artificial Neural Networks), Sections 4.4–4.5 (Perceptron, Delta rule, Gradient descent).
 - Christopher M. Bishop (2006) *Pattern Recognition and Machine Learning*, Chapter 4 (Linear Models for Classification), Section 4.1.7 (Perceptron algorithm).
