@@ -24,6 +24,13 @@ repository path and commit). One line per source.
 
 ## Weekly Specific Citations
 
+### W10 SVM -- 2026-11-03
+
+- HCMUT, Faculty of Computer Science and Engineering, *Support Vector Machines*, 11 August 2026. Slide numbers 5-13: hard margin and geometry; 34-35: soft margin and C. Local file `C:/Users/USER/Downloads/ML/SVM.pdf`; slide numbers differ from PDF page numbers.
+- Erik Linder-Noren, ML-From-Scratch, commit `a2806c6732eee8d27762edd6d864e0c179d8e9e8`: `mlfromscratch/supervised_learning/support_vector_machine.py`, `SupportVectorMachine.fit` and `predict`; `mlfromscratch/utils/kernels.py`, `linear_kernel`. https://github.com/eriklindernoren/ML-From-Scratch/tree/a2806c6732eee8d27762edd6d864e0c179d8e9e8 . Exact source, MIT license, and SHA-256 hashes in `docs/reference/svm/`. Read for dissection; CVXOPT implementation not executed.
+- scikit-learn 1.9.1, `SVC`, https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html ; installed `svm/_base.py`, `BaseSVC._get_coef` and `predict`, inspected for linear coefficients and multiclass prediction. Source hashes and software versions in `results/w10_svm/audit.json`. StandardScaler, GroupShuffleSplit, and classification metrics used for the controlled experiment.
+- UCI HAR v1.0, https://doi.org/10.24432/C54S4K ; unchanged dataset and original training population. W10 uses the previously defined subject-held-out validation split. No new test-set evaluation.
+
 ### W09 HMM -- 2026-10-27
 
 - HCMUT, Faculty of Computer Science and Engineering. Hidden Markov Models, lecture slides dated 11 August 2026. Pages 8, 11-13: model definition and Forward; pages 20-25: Viterbi and backtracking. Local file: `C:/Users/USER/Downloads/ML/HMM.pdf`.

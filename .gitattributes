@@ -5,3 +5,7 @@ docs/reference/LICENSE -text
 docs/reference/numpy_ml_hmm/hmm.py -text
 docs/reference/numpy_ml_hmm/misc.py -text
 docs/reference/numpy_ml_hmm/LICENSE -text
+docs/reference/svm/support_vector_machine.py -text
+docs/reference/svm/kernels.py -text
+docs/reference/svm/LICENSE -text
+*.pdf binary
