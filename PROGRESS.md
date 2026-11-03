@@ -11,7 +11,7 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 | W07 | Genetic Algorithms & Bayesian Networks (TAN), Part I closeout | [post](docs/weekly/w07-genetic-algorithms.md) | [drill](exercises/w07-first-attempt.pdf), [corrections](exercises/w07-corrections.md) | c6d1880 | 6f2ec9d | w07, part1-final | ACTIVE |
 | W08 | MIDTERM (16 Oct) | [entry](docs/weekly/w08-midterm.md), [reflection](exam/midterm-reflection.md) |  | n/a | n/a | w08-midterm | MIDTERM |
 | W09 | HMM / sequence modelling | [post](docs/weekly/w09-hmm.md) | [drill](exercises/w09-first-attempt.pdf), [corrections](exercises/w09-corrections.md) | 969096b | c833449 | w09 | ACTIVE |
-| W10 | SVM: maximum and soft margin | [post](docs/weekly/w10-svm.md) | [drill](exercises/w10-first-attempt.pdf), [corrections](exercises/w10-corrections.md) | 358a662 |  | w10 | ACTIVE |
+| W10 | SVM: maximum and soft margin | [post](docs/weekly/w10-svm.md) | [drill](exercises/w10-first-attempt.pdf), [corrections](exercises/w10-corrections.md) | 358a662 | 1947792 | w10 | ACTIVE |
 | W11 | Kernel SVM, cross-model comparison |  |  |  |  | w11 |  |
 | W12 | PCA, curse of dimensionality |  |  |  |  | w12 |  |
 | W13 | LDA, feature engineering |  |  |  |  | w13 |  |
@@ -20,7 +20,7 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 
 Status values: PRE-RELEASE (W01-W04), ACTIVE (current week), DONE (tag pushed), MIDTERM (W08).
 
-W10 update (2026-11-03): Scan `358a662` is committed. Corrections, SVM reference study, HAR experiments, results, and the weekly post are prepared locally. The revision hash remains blank until a later commit. No w10 tag has been created or pushed. A4 updates remain deferred.
+W10 update (2026-11-03): Scan `358a662` is committed. Corrections, SVM reference study, HAR experiments, results, and the weekly post are committed at `1947792`. No w10 tag has been created or pushed. A4 updates remain deferred.
 
 W09 update (2026-10-27): Scan `969096b`, HMM code `49f5595`, and review/experiments `c833449` are committed. The w09 checkpoint is being validated for submission. A4 updates are deferred to final-exam preparation; the wider assistance record remains pending.
 
