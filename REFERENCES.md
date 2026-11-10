@@ -11,6 +11,13 @@ repository path and commit). One line per source.
 - UCI Human Activity Recognition Using Smartphones: https://archive.ics.uci.edu/dataset/240/human+activity+recognition+using+smartphones
 - scikit-learn documentation: https://scikit-learn.org/stable/
 
+### W11 Kernel SVM -- 2026-11-09
+
+- HCMUT SVM lecture, 11 August 2026, slide labels 23-27 (dual), 28-33 (kernel trick), 34-35 (soft margin); local `C:/Users/USER/Downloads/ML/SVM.pdf`. RBF is an assignment extension to the lecture's polynomial example.
+- ML-From-Scratch, commit `a2806c6732eee8d27762edd6d864e0c179d8e9e8`, `mlfromscratch/utils/kernels.py` and `mlfromscratch/supervised_learning/support_vector_machine.py`. Existing MIT snapshots and hashes: `docs/reference/svm/provenance.json`. W11 executes the kernel helpers; it does not execute CVXOPT.
+- Installed sklearn SVC and `metrics.pairwise.rbf_kernel` source/docstrings, inspected 2026-11-09; https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html and https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.rbf_kernel.html . Version and SVC source hash: `results/w11_kernel_svm/audit.json`. GaussianNB and DummyClassifier provide fixed-setting comparison baselines.
+- UCI HAR v1.0 and the frozen subject split; W10 input hashes, validation row IDs, and predictions are checked before cross-week comparison. No official test files are read in W11.
+
 ## Course Textbooks & Materials
 - [1] CO3117 Machine Learning course syllabus, HK261, Faculty of Computer Science and Engineering, HCMUT, VNU-HCM.
 - [2] Sample CO3117 final examination, question sheet code 504, Semester 2 2025–2026, 26 May 2026.

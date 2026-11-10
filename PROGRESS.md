@@ -12,13 +12,15 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 | W08 | MIDTERM (16 Oct) | [entry](docs/weekly/w08-midterm.md), [reflection](exam/midterm-reflection.md) |  | n/a | n/a | w08-midterm | MIDTERM |
 | W09 | HMM / sequence modelling | [post](docs/weekly/w09-hmm.md) | [drill](exercises/w09-first-attempt.pdf), [corrections](exercises/w09-corrections.md) | 969096b | c833449 | w09 | ACTIVE |
 | W10 | SVM: maximum and soft margin | [post](docs/weekly/w10-svm.md) | [drill](exercises/w10-first-attempt.pdf), [corrections](exercises/w10-corrections.md) | 358a662 | 1947792 | w10 | DONE |
-| W11 | Kernel SVM, cross-model comparison |  |  |  |  | w11 |  |
+| W11 | Kernel SVM, cross-model comparison | [post](docs/weekly/w11-kernel-svm.md) | [drill](exercises/w11-first-attempt.pdf), [corrections](exercises/w11-corrections.md) | b01f02d |  | w11 | ACTIVE |
 | W12 | PCA, curse of dimensionality |  |  |  |  | w12 |  |
 | W13 | LDA, feature engineering |  |  |  |  | w13 |  |
 | W14 | Bagging, boosting, AdaBoost |  |  |  |  | w14 |  |
 | W15 | Generative vs discriminative, Logistic/MaxEnt, CRF, synthesis |  |  |  |  | w15, part2-final |  |
 
 Status values: PRE-RELEASE (W01-W04), ACTIVE (current week), DONE (tag pushed), MIDTERM (W08).
+
+W11 update (2026-11-10): Scan `b01f02d` is committed. Corrections, reference study, HAR results, weekly post, and assistance record are prepared for review. Revision hash remains blank until the next commit. No w11 tag has been created or pushed. A4 remains deferred.
 
 W10 update (2026-11-03): Scan `358a662` is committed. Corrections, SVM reference study, HAR experiments, results, and the weekly post are committed at `1947792`. The w10 tag at `69b9e2f` has been pushed to the course repository. A4 updates remain deferred.
 
