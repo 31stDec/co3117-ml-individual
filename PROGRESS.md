@@ -12,7 +12,7 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 | W08 | MIDTERM (16 Oct) | [entry](docs/weekly/w08-midterm.md), [reflection](exam/midterm-reflection.md) |  | n/a | n/a | w08-midterm | MIDTERM |
 | W09 | HMM / sequence modelling | [post](docs/weekly/w09-hmm.md) | [drill](exercises/w09-first-attempt.pdf), [corrections](exercises/w09-corrections.md) | 969096b | c833449 | w09 | ACTIVE |
 | W10 | SVM: maximum and soft margin | [post](docs/weekly/w10-svm.md) | [drill](exercises/w10-first-attempt.pdf), [corrections](exercises/w10-corrections.md) | 358a662 | 1947792 | w10 | DONE |
-| W11 | Kernel SVM, cross-model comparison | [post](docs/weekly/w11-kernel-svm.md) | [drill](exercises/w11-first-attempt.pdf), [corrections](exercises/w11-corrections.md) | b01f02d | d0a8c71 | w11 | ACTIVE |
+| W11 | Kernel SVM, cross-model comparison | [post](docs/weekly/w11-kernel-svm.md) | [drill](exercises/w11-first-attempt.pdf), [corrections](exercises/w11-corrections.md) | b01f02d | d0a8c71 | w11 | DONE |
 | W12 | PCA, curse of dimensionality |  |  |  |  | w12 |  |
 | W13 | LDA, feature engineering |  |  |  |  | w13 |  |
 | W14 | Bagging, boosting, AdaBoost |  |  |  |  | w14 |  |
@@ -20,7 +20,7 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 
 Status values: PRE-RELEASE (W01-W04), ACTIVE (current week), DONE (tag pushed), MIDTERM (W08).
 
-W11 update (2026-11-10): Scan `b01f02d` and revision `d0a8c71` are committed. The revision includes corrections, reference study, HAR results, weekly post, and assistance record. Tag submission is pending. A4 remains deferred.
+W11 update (2026-11-10): Scan `b01f02d` and revision `d0a8c71` are committed. The revision includes corrections, reference study, HAR results, weekly post, and assistance record. Tag `w11` at `cdc7067` has been pushed to the course repository. Local checkpoint validation passed 66/66 checks. A4 remains deferred.
 
 W10 update (2026-11-03): Scan `358a662` is committed. Corrections, SVM reference study, HAR experiments, results, and the weekly post are committed at `1947792`. The w10 tag at `69b9e2f` has been pushed to the course repository. A4 updates remain deferred.
 
