@@ -137,7 +137,7 @@ One block per model family (assignment Section 9.1). Copy the block below.
 - Diagnostics: All SVC fits converge. Kernel parity, polynomial feature-map identity, binary dual constraints/scores, and precomputed-kernel parity pass. Maximum binary score reconstruction error is 5.56e-16. `results/w11_kernel_svm/` contains audit, all predictions, metrics, heatmaps, and error examples.
 - Failure / limitation: Largest selected-model confusion is DOWNSTAIRS to UPSTAIRS (52 windows). At C=1, gamma=0.1, fit Macro-F1 is 1.0 but validation is 0.052020. Window correlation and one tuning split preclude significance claims. No repeated deterministic training seeds or fresh test evaluation are claimed.
 - Exam capsule: Kernels replace feature-space inner products. C controls violation penalties; gamma controls RBF locality. Support vectors contribute to the dual score. Scores are not calibrated probabilities. Scaling and validation-based selection are essential.
-- Status: Scan archived at `b01f02d`; handwritten review, experiments, and documentation prepared for review on 2026-11-10. Revision commit and checkpoint tag remain pending.
+- Status: Scan archived at `b01f02d`; handwritten review, experiments, and documentation committed at `d0a8c71` on 2026-11-10. Checkpoint submission status is tracked in PROGRESS.md.
 
 ## Dated correction -- 2026-10-14
 
