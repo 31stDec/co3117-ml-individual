@@ -150,7 +150,7 @@ One block per model family (assignment Section 9.1). Copy the block below.
 - Runtime / evidence: At k=200, classifier fit took 0.105 s and validation prediction 0.059 s in one run; no-PCA fit took 0.263 s. These omit PCA fit/projection overhead, so they are not end-to-end speedups. Shared PCA fit timing is recorded separately in the audit. Metrics, predictions, spectrum and plot are in `results/w12_pca/`.
 - Verification / limits: 31 tests passed, five unrelated contract tests skipped. PCA-specific tests all pass. Subspaces, variances and reconstructions match sklearn; centered reference scores match up to basis orientation. Reconstruction MSE decreases across nested k. One reused holdout, correlated windows and fixed classifier C limit generalization claims; no independent test estimate.
 - Exam capsule: Center with the training mean, retain leading eigenvectors, project and restore the mean during reconstruction. Uncorrelated does not imply independent. Variance retention is not a guarantee of classification quality.
-- Status: Scan `94f024a` committed; implementation, experiments and review await user inspection and a revision commit.
+- Status: Scan `94f024a` committed; implementation, experiments and review committed at `5b70e8c`. Checkpoint submission is tracked in PROGRESS.md.
 
 ## Dated correction -- 2026-10-14
 

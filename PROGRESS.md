@@ -13,14 +13,14 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 | W09 | HMM / sequence modelling | [post](docs/weekly/w09-hmm.md) | [drill](exercises/w09-first-attempt.pdf), [corrections](exercises/w09-corrections.md) | 969096b | c833449 | w09 | ACTIVE |
 | W10 | SVM: maximum and soft margin | [post](docs/weekly/w10-svm.md) | [drill](exercises/w10-first-attempt.pdf), [corrections](exercises/w10-corrections.md) | 358a662 | 1947792 | w10 | DONE |
 | W11 | Kernel SVM, cross-model comparison | [post](docs/weekly/w11-kernel-svm.md) | [drill](exercises/w11-first-attempt.pdf), [corrections](exercises/w11-corrections.md) | b01f02d | d0a8c71 | w11 | DONE |
-| W12 | PCA, curse of dimensionality | [post](docs/weekly/w12-pca.md) | [drill](exercises/w12-first-attempt.pdf), [corrections](exercises/w12-corrections.md) | 94f024a |  | w12 | ACTIVE |
+| W12 | PCA, curse of dimensionality | [post](docs/weekly/w12-pca.md) | [drill](exercises/w12-first-attempt.pdf), [corrections](exercises/w12-corrections.md) | 94f024a | 5b70e8c | w12 | ACTIVE |
 | W13 | LDA, feature engineering |  |  |  |  | w13 |  |
 | W14 | Bagging, boosting, AdaBoost |  |  |  |  | w14 |  |
 | W15 | Generative vs discriminative, Logistic/MaxEnt, CRF, synthesis |  |  |  |  | w15, part2-final |  |
 
 Status values: PRE-RELEASE (W01-W04), ACTIVE (current week), DONE (tag pushed), MIDTERM (W08).
 
-W12 update (2026-11-17): Scan `94f024a` is committed. PCA code, reference checks, HAR experiments, corrections, weekly post, and assistance record are prepared for review. Revision hash remains blank until commit. No w12 tag has been created or pushed. A4 remains deferred.
+W12 update (2026-11-17): Scan `94f024a` is committed. PCA code, reference checks, HAR experiments, corrections, weekly post, and assistance record are committed at `5b70e8c`. No w12 tag has been created or pushed. A4 remains deferred.
 
 W11 update (2026-11-10): Scan `b01f02d` and revision `d0a8c71` are committed. The revision includes corrections, reference study, HAR results, weekly post, and assistance record. Tag `w11` at `cdc7067` has been pushed to the course repository. Local checkpoint validation passed 66/66 checks. A4 remains deferred.
 
