@@ -1,0 +1,18 @@
+{
+  "commit": "a2806c6732eee8d27762edd6d864e0c179d8e9e8",
+  "retrieved": "2026-11-17",
+  "files": {
+    "principal_component_analysis.py": {
+      "source": "mlfromscratch/unsupervised_learning/principal_component_analysis.py",
+      "sha256": "5a42de8b5f706938e1402a1631c5877cc528c295d16548e1db5acf68dee873ac"
+    },
+    "data_operation.py": {
+      "source": "mlfromscratch/utils/data_operation.py",
+      "sha256": "13b736264f616aa483ad71482b6387310795b2a96e5151b1941768ba950082dd"
+    },
+    "LICENSE": {
+      "source": "LICENSE",
+      "sha256": "6a2c07890b09a85694f1a691aaa48ffddd3f6556128f5da8413d2bde957071e7"
+    }
+  }
+}

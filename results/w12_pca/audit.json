@@ -1,0 +1,748 @@
+{
+  "date": "2026-11-17",
+  "test_loaded": false,
+  "split_seed": 42,
+  "fit_subjects": [
+    5,
+    6,
+    7,
+    11,
+    14,
+    16,
+    17,
+    19,
+    21,
+    22,
+    23,
+    26,
+    28,
+    29,
+    30
+  ],
+  "validation_subjects": [
+    1,
+    3,
+    8,
+    15,
+    25,
+    27
+  ],
+  "fit_rows": 5270,
+  "validation_rows": 2082,
+  "input_sha256": {
+    "X_train.txt": "9c1246099c8d5463779eec5a3845cc3898df9d8c715441ab2a1232d4421fc42f",
+    "y_train.txt": "415b3357e2e2d5e70a45c781947c6bdd80e0410a579d862eedcd6bbce3c694ef",
+    "subject_train.txt": "66e1e2fbe9b396fa5155f531dc3348c803f503be663e2318772d49947db9153a"
+  },
+  "versions": {
+    "python": "3.13.13",
+    "numpy": "2.5.1",
+    "sklearn": "1.9.1"
+  },
+  "source_sha256": {
+    "own_pca": "01ff6c5cfddb8123b5fc792d998f8161d27a59566fd4a9df94d2d774474814bb",
+    "experiment": "6ad5c8e5e89bd220297dd981105883fbfa5621e8dc1f5698b5bcd5bd93b72aab",
+    "sklearn_pca": "3d3dd42d58210f997514c1948457bf30cc717ba976057ce8c70c979b5425a29b"
+  },
+  "reference_checks": {
+    "cases": [
+      {
+        "k": 1,
+        "sklearn_projector_max_abs_error": 1.3877787807814457e-17,
+        "upstream_raw_score_mean_norm": 9.327078111634782,
+        "upstream_centered_gram_max_abs_error": 4.263256414560601e-14
+      },
+      {
+        "k": 3,
+        "sklearn_projector_max_abs_error": 5.100087019371813e-16,
+        "upstream_raw_score_mean_norm": 10.864260996500683,
+        "upstream_centered_gram_max_abs_error": 6.039613253960852e-14
+      },
+      {
+        "k": 5,
+        "sklearn_projector_max_abs_error": 6.760343274310692e-16,
+        "upstream_raw_score_mean_norm": 13.41929957266788,
+        "upstream_centered_gram_max_abs_error": 5.684341886080802e-14
+      }
+    ],
+    "source_hashes_verified": true,
+    "execution_adapter": "Exact AST class/helper definitions; injected np and covariance helper; no algorithm edits",
+    "upstream_observation": "Covariance uses centering and n-1; transform projects raw X and refits on each call. Pass centered data for score comparison; do not refit on validation.",
+    "equation_map": {
+      "own": "fit_pca: mean, thin SVD, s^2/(n-1); transform: (X-mean)W^T; inverse_transform: ZW+mean",
+      "upstream": "PCA.transform: covariance -> eig -> descending eigenvalues -> X.dot(eigenvectors)",
+      "sklearn": "PCA._fit_full: center -> SVD -> variance -> sign convention -> truncate"
+    }
+  },
+  "har_sklearn_comparisons": [
+    {
+      "k": 2,
+      "projector_max_abs_error": 4.846383711010205e-17,
+      "validation_reconstruction_max_abs_error": 1.4654943925052066e-14
+    },
+    {
+      "k": 5,
+      "projector_max_abs_error": 1.240327285323417e-16,
+      "validation_reconstruction_max_abs_error": 2.5757174171303632e-14
+    },
+    {
+      "k": 10,
+      "projector_max_abs_error": 2.3071822230491534e-16,
+      "validation_reconstruction_max_abs_error": 2.7977620220553945e-14
+    },
+    {
+      "k": 20,
+      "projector_max_abs_error": 9.775166787129308e-16,
+      "validation_reconstruction_max_abs_error": 6.203371150093062e-14
+    },
+    {
+      "k": 50,
+      "projector_max_abs_error": 2.1545265571631944e-15,
+      "validation_reconstruction_max_abs_error": 1.2079226507921703e-13
+    },
+    {
+      "k": 100,
+      "projector_max_abs_error": 4.836409051023338e-14,
+      "validation_reconstruction_max_abs_error": 2.20001794559721e-12
+    },
+    {
+      "k": 200,
+      "projector_max_abs_error": 5.28353402695636e-15,
+      "validation_reconstruction_max_abs_error": 1.7466583734915275e-13
+    },
+    {
+      "k": 561,
+      "projector_max_abs_error": 2.4424906541753444e-15,
+      "validation_reconstruction_max_abs_error": 4.618527782440651e-14
+    }
+  ],
+  "pca_fit_seconds": 0.31535729999995965,
+  "pca_variance_ddof": 1,
+  "whiten": false,
+  "k_grid": [
+    2,
+    5,
+    10,
+    20,
+    50,
+    100,
+    200,
+    561
+  ],
+  "fit_variance_k95": 99,
+  "classifier": {
+    "class": "sklearn.svm.SVC",
+    "kernel": "linear",
+    "C": 0.01,
+    "tol": 0.001,
+    "cache_size_MB": 512,
+    "decision_function_shape": "ovo"
+  },
+  "selection_rule": "highest validation Macro-F1 among reduced k<561; smaller k breaks exact ties",
+  "limitations": [
+    "Reused validation holdout; no unbiased final estimate",
+    "Single-run timing; deterministic fixed-split fits",
+    "Overlapping windows are correlated",
+    "MSE is averaged over rows and all 561 standardized input features",
+    "One full SVD reused for nested k; PCA time is not measured separately per k",
+    "Historical official-test exposure remains as previously documented"
+  ],
+  "runs": [
+    {
+      "model": "no_pca",
+      "k": null,
+      "retained_fit_variance": 1.0,
+      "fit_reconstruction_mse": 0.0,
+      "validation_reconstruction_mse": 0.0,
+      "validation": {
+        "macro_f1": 0.9474698079898355,
+        "accuracy": 0.951969260326609,
+        "confusion_matrix": [
+          [
+            380,
+            5,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            317,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            17,
+            42,
+            221,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            334,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            23,
+            352,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            5,
+            0,
+            378
+          ]
+        ]
+      },
+      "fit_macro_f1": 0.9857730306982021,
+      "classifier_fit_seconds": 0.2631274000000303,
+      "validation_predict_seconds": 0.16937209999969127,
+      "support_vectors": 1036,
+      "fit_status": 0
+    },
+    {
+      "model": "pca_2",
+      "k": 2,
+      "retained_fit_variance": 0.5734209264724022,
+      "fit_reconstruction_mse": 0.42657907352759794,
+      "validation_reconstruction_mse": 0.4274295043568945,
+      "validation": {
+        "macro_f1": 0.4874504294031778,
+        "accuracy": 0.5182516810758886,
+        "confusion_matrix": [
+          [
+            321,
+            15,
+            50,
+            0,
+            0,
+            0
+          ],
+          [
+            8,
+            275,
+            31,
+            2,
+            1,
+            0
+          ],
+          [
+            90,
+            68,
+            122,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            11,
+            94,
+            233
+          ],
+          [
+            0,
+            0,
+            0,
+            29,
+            123,
+            223
+          ],
+          [
+            0,
+            8,
+            0,
+            13,
+            137,
+            227
+          ]
+        ]
+      },
+      "fit_macro_f1": 0.5448227428192407,
+      "classifier_fit_seconds": 0.11413860000038767,
+      "validation_predict_seconds": 0.05357929999991029,
+      "support_vectors": 4085,
+      "fit_status": 0
+    },
+    {
+      "model": "pca_5",
+      "k": 5,
+      "retained_fit_variance": 0.6487545629736484,
+      "fit_reconstruction_mse": 0.35124543702635164,
+      "validation_reconstruction_mse": 0.3726133068559329,
+      "validation": {
+        "macro_f1": 0.8154992660894327,
+        "accuracy": 0.8270893371757925,
+        "confusion_matrix": [
+          [
+            332,
+            19,
+            35,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            293,
+            18,
+            2,
+            0,
+            0
+          ],
+          [
+            56,
+            64,
+            160,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            255,
+            72,
+            11
+          ],
+          [
+            0,
+            0,
+            0,
+            54,
+            321,
+            0
+          ],
+          [
+            0,
+            4,
+            0,
+            20,
+            0,
+            361
+          ]
+        ]
+      },
+      "fit_macro_f1": 0.8045948895017317,
+      "classifier_fit_seconds": 0.050968900000043504,
+      "validation_predict_seconds": 0.03491799999983414,
+      "support_vectors": 2482,
+      "fit_status": 0
+    },
+    {
+      "model": "pca_10",
+      "k": 10,
+      "retained_fit_variance": 0.7133749775313745,
+      "fit_reconstruction_mse": 0.2866250224686256,
+      "validation_reconstruction_mse": 0.31727963338656767,
+      "validation": {
+        "macro_f1": 0.8579753575599103,
+        "accuracy": 0.8674351585014409,
+        "confusion_matrix": [
+          [
+            365,
+            21,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            5,
+            310,
+            2,
+            0,
+            0,
+            0
+          ],
+          [
+            42,
+            67,
+            171,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            265,
+            68,
+            5
+          ],
+          [
+            0,
+            0,
+            0,
+            47,
+            328,
+            0
+          ],
+          [
+            0,
+            3,
+            1,
+            14,
+            0,
+            367
+          ]
+        ]
+      },
+      "fit_macro_f1": 0.867434381614622,
+      "classifier_fit_seconds": 0.05070910000040385,
+      "validation_predict_seconds": 0.03700609999987137,
+      "support_vectors": 1971,
+      "fit_status": 0
+    },
+    {
+      "model": "pca_20",
+      "k": 20,
+      "retained_fit_variance": 0.7785982949183262,
+      "fit_reconstruction_mse": 0.2214017050816739,
+      "validation_reconstruction_mse": 0.25671811816231577,
+      "validation": {
+        "macro_f1": 0.8811384415157071,
+        "accuracy": 0.8885686839577329,
+        "confusion_matrix": [
+          [
+            371,
+            14,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            310,
+            5,
+            0,
+            1,
+            0
+          ],
+          [
+            41,
+            54,
+            185,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            299,
+            35,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            54,
+            321,
+            0
+          ],
+          [
+            0,
+            3,
+            1,
+            17,
+            0,
+            364
+          ]
+        ]
+      },
+      "fit_macro_f1": 0.9162670274127499,
+      "classifier_fit_seconds": 0.05259060000025784,
+      "validation_predict_seconds": 0.030565000000024156,
+      "support_vectors": 1521,
+      "fit_status": 0
+    },
+    {
+      "model": "pca_50",
+      "k": 50,
+      "retained_fit_variance": 0.8796947770043957,
+      "fit_reconstruction_mse": 0.1203052229956044,
+      "validation_reconstruction_mse": 0.15444464994874094,
+      "validation": {
+        "macro_f1": 0.9094588609994657,
+        "accuracy": 0.9154658981748319,
+        "confusion_matrix": [
+          [
+            360,
+            26,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            317,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            32,
+            52,
+            196,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            329,
+            9,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            46,
+            329,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            8,
+            0,
+            375
+          ]
+        ]
+      },
+      "fit_macro_f1": 0.953095839121835,
+      "classifier_fit_seconds": 0.05967800000007628,
+      "validation_predict_seconds": 0.030612400000336493,
+      "support_vectors": 1231,
+      "fit_status": 0
+    },
+    {
+      "model": "pca_100",
+      "k": 100,
+      "retained_fit_variance": 0.9512846270748946,
+      "fit_reconstruction_mse": 0.04871537292510546,
+      "validation_reconstruction_mse": 0.06323258577417526,
+      "validation": {
+        "macro_f1": 0.9322029840352776,
+        "accuracy": 0.9385206532180596,
+        "confusion_matrix": [
+          [
+            374,
+            12,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            317,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            26,
+            51,
+            203,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            331,
+            7,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            27,
+            348,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            2,
+            0,
+            381
+          ]
+        ]
+      },
+      "fit_macro_f1": 0.9733581878523805,
+      "classifier_fit_seconds": 0.07158339999978125,
+      "validation_predict_seconds": 0.03715460000012172,
+      "support_vectors": 1055,
+      "fit_status": 0
+    },
+    {
+      "model": "pca_200",
+      "k": 200,
+      "retained_fit_variance": 0.9940875506968966,
+      "fit_reconstruction_mse": 0.005912449303103364,
+      "validation_reconstruction_mse": 0.009074064964797011,
+      "validation": {
+        "macro_f1": 0.9439533203127022,
+        "accuracy": 0.9490874159462056,
+        "confusion_matrix": [
+          [
+            380,
+            5,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            316,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            19,
+            45,
+            216,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            334,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            23,
+            352,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            5,
+            0,
+            378
+          ]
+        ]
+      },
+      "fit_macro_f1": 0.9833694336848217,
+      "classifier_fit_seconds": 0.10528690000001006,
+      "validation_predict_seconds": 0.058759200000167766,
+      "support_vectors": 1027,
+      "fit_status": 0
+    },
+    {
+      "model": "pca_561",
+      "k": 561,
+      "retained_fit_variance": 1.0,
+      "fit_reconstruction_mse": 2.2201740323295683e-30,
+      "validation_reconstruction_mse": 2.245860496410482e-30,
+      "validation": {
+        "macro_f1": 0.9474698079898355,
+        "accuracy": 0.951969260326609,
+        "confusion_matrix": [
+          [
+            380,
+            5,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            317,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            17,
+            42,
+            221,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            334,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            23,
+            352,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            5,
+            0,
+            378
+          ]
+        ]
+      },
+      "fit_macro_f1": 0.9857730306982021,
+      "classifier_fit_seconds": 0.2770277999998143,
+      "validation_predict_seconds": 0.16985740000018268,
+      "support_vectors": 1036,
+      "fit_status": 0
+    }
+  ],
+  "w10_baseline_predictions_match": true,
+  "selected_reduced_k": 200
+}

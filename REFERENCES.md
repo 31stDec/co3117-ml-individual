@@ -4,6 +4,15 @@ Cite every source you actually used, with a locator (chapter and section, lectur
 repository path and commit). One line per source.
 
 ## Course Resources & Repositories
+
+### W12 PCA -- 2026-11-17
+
+- HCMUT PCA lecture, 11 August 2026, local `C:/Users/USER/Downloads/ML/PCANew.pdf`: slides 4-5 (dimensionality), 19-26 (centering and variance objective), 31-33 (diagonalization), 37-41 (projection/reconstruction), 42-46 (SVD).
+- Erik Linder-Noren, ML-From-Scratch, commit `a2806c6732eee8d27762edd6d864e0c179d8e9e8`, `mlfromscratch/unsupervised_learning/principal_component_analysis.py` and `mlfromscratch/utils/data_operation.py::calculate_covariance_matrix`. https://github.com/eriklindernoren/ML-From-Scratch/tree/a2806c6732eee8d27762edd6d864e0c179d8e9e8 . MIT source snapshots, license and hashes in `docs/reference/pca/`. Exact AST definitions executed with dependencies injected; comparison details in `results/w12_pca/audit.json`.
+- Installed sklearn 1.9.1 `decomposition.PCA._fit_full`, inspected for centering, full SVD, sample variance and component signs; local source hash and numerical comparisons in `results/w12_pca/audit.json`. https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html . NumPy SVD supplies the decomposition for the course implementation.
+- Course PCA interface and `tests/contract/test_pca.py`: required row-oriented components and ddof=1 variances. Additional edge-case tests are in `tests/test_pca_edge_cases.py`.
+- UCI HAR v1.0, unchanged subject-held-out split; input hashes and baseline predictions checked against W10. The W12 experiment reads only the original training partition.
+
 - ML-From-Scratch: https://github.com/eriklindernoren/ML-From-Scratch
 - numpy-ml: https://github.com/ddbourgin/numpy-ml
 - pyprobml: https://github.com/probml/pyprobml
