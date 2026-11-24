@@ -1,0 +1,142 @@
+{
+  "date": "2026-11-24",
+  "test_loaded": false,
+  "split_seed": 42,
+  "fit_subjects": [
+    5,
+    6,
+    7,
+    11,
+    14,
+    16,
+    17,
+    19,
+    21,
+    22,
+    23,
+    26,
+    28,
+    29,
+    30
+  ],
+  "validation_subjects": [
+    1,
+    3,
+    8,
+    15,
+    25,
+    27
+  ],
+  "fit_rows": 5270,
+  "validation_rows": 2082,
+  "input_sha256": {
+    "X_train.txt": "9c1246099c8d5463779eec5a3845cc3898df9d8c715441ab2a1232d4421fc42f",
+    "y_train.txt": "415b3357e2e2d5e70a45c781947c6bdd80e0410a579d862eedcd6bbce3c694ef",
+    "subject_train.txt": "66e1e2fbe9b396fa5155f531dc3348c803f503be663e2318772d49947db9153a"
+  },
+  "versions": {
+    "python": "3.13.13",
+    "numpy": "2.5.1",
+    "sklearn": "1.9.1"
+  },
+  "source_sha256": {
+    "experiment": "47f6bc25e4660706549d1e6fffc77a52239705f2c910e227c471ff0159efebae"
+  },
+  "k_grid": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "selection_rule": "highest validation Macro-F1 across tested configurations",
+  "limitations": [
+    "Reused validation holdout; no unbiased final estimate",
+    "Single-run timing; deterministic fixed-split fits",
+    "Overlapping windows are correlated",
+    "Historical official-test exposure remains as previously documented"
+  ],
+  "runs": [
+    {
+      "model": "baseline_svc_561",
+      "reduction": "none",
+      "k": 561,
+      "validation_macro_f1": 0.9474698079898355,
+      "validation_accuracy": 0.951969260326609,
+      "fit_seconds": 0.3802893000001859,
+      "pred_seconds": 0.2390602000000399
+    },
+    {
+      "model": "pca_k5_svc",
+      "reduction": "pca",
+      "k": 5,
+      "validation_macro_f1": 0.8154992660894327,
+      "validation_accuracy": 0.8270893371757925,
+      "fit_seconds": 0.06373579999990397,
+      "pred_seconds": 0.046822400000110065
+    },
+    {
+      "model": "lda_k1_svc",
+      "reduction": "lda",
+      "k": 1,
+      "validation_macro_f1": 0.5302853754734094,
+      "validation_accuracy": 0.6066282420749279,
+      "fit_seconds": 0.0819976000002498,
+      "pred_seconds": 0.061071500000252854
+    },
+    {
+      "model": "lda_k2_svc",
+      "reduction": "lda",
+      "k": 2,
+      "validation_macro_f1": 0.6236383974891617,
+      "validation_accuracy": 0.6786743515850144,
+      "fit_seconds": 0.05908769999996366,
+      "pred_seconds": 0.054631399999834684
+    },
+    {
+      "model": "lda_k3_svc",
+      "reduction": "lda",
+      "k": 3,
+      "validation_macro_f1": 0.7763748217656263,
+      "validation_accuracy": 0.7934678194044188,
+      "fit_seconds": 0.04009420000011232,
+      "pred_seconds": 0.033683299999665905
+    },
+    {
+      "model": "lda_k4_svc",
+      "reduction": "lda",
+      "k": 4,
+      "validation_macro_f1": 0.8394181540133943,
+      "validation_accuracy": 0.8482228626320846,
+      "fit_seconds": 0.03759959999979401,
+      "pred_seconds": 0.030538500000147906
+    },
+    {
+      "model": "lda_k5_svc",
+      "reduction": "lda",
+      "k": 5,
+      "validation_macro_f1": 0.9665644981595296,
+      "validation_accuracy": 0.9692603266090298,
+      "fit_seconds": 0.007783000000017637,
+      "pred_seconds": 0.005194200000005367
+    },
+    {
+      "model": "direct_lda_svd",
+      "reduction": "direct_classifier",
+      "k": 5,
+      "validation_macro_f1": 0.964329089690629,
+      "validation_accuracy": 0.9678194044188281,
+      "fit_seconds": 1.4650432999997065,
+      "pred_seconds": 0.002776499999981752
+    },
+    {
+      "model": "direct_lda_shrinkage_auto",
+      "reduction": "direct_classifier",
+      "k": 5,
+      "validation_macro_f1": 0.9536869714306407,
+      "validation_accuracy": 0.9586935638808838,
+      "fit_seconds": 0.24951370000007955,
+      "pred_seconds": 0.002187699999922188
+    }
+  ]
+}

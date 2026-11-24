@@ -152,6 +152,17 @@ One block per model family (assignment Section 9.1). Copy the block below.
 - Exam capsule: Center with the training mean, retain leading eigenvectors, project and restore the mean during reconstruction. Uncorrelated does not imply independent. Variance retention is not a guarantee of classification quality.
 - Status: Scan `94f024a` committed; implementation, experiments and review committed at `5b70e8c`. Checkpoint submission is tracked in PROGRESS.md.
 
+### Linear Discriminant Analysis, Chapter 4 / Bishop PRML Ch 4.1.4, depth B/C -- 2026-11-24
+
+- Objective / representation: Maximize the Rayleigh quotient J(w) = (w^T S_B w) / (w^T S_W w) to find projection directions that separate class centroids while minimizing intra-class scatter. Supervised; rank(S_B) <= C - 1 limits projection to at most C - 1 dimensions.
+- Implementation / reference: scikit-learn 1.9.1 LinearDiscriminantAnalysis with SVD solver. Traced centroid sphering and projection against Bishop PRML Ch 4.1.4 and HCMUT slides.
+- Preprocessing / protocol: Fit-only StandardScaler and LDA on 5,270 HAR windows / 15 subjects, applied to 2,082 validation windows / six disjoint subjects. All 561 source features; official test files not read.
+- Controlled experiment: Evaluated LDA dimensions k in {1, 2, 3, 4, 5} coupled with Linear SVC (C=0.01), comparing against baseline Linear SVC (561 features) and PCA (k=5). Also evaluated direct LDA classifiers (SVD and shrinkage).
+- Results: At k=5, LDA + SVC achieves validation Macro-F1 0.966564 and accuracy 0.969260, outperforming both 5-component PCA (0.815499) and the full 561-feature baseline (0.947470). Direct SVD LDA classifier reaches Macro-F1 0.964329.
+- Diagnostics / limitations: Metrics, predictions, and sensitivity plot archived in `results/w13_lda/`. Reused validation split; correlated windows; fixed classifier hyperparameters limit generalization claims.
+- Exam capsule: Fisher criterion maximizes between-class to within-class scatter ratio. Maximum LDA components is min(D, C - 1). For two classes, w* = S_W^{-1}(mu_2 - mu_1). When N < D, S_W is singular; regularize with shrinkage. Fit projection strictly on training rows to avoid target leakage.
+- Status: Scan `4c5fa6a` committed; review, experiments and weekly documentation prepared on 2026-11-24. Checkpoint submission tracked in PROGRESS.md.
+
 ## Dated correction -- 2026-10-14
 
 The earlier metric included unused label 0. Current tables use HAR labels 1--6. Original recorded values and reproducibility limitations are preserved in `results/PART1_METRIC_AUDIT.md` and Git history. GaussianNB now uses `var_smoothing * X.var(axis=0).max()` over all fit rows. Its subject-held-out validation Macro-F1 is 0.722378, accuracy 0.736311; predictions agree 100% with the installed sklearn reference. The largest directed error is STANDING to SITTING (264 cases). Mean maximum posterior is 0.9971 while accuracy is 0.7363; log loss is 7.1509, showing that normalized posteriors are not necessarily calibrated. No final-test benchmark for GNB was added.
