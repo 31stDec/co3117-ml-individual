@@ -14,11 +14,13 @@ commit hashes (at least 7 characters). `python tools/check.py` verifies every ro
 | W10 | SVM: maximum and soft margin | [post](docs/weekly/w10-svm.md) | [drill](exercises/w10-first-attempt.pdf), [corrections](exercises/w10-corrections.md) | 358a662 | 1947792 | w10 | DONE |
 | W11 | Kernel SVM, cross-model comparison | [post](docs/weekly/w11-kernel-svm.md) | [drill](exercises/w11-first-attempt.pdf), [corrections](exercises/w11-corrections.md) | b01f02d | d0a8c71 | w11 | DONE |
 | W12 | PCA, curse of dimensionality | [post](docs/weekly/w12-pca.md) | [drill](exercises/w12-first-attempt.pdf), [corrections](exercises/w12-corrections.md) | 94f024a | 5b70e8c | w12 | DONE |
-| W13 | LDA, feature engineering |  |  |  |  | w13 |  |
+| W13 | LDA, feature engineering | [post](docs/weekly/w13-lda.md) | [drill](exercises/w13-first-attempt.pdf), [corrections](exercises/w13-corrections.md) | 4c5fa6a | dae6451 | w13 | DONE |
 | W14 | Bagging, boosting, AdaBoost |  |  |  |  | w14 |  |
 | W15 | Generative vs discriminative, Logistic/MaxEnt, CRF, synthesis |  |  |  |  | w15, part2-final |  |
 
 Status values: PRE-RELEASE (W01-W04), ACTIVE (current week), DONE (tag pushed), MIDTERM (W08).
+
+W13 update (2026-11-24): Scan `4c5fa6a` is committed. LDA experiments, results, corrections, weekly post, and assistance record are committed at `dae6451`. Tag `w13` has been created. Local checkpoint validation passed 81/81 checks. A4 updates remain deferred.
 
 W12 update (2026-11-17): Scan `94f024a` is committed. PCA code, reference checks, HAR experiments, corrections, weekly post, and assistance record are committed at `5b70e8c`. Tag `w12` at `1e9310d` has been pushed to the course repository. Local checkpoint validation passed 74/74 checks. A4 remains deferred.
 
